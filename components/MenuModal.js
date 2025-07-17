@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Modal from 'react-native-modal';
 
-const MenuModal = ({ visible, onClose, onLogout }) => {
+const MenuModal = ({ visible, onClose, onLogout, navigation }) => {
   return (
     <Modal
       isVisible={visible}
@@ -13,8 +13,8 @@ const MenuModal = ({ visible, onClose, onLogout }) => {
       style={styles.menuModal}
     >
       <View style={styles.menuCard}>
-        <TouchableOpacity onPress={onClose}>
-          <Text style={styles.menuItem}> Classes</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("YearSelection")}>
+          <Text style={styles.menuItem}> Year Selection</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={onClose}>
           <Text style={styles.menuItem}> Home</Text>

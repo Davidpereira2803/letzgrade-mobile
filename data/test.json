@@ -1,0 +1,52 @@
+[
+  {
+    "name": "7C",
+    "subjects": [
+      {
+        "name": "Franc\u0327ais",
+        "coef": 4.0
+      },
+      {
+        "name": "Allemand",
+        "coef": 4.0
+      },
+      {
+        "name": "Math\u00e9matiques",
+        "coef": 4.0
+      },
+      {
+        "name": "SciNa",
+        "coef": 3.0
+      },
+      {
+        "name": "Histoire",
+        "coef": 2.0
+      },
+      {
+        "name": "VieSo",
+        "coef": 2.0
+      },
+      {
+        "name": "G\u00e9ographie",
+        "coef": 2.0
+      },
+      {
+        "name": "Artistique",
+        "coef": 1.0
+      },
+      {
+        "name": "EduMusic",
+        "coef": 1.0
+      },
+      {
+        "name": "Luxembourgeois",
+        "coef": 1.0
+      },
+      {
+        "name": "EduPhys",
+        "coef": 1.0
+      }
+    ],
+    "hasExams": false
+  }
+]
