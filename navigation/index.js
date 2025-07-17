@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../services/firebase';
 import Login from '../screens/auth/Login';
 import Dashboard from '../screens/dashboard/Dashboard';
 import Signup from '../screens/auth/Signup';
 import Welcome from '../screens/auth/Welcome';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../services/firebase';
+import Profile from '../screens/profile/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +29,10 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator>
         {user ? (
-          <Stack.Screen name="Dashboard" component={Dashboard} />
+          <>
+            <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }}/>
+            <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
+          </>
         ) : (
           <>
             <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
