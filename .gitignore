@@ -42,4 +42,4 @@ yarn-error.*
 .env.test.local
 .env.production.local
 
-app.json
+orapp.json
