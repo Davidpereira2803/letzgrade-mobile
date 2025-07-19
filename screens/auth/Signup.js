@@ -52,12 +52,24 @@ const Signup = ({ navigation }) => {
         <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
           <View style={styles.container}>
             <Text style={styles.title}>Create Account</Text>
-            <TextInput style={styles.input} placeholder="Full Name" value={fullName} onChangeText={setFullName} />
-            <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
+            <TextInput style={styles.input}
+              placeholder="Full Name"
+              placeholderTextColor="#777"
+              value={fullName}
+              onChangeText={setFullName}
+              />
+            <TextInput style={styles.input} 
+              placeholder="Email" 
+              placeholderTextColor="#777"
+              value={email} 
+              onChangeText={setEmail} 
+              keyboardType="email-address" 
+              autoCapitalize="none" />
 
             <View style={styles.inputContainer}>
               <TextInput
                 placeholder="Password"
+                placeholderTextColor="#777"
                 secureTextEntry={secureText}
                 value={password}
                 onChangeText={setPassword}
@@ -74,6 +86,7 @@ const Signup = ({ navigation }) => {
             <View style={styles.inputContainer}>
               <TextInput
                 placeholder="Confirm Password"
+                placeholderTextColor="#777"
                 secureTextEntry={secureConfirmText}
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
