@@ -1,93 +1,103 @@
-import React , { useEffect, useState } from 'react';
+import React , { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { logout, db } from '../../services/firebase';
 import { getAuth } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
 import MenuModal from '../../components/MenuModal';
+import LottieView from "lottie-react-native";
+import { SafeAreaView } from 'react-native';
 
 const Dashboard = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = useState(false);
-  const [courses, setCourses] = useState([]);
+  const [years, setYears] = useState([]);
+
+  const animationRef = useRef(null);
 
   useEffect(() => {
-    const fetchCourses = async () => {
+    const fetchYears = async () => {
       const auth = getAuth();
       const user = auth.currentUser;
       if (!user) return;
 
       try {
         const studyProgramsRef = collection(db, 'users', user.uid, 'studyPrograms');
-        const programSnapshot = await getDocs(studyProgramsRef);
+        const snapshot = await getDocs(studyProgramsRef);
 
-        let allCourses = [];
+        const yearList = snapshot.docs.map((doc) => ({
+          id: doc.id, // e.g., "7C"
+          ...doc.data()
+        }));
 
-        for (const programDoc of programSnapshot.docs) {
-          const coursesRef = collection(db, 'users', user.uid, 'studyPrograms', programDoc.id, 'courses');
-          const courseSnapshot = await getDocs(coursesRef);
-
-          const programCourses = courseSnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-
-          allCourses = [...allCourses, ...programCourses];
-        }
-
-        setCourses(allCourses);
+        setYears(yearList);
       } catch (error) {
-        console.error("Failed to fetch courses:", error);
+        console.error("Failed to fetch years:", error);
       }
     };
 
-    fetchCourses();
+    fetchYears();
   }, []);
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-    } catch (error) {
-      console.error('Logout failed:', error);
-    }
-  };
+
+    const handleLogout = async () => {
+      try {
+        await logout();
+      } catch (error) {
+        console.error('Logout failed:', error);
+      }
+    };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => setMenuVisible(true)}>
-          <Icon name="menu" size={28} color="#333" />
-        </TouchableOpacity>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => setMenuVisible(true)}>
+            <Icon name="menu" size={28} color="#333" />
+          </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Dashboard</Text>
+          <Text style={styles.headerTitle}>Dashboard</Text>
 
-        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-          <Icon name="person-circle" size={28} color="#333" />
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+            <Icon name="person-circle" size={28} color="#333" />
+          </TouchableOpacity>
+        </View>
+
+        <MenuModal
+          visible={menuVisible}
+          onClose={() => setMenuVisible(false)}
+          onLogout={handleLogout}
+          navigation={navigation}
+        />
+
+        <View style={styles.body}>
+          <Text style={styles.welcome}>Welcome to LetzGrade Dashboard!</Text>
+          <LottieView
+              ref={animationRef}
+              source={require("../../assets/animations/graph-animation.json")}
+              autoPlay
+              loop
+              style={styles.animation}
+          />
+          <Text style={styles.welcome}>Your Classes:</Text>
+
+          {years.length === 0 ? (
+            <Text>Loading or no years found.</Text>
+          ) : (
+            years.map((year) => (
+              <TouchableOpacity
+                key={year.id}
+                onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
+                style={styles.yearButton}
+              >
+                <Text style={styles.yearText}>{year.id}</Text>
+              </TouchableOpacity>
+            ))
+          )}
+
+        </View>
+
       </View>
-
-      <MenuModal
-        visible={menuVisible}
-        onClose={() => setMenuVisible(false)}
-        onLogout={handleLogout}
-        navigation={navigation}
-      />
-
-      <View style={styles.body}>
-        <Text style={styles.welcome}>Welcome to LetzGrade Dashboard!</Text>
-        <Text style={styles.welcome}>Your Classes:</Text>
-
-        {courses.length === 0 ? (
-          <Text>Loading or no courses found.</Text>
-        ) : (
-          courses.map((course) => (
-            <Text key={course.id} style={styles.courseItem}>
-              {course.name} ({course.credits} credits)
-            </Text>
-          ))
-        )}
-      </View>
-
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -132,4 +142,30 @@ const styles = StyleSheet.create({
   color: '#333',
   textAlign: 'center',
   },
+  yearButton: {
+  backgroundColor: '#CA4B4B',
+  paddingVertical: 15,
+  paddingHorizontal: 20,
+  borderRadius: 10,
+  marginBottom: 15,
+  elevation: 2,
+  width: '80%',
+  alignSelf: 'center',
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.2,
+  shadowRadius: 3,
+  },
+  yearText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  animation: {
+  width: 200,
+  height: 200,
+  marginBottom: 20,
+  },
+
 });

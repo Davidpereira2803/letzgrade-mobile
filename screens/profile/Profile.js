@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
-import { auth, logout } from "../../services/firebase";
+import { auth, logout, db } from "../../services/firebase";
 import { useNavigation } from "@react-navigation/native";
+import { doc, getDoc } from "firebase/firestore";
 
 const Profile = () => {
   const navigation = useNavigation();
   const user = auth.currentUser;
+  const [fullName, setFullName] = useState("");
+
+  useEffect(() => {
+    const fetchFullName = async () => {
+      const currentUser = auth.currentUser;
+      if (!currentUser) return;
+
+      const docRef = doc(db, "users", currentUser.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setFullName(docSnap.data().fullName);
+      }
+    };
+
+    fetchFullName();
+  }, []);
 
   const handleLogout = async () => {
     try {
       await logout();
-      navigation.replace("Login");
     } catch (error) {
       Alert.alert("Logout Failed", error.message);
     }
@@ -18,7 +35,7 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>{user?.displayName || "User"}</Text>
+      <Text style={styles.name}>{fullName || "User"}</Text>
       <Text style={styles.email}>{user?.email}</Text>
 
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
