@@ -5,7 +5,14 @@ import { getAuth } from 'firebase/auth';
 import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
 import allClasses from '../../assets/allClasses.json'; 
 
-const schoolYears = allClasses.map(cls => cls.name);
+const schoolYears = allClasses
+  .map(cls => cls.name)
+  .sort((a, b) => {
+    const numA = parseInt(a);
+    const numB = parseInt(b);
+    return numA - numB;
+  });
+
 
 const YearSelection = ({ navigation }) => {
     const [addedYears, setAddedYears] = useState([]);

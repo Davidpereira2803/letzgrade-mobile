@@ -16,6 +16,8 @@ const Signup = ({ navigation }) => {
 
 
   const handleSignup = async () => {
+    Keyboard.dismiss();
+
     if (!fullName || !email || !password || !confirmPassword) {
       Alert.alert('Error', 'Please fill in all fields');
       return;
@@ -47,7 +49,7 @@ const Signup = ({ navigation }) => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView contentContainerStyle={styles.container}>
+        <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
           <View style={styles.container}>
             <Text style={styles.title}>Create Account</Text>
             <TextInput style={styles.input} placeholder="Full Name" value={fullName} onChangeText={setFullName} />
@@ -102,7 +104,7 @@ export default Signup;
 
 const styles = StyleSheet.create({
   container: { 
-    flex: 1, 
+    flex: 1,
     justifyContent: 'center', 
     padding: 20 
   },
@@ -117,7 +119,8 @@ const styles = StyleSheet.create({
     borderColor: '#ccc', 
     borderRadius: 6, 
     padding: 12, 
-    marginBottom: 15 
+    marginBottom: 15, 
+    color: '#333'
   },
   button: { 
     backgroundColor: '#CA4B4B', 

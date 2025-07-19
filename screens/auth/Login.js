@@ -10,6 +10,8 @@ const Login = ({ navigation }) => {
   const [secureText, setSecureText] = useState(true);
 
   const handleLogin = async () => {
+    Keyboard.dismiss();
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
@@ -23,7 +25,7 @@ const Login = ({ navigation }) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView contentContainerStyle={styles.container}>
+        <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
           <View style={styles.container}>
             <Text style={styles.title}>Welcome Back</Text>
 
@@ -70,7 +72,7 @@ export default Login;
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1, 
+    flex: 1,
     justifyContent: "center", 
     padding: 20 
   },
@@ -86,6 +88,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     padding: 12,
     marginBottom: 15,
+    color: "#333",
   },
   button: {
     backgroundColor: "#CA4B4B",
