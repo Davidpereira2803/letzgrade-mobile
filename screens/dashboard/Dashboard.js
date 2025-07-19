@@ -105,28 +105,26 @@ const Dashboard = ({ navigation }) => {
           />
           <Text style={styles.welcome}>Your Classes:</Text>
 
-{years.length === 0 ? (
-  <Text>Loading or no years found.</Text>
-) : (
-  years.map((year) => (
-    <View key={year.id} style={styles.yearRow}>
-      <TouchableOpacity
-        style={styles.yearButton}
-        onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
-      >
-        <Text style={styles.yearText}>{year.id}</Text>
-      </TouchableOpacity>
+          {years.length === 0 ? (
+            <Text>Loading or no years found.</Text>
+          ) : (
+            years.map((year) => (
+<TouchableOpacity
+  key={year.id}
+  style={styles.yearRowButton}
+  onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
+>
+  <Text style={styles.yearText}>{year.id}</Text>
+  <TouchableOpacity
+    onPress={() => handleDeleteYear(year.id)}
+    style={styles.trashButton}
+  >
+    <Ionicons name="trash" size={20} color="white" />
+  </TouchableOpacity>
+</TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={() => handleDeleteYear(year.id)}
-        style={styles.trashButton}
-      >
-        <Ionicons name="trash" size={24} color="red" />
-      </TouchableOpacity>
-    </View>
-  ))
-)}
-
+            ))
+          )}
 
         </ScrollView>
 
@@ -176,7 +174,7 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
   },
-  yearButton: {
+  yearRowButton: {
     backgroundColor: '#CA4B4B',
     paddingVertical: 15,
     paddingHorizontal: 20,
@@ -189,6 +187,9 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   yearText: {
     color: '#fff',

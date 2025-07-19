@@ -35,7 +35,7 @@ const Navigation = () => {
             <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }}/>
             <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
             <Stack.Screen name="YearSelection" component={YearSelection} options={{ headerShown: true }} />
-            <Stack.Screen name="YearCourses" component={YearCoursesScreen} />
+            <Stack.Screen name="YearCourses" component={YearCoursesScreen} options={{ headerShown: true}}/>
           </>
         ) : (
           <>

@@ -1089,68 +1089,6 @@
         "coef": 3.0
       },
       {
-        "name": "Physique",
-        "coef": 2.0
-      },
-      {
-        "name": "Chimie",
-        "coef": 2.0
-      },
-      {
-        "name": "Biologie",
-        "coef": 2.0
-      },
-      {
-        "name": "Histoire",
-        "coef": 2.0
-      },
-      {
-        "name": "Option",
-        "coef": 2.0
-      },
-      {
-        "name": "Artistique",
-        "coef": 2.0
-      },
-      {
-        "name": "VieSo",
-        "coef": 2.0
-      },
-      {
-        "name": "G\u00e9ographie",
-        "coef": 2.0
-      },
-      {
-        "name": "EduPhys",
-        "coef": 1.0
-      }
-    ],
-    "hasExams": false
-  },
-  {
-    "name": "3MG",
-    "subjects": [
-      {
-        "name": "Economie",
-        "coef": 4.0
-      },
-      {
-        "name": "Math\u00e9matiques",
-        "coef": 3.0
-      },
-      {
-        "name": "Fran\u00e7ais",
-        "coef": 3.0
-      },
-      {
-        "name": "Allemand",
-        "coef": 3.0
-      },
-      {
-        "name": "Anglais",
-        "coef": 3.0
-      },
-      {
         "name": "Latin",
         "coef": 3.0
       },
@@ -5263,60 +5201,6 @@
       {
         "name": "Anglais",
         "coef": 3.0
-      },
-      {
-        "name": "EduPhys",
-        "coef": 1.0
-      }
-    ],
-    "hasExams": true
-  },
-  {
-    "name": "1GSH",
-    "subjects": [
-      {
-        "name": "BioHum",
-        "coef": 4.0
-      },
-      {
-        "name": "Schus",
-        "coef": 4.0
-      },
-      {
-        "name": "ChimiM\u00e9d",
-        "coef": 4.0
-      },
-      {
-        "name": "PhysM\u00e9d",
-        "coef": 4.0
-      },
-      {
-        "name": "SciM\u00e9d",
-        "coef": 4.0
-      },
-      {
-        "name": "Fran\u00e7ais",
-        "coef": 3.0
-      },
-      {
-        "name": "Allemand",
-        "coef": 3.0
-      },
-      {
-        "name": "Anglais",
-        "coef": 3.0
-      },
-      {
-        "name": "Math\u00e9matiques",
-        "coef": 3.0
-      },
-      {
-        "name": "Info-Stat",
-        "coef": 2.0
-      },
-      {
-        "name": "Option",
-        "coef": 2.0
       },
       {
         "name": "EduPhys",

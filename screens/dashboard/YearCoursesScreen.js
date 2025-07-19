@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { db } from '../../services/firebase';
 import { getAuth } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
+import { SafeAreaView } from 'react-native';
 
-const YearCoursesScreen = ({ route }) => {
+const YearCoursesScreen = ({ route, navigation }) => {
   const { yearId } = route.params;
   const [courses, setCourses] = useState([]);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: `${yearId} Courses`,
+    });
+  }, [navigation, yearId]);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -25,18 +32,19 @@ const YearCoursesScreen = ({ route }) => {
   }, []);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>{yearId} Courses</Text>
-      {courses.length === 0 ? (
-        <Text>No courses found for this year.</Text>
-      ) : (
-        courses.map(course => (
-          <View key={course.id} style={styles.courseBox}>
-            <Text>{course.name} ({course.credits} credits)</Text>
-          </View>
-        ))
-      )}
-    </ScrollView>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={styles.container}>
+        {courses.length === 0 ? (
+          <Text>No courses found for this year.</Text>
+        ) : (
+          courses.map(course => (
+            <View key={course.id} style={styles.courseBox}>
+              <Text>{course.name} ({course.credits} credits)</Text>
+            </View>
+          ))
+        )}
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -45,6 +53,7 @@ export default YearCoursesScreen;
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    paddingTop: 10,
   },
   title: {
     fontSize: 22,
