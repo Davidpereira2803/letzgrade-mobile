@@ -169,7 +169,7 @@
         "coef": 2.0
       },
       {
-        "name": "Chimie/Physique",
+        "name": "Chimie-Physique",
         "coef": 2.0
       },
       {
@@ -219,7 +219,7 @@
         "coef": 2.0
       },
       {
-        "name": "Chimie/Physique",
+        "name": "Chimie-Physique",
         "coef": 2.0
       },
       {
@@ -273,7 +273,7 @@
         "coef": 2.0
       },
       {
-        "name": "Chimie/Physique",
+        "name": "Chimie-Physique",
         "coef": 2.0
       },
       {
@@ -327,7 +327,7 @@
         "coef": 2.0
       },
       {
-        "name": "Chimie/Physique",
+        "name": "Chimie-Physique",
         "coef": 2.0
       },
       {
@@ -1128,6 +1128,68 @@
     "hasExams": false
   },
   {
+    "name": "3MG",
+    "subjects": [
+      {
+        "name": "Economie",
+        "coef": 4.0
+      },
+      {
+        "name": "Math\u00e9matiques",
+        "coef": 3.0
+      },
+      {
+        "name": "Fran\u00e7ais",
+        "coef": 3.0
+      },
+      {
+        "name": "Allemand",
+        "coef": 3.0
+      },
+      {
+        "name": "Anglais",
+        "coef": 3.0
+      },
+      {
+        "name": "Latin",
+        "coef": 3.0
+      },
+      {
+        "name": "Physique",
+        "coef": 2.0
+      },
+      {
+        "name": "Chimie",
+        "coef": 2.0
+      },
+      {
+        "name": "Biologie",
+        "coef": 2.0
+      },
+      {
+        "name": "Histoire",
+        "coef": 2.0
+      },
+      {
+        "name": "Artistique",
+        "coef": 2.0
+      },
+      {
+        "name": "VieSo",
+        "coef": 2.0
+      },
+      {
+        "name": "G\u00e9ographie",
+        "coef": 2.0
+      },
+      {
+        "name": "EduPhys",
+        "coef": 1.0
+      }
+    ],
+    "hasExams": false
+  },
+  {
     "name": "2CA",
     "subjects": [
       {
@@ -1147,7 +1209,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1207,7 +1269,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1243,7 +1305,7 @@
     "name": "2MB",
     "subjects": [
       {
-        "name": "Math\u00e92/Info",
+        "name": "Math\u00e92-Info",
         "coef": 4.0,
         "subSubjects": [
           {
@@ -1273,7 +1335,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1309,7 +1371,7 @@
     "name": "2CB",
     "subjects": [
       {
-        "name": "Math\u00e92/Info",
+        "name": "Math\u00e92-Info",
         "coef": 4.0,
         "subSubjects": [
           {
@@ -1343,7 +1405,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1399,7 +1461,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1459,7 +1521,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1515,7 +1577,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1579,7 +1641,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1659,7 +1721,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1747,7 +1809,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1811,7 +1873,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1879,7 +1941,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -1939,7 +2001,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -2011,7 +2073,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -2215,7 +2277,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -2279,7 +2341,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Civique",
+        "name": "Histo-Civique",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -2319,7 +2381,7 @@
     "name": "7G",
     "subjects": [
       {
-        "name": "Allemand/Lux",
+        "name": "Allemand-Lux",
         "coef": 4.0
       },
       {
@@ -2365,7 +2427,7 @@
             "coef": 1.0
           },
           {
-            "name": "Option/Atelier",
+            "name": "Option-Atelier",
             "coef": 1.0
           }
         ]
@@ -2381,7 +2443,7 @@
     "name": "5AD",
     "subjects": [
       {
-        "name": "Allemand/Lux",
+        "name": "Allemand-Lux",
         "coef": 4.0
       },
       {
@@ -2427,7 +2489,7 @@
     "name": "7P",
     "subjects": [
       {
-        "name": "Allemand/Lux",
+        "name": "Allemand-Lux",
         "coef": 4.0
       },
       {
@@ -2461,7 +2523,7 @@
     "name": "6P",
     "subjects": [
       {
-        "name": "Allemand/Lux",
+        "name": "Allemand-Lux",
         "coef": 4.0
       },
       {
@@ -2495,7 +2557,7 @@
     "name": "5P",
     "subjects": [
       {
-        "name": "Allemand/Lux",
+        "name": "Allemand-Lux",
         "coef": 4.0
       },
       {
@@ -2835,7 +2897,7 @@
         "coef": 2.0
       },
       {
-        "name": "Chimie/Phys",
+        "name": "Chimie-Phys",
         "coef": 2.0
       },
       {
@@ -2889,7 +2951,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/G\u00e9o",
+        "name": "Histo-G\u00e9o",
         "coef": 3.0
       },
       {
@@ -2897,7 +2959,7 @@
         "coef": 2.0
       },
       {
-        "name": "Chimie/Phys",
+        "name": "Chimie-Phys",
         "coef": 2.0
       },
       {
@@ -2951,7 +3013,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/G\u00e9o",
+        "name": "Histo-G\u00e9o",
         "coef": 3.0
       },
       {
@@ -2959,7 +3021,7 @@
         "coef": 2.0
       },
       {
-        "name": "Chimie/Phys",
+        "name": "Chimie-Phys",
         "coef": 2.0
       },
       {
@@ -3043,11 +3105,11 @@
         "coef": 3.0
       },
       {
-        "name": "Geo/Touri",
+        "name": "Geo-Touri",
         "coef": 3.0
       },
       {
-        "name": "Gest/Orga/Promo",
+        "name": "Gest-Orga-Promo",
         "coef": 3.0
       },
       {
@@ -3067,7 +3129,7 @@
         "coef": 2.0
       },
       {
-        "name": "Math\u00e9/Info",
+        "name": "Math\u00e9-Info",
         "coef": 2.0
       },
       {
@@ -3115,11 +3177,11 @@
         "coef": 3.0
       },
       {
-        "name": "Geo/Touri",
+        "name": "Geo-Touri",
         "coef": 3.0
       },
       {
-        "name": "Gest/Orga/Promo",
+        "name": "Gest-Orga-Promo",
         "coef": 3.0
       },
       {
@@ -3139,7 +3201,7 @@
         "coef": 2.0
       },
       {
-        "name": "Math\u00e9/Info",
+        "name": "Math\u00e9-Info",
         "coef": 2.0
       },
       {
@@ -3177,11 +3239,11 @@
         "coef": 3.0
       },
       {
-        "name": "Geo/Touri",
+        "name": "Geo-Touri",
         "coef": 3.0
       },
       {
-        "name": "Gest/Orga/Promo",
+        "name": "Gest-Orga-Promo",
         "coef": 3.0
       },
       {
@@ -3193,7 +3255,7 @@
         "coef": 2.0
       },
       {
-        "name": "Math\u00e9/Info",
+        "name": "Math\u00e9-Info",
         "coef": 2.0
       },
       {
@@ -3385,7 +3447,7 @@
         "coef": 3.0
       },
       {
-        "name": "Expre/Anime",
+        "name": "Expre-Anime",
         "coef": 3.0
       },
       {
@@ -3427,11 +3489,11 @@
         "coef": 4.0
       },
       {
-        "name": "Soins/Infirm",
+        "name": "Soins-Infirm",
         "coef": 4.0
       },
       {
-        "name": "ConRel/ConD\u00e9o",
+        "name": "ConRel-ConD\u00e9o",
         "coef": 4.0
       },
       {
@@ -3505,7 +3567,7 @@
         "coef": 3.0
       },
       {
-        "name": "Info/Stat",
+        "name": "Info-Stat",
         "coef": 2.0
       },
       {
@@ -3669,7 +3731,7 @@
         "coef": 3.0
       },
       {
-        "name": "Psycho/Commu",
+        "name": "Psycho-Commu",
         "coef": 3.0
       },
       {
@@ -4009,7 +4071,7 @@
         "coef": 4.0
       },
       {
-        "name": "Environ/Tech",
+        "name": "Environ-Tech",
         "coef": 4.0
       },
       {
@@ -4451,7 +4513,7 @@
         "coef": 2.0
       },
       {
-        "name": "Droit/Finance",
+        "name": "Droit-Finance",
         "coef": 2.0
       },
       {
@@ -4501,7 +4563,7 @@
         "coef": 2.0
       },
       {
-        "name": "Droit/Finance",
+        "name": "Droit-Finance",
         "coef": 2.0
       },
       {
@@ -4619,7 +4681,7 @@
     "name": "1B",
     "subjects": [
       {
-        "name": "Math\u00e92/Info",
+        "name": "Math\u00e92-Info",
         "coef": 4.0,
         "subSubjects": [
           {
@@ -4657,7 +4719,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Eco",
+        "name": "Histo-Eco",
         "coef": 2.0
       },
       {
@@ -4711,7 +4773,7 @@
         "coef": 2.0
       },
       {
-        "name": "Histo/Eco",
+        "name": "Histo-Eco",
         "coef": 2.0
       },
       {
@@ -4791,7 +4853,7 @@
         "coef": 3.0
       },
       {
-        "name": "Histo/Geo",
+        "name": "Histo-Geo",
         "coef": 3.0,
         "subSubjects": [
           {
@@ -5067,11 +5129,11 @@
         "coef": 3.0
       },
       {
-        "name": "Geo/Touri",
+        "name": "Geo-Touri",
         "coef": 3.0
       },
       {
-        "name": "Gest/Orga/Promo",
+        "name": "Gest-Orga-Promo",
         "coef": 3.0
       },
       {
@@ -5083,11 +5145,11 @@
         "coef": 2.0
       },
       {
-        "name": "Math\u00e9/Info",
+        "name": "Math\u00e9-Info",
         "coef": 2.0
       },
       {
-        "name": "Art/Culture",
+        "name": "Art-Culture",
         "coef": 2.0
       },
       {
@@ -5141,7 +5203,7 @@
         "coef": 3.0
       },
       {
-        "name": "Expre/Anim",
+        "name": "Expre-Anim",
         "coef": 3.0
       },
       {
@@ -5153,7 +5215,7 @@
         "coef": 2.0
       },
       {
-        "name": "Ethique/D\u00e9on",
+        "name": "Ethique-D\u00e9on",
         "coef": 2.0
       },
       {
@@ -5179,11 +5241,11 @@
         "coef": 4.0
       },
       {
-        "name": "Soins/Infirm",
+        "name": "Soins-Infirm",
         "coef": 4.0
       },
       {
-        "name": "ConRel/ConD\u00e9o",
+        "name": "ConRel-ConD\u00e9o",
         "coef": 4.0
       },
       {
@@ -5210,6 +5272,60 @@
     "hasExams": true
   },
   {
+    "name": "1GSH",
+    "subjects": [
+      {
+        "name": "BioHum",
+        "coef": 4.0
+      },
+      {
+        "name": "Schus",
+        "coef": 4.0
+      },
+      {
+        "name": "ChimiM\u00e9d",
+        "coef": 4.0
+      },
+      {
+        "name": "PhysM\u00e9d",
+        "coef": 4.0
+      },
+      {
+        "name": "SciM\u00e9d",
+        "coef": 4.0
+      },
+      {
+        "name": "Fran\u00e7ais",
+        "coef": 3.0
+      },
+      {
+        "name": "Allemand",
+        "coef": 3.0
+      },
+      {
+        "name": "Anglais",
+        "coef": 3.0
+      },
+      {
+        "name": "Math\u00e9matiques",
+        "coef": 3.0
+      },
+      {
+        "name": "Info-Stat",
+        "coef": 2.0
+      },
+      {
+        "name": "Option",
+        "coef": 2.0
+      },
+      {
+        "name": "EduPhys",
+        "coef": 1.0
+      }
+    ],
+    "hasExams": true
+  },
+  {
     "name": "1GSHAN",
     "subjects": [
       {
@@ -5221,7 +5337,7 @@
             "coef": 1.0
           },
           {
-            "name": "Allemand/Anglais",
+            "name": "Allemand-Anglais",
             "coef": 1.0
           }
         ]
@@ -5327,7 +5443,7 @@
         "coef": 3.0
       },
       {
-        "name": "Info/Stat",
+        "name": "Info-Stat",
         "coef": 2.0
       },
       {
@@ -5369,7 +5485,7 @@
         "coef": 3.0
       },
       {
-        "name": "Psycho/Commu",
+        "name": "Psycho-Commu",
         "coef": 3.0
       },
       {
@@ -5385,7 +5501,7 @@
         "coef": 2.0
       },
       {
-        "name": "Arts/Culture",
+        "name": "Arts-Culture",
         "coef": 1.0
       },
       {
@@ -5465,7 +5581,7 @@
         "coef": 4.0
       },
       {
-        "name": "Environ/Tech",
+        "name": "Environ-Tech",
         "coef": 4.0
       },
       {

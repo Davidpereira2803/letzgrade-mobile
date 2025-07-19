@@ -1,12 +1,13 @@
 import React , { useEffect, useState, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { logout, db } from '../../services/firebase';
 import { getAuth } from 'firebase/auth';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import MenuModal from '../../components/MenuModal';
 import LottieView from "lottie-react-native";
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const Dashboard = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -25,7 +26,7 @@ const Dashboard = ({ navigation }) => {
         const snapshot = await getDocs(studyProgramsRef);
 
         const yearList = snapshot.docs.map((doc) => ({
-          id: doc.id, // e.g., "7C"
+          id: doc.id,
           ...doc.data()
         }));
 
@@ -39,13 +40,37 @@ const Dashboard = ({ navigation }) => {
   }, []);
 
 
-    const handleLogout = async () => {
-      try {
-        await logout();
-      } catch (error) {
-        console.error('Logout failed:', error);
-      }
-    };
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
+  const handleDeleteYear = (yearName) => {
+    Alert.alert(
+      "Delete Year",
+      `Are you sure you want to delete ${yearName}?`,
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: async () => {
+            try {
+              const auth = getAuth();
+              const yearRef = doc(db, 'users', auth.currentUser.uid, 'studyPrograms', yearName);
+              await deleteDoc(yearRef);
+              setYears(prev => prev.filter(p => p.id !== yearName));
+            } catch (error) {
+              console.error("Error deleting year:", error);
+            }
+          }
+        }
+      ]
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -69,7 +94,7 @@ const Dashboard = ({ navigation }) => {
           navigation={navigation}
         />
 
-        <View style={styles.body}>
+        <ScrollView contentContainerStyle={styles.body}>
           <Text style={styles.welcome}>Welcome to LetzGrade Dashboard!</Text>
           <LottieView
               ref={animationRef}
@@ -80,21 +105,30 @@ const Dashboard = ({ navigation }) => {
           />
           <Text style={styles.welcome}>Your Classes:</Text>
 
-          {years.length === 0 ? (
-            <Text>Loading or no years found.</Text>
-          ) : (
-            years.map((year) => (
-              <TouchableOpacity
-                key={year.id}
-                onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
-                style={styles.yearButton}
-              >
-                <Text style={styles.yearText}>{year.id}</Text>
-              </TouchableOpacity>
-            ))
-          )}
+{years.length === 0 ? (
+  <Text>Loading or no years found.</Text>
+) : (
+  years.map((year) => (
+    <View key={year.id} style={styles.yearRow}>
+      <TouchableOpacity
+        style={styles.yearButton}
+        onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
+      >
+        <Text style={styles.yearText}>{year.id}</Text>
+      </TouchableOpacity>
 
-        </View>
+      <TouchableOpacity
+        onPress={() => handleDeleteYear(year.id)}
+        style={styles.trashButton}
+      >
+        <Ionicons name="trash" size={24} color="red" />
+      </TouchableOpacity>
+    </View>
+  ))
+)}
+
+
+        </ScrollView>
 
       </View>
     </SafeAreaView>
@@ -137,24 +171,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   courseItem: {
-  fontSize: 16,
-  marginBottom: 8,
-  color: '#333',
-  textAlign: 'center',
+    fontSize: 16,
+    marginBottom: 8,
+    color: '#333',
+    textAlign: 'center',
   },
   yearButton: {
-  backgroundColor: '#CA4B4B',
-  paddingVertical: 15,
-  paddingHorizontal: 20,
-  borderRadius: 10,
-  marginBottom: 15,
-  elevation: 2,
-  width: '80%',
-  alignSelf: 'center',
-  shadowColor: '#000',
-  shadowOffset: { width: 0, height: 2 },
-  shadowOpacity: 0.2,
-  shadowRadius: 3,
+    backgroundColor: '#CA4B4B',
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginBottom: 15,
+    elevation: 2,
+    width: '80%',
+    alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
   yearText: {
     color: '#fff',
@@ -163,9 +197,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   animation: {
-  width: 200,
-  height: 200,
-  marginBottom: 20,
+    width: 200,
+    height: 200,
+    marginBottom: 20,
   },
-
+  yearRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 15,
+  },
+  trashButton: {
+    marginLeft: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
