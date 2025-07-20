@@ -35,7 +35,7 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>{fullName || "User"}</Text>
+      <Text style={styles.name}>Hi {fullName || "User"}</Text>
       <Text style={styles.email}>{user?.email}</Text>
 
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
