@@ -161,6 +161,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 6,
     padding: 12,
+    color: "#777",
   },
   iconButton: {
     position: "absolute",
