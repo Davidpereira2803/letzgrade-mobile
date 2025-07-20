@@ -6,7 +6,7 @@ import { getAuth } from 'firebase/auth';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import MenuModal from '../../components/MenuModal';
 import LottieView from "lottie-react-native";
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const Dashboard = ({ navigation }) => {
@@ -109,25 +109,25 @@ const Dashboard = ({ navigation }) => {
             <Text>Loading or no years found.</Text>
           ) : (
             years.map((year) => (
-<TouchableOpacity
-  key={year.id}
-  style={styles.yearRowButton}
-  onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
->
-  <Text style={styles.yearText}>{year.id}</Text>
-  <TouchableOpacity
-    onPress={() => handleDeleteYear(year.id)}
-    style={styles.trashButton}
-  >
-    <Ionicons name="trash" size={20} color="white" />
-  </TouchableOpacity>
-</TouchableOpacity>
+
+          <TouchableOpacity
+            key={year.id}
+            style={styles.yearRowButton}
+            onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
+          >
+            <Text style={styles.yearText}>{year.id}</Text>
+            <TouchableOpacity
+              onPress={() => handleDeleteYear(year.id)}
+              style={styles.trashButton}
+            >
+              <Ionicons name="trash" size={20} color="white" />
+            </TouchableOpacity>
+          </TouchableOpacity>
 
             ))
           )}
 
         </ScrollView>
-
       </View>
     </SafeAreaView>
   );
