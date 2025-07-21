@@ -1,13 +1,13 @@
 import React , { useEffect, useState, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, ScrollView, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { logout, db } from '../../services/firebase';
 import { getAuth } from 'firebase/auth';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import MenuModal from '../../components/MenuModal';
 import LottieView from "lottie-react-native";
-import { SafeAreaView, ScrollView, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
 const Dashboard = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -128,6 +128,20 @@ const Dashboard = ({ navigation }) => {
           )}
 
         </ScrollView>
+<View style={{ paddingBottom: 10 }}>
+<BannerAd
+  unitId={Platform.OS === 'ios'
+    ? TestIds.BANNER  // You can replace with your real unitId later
+    : TestIds.BANNER}
+  size={BannerAdSize.FULL_BANNER}
+  requestOptions={{
+    requestNonPersonalizedAdsOnly: true,
+  }}
+  onAdFailedToLoad={(error) => console.log('Ad failed to load:', error)}
+/>
+
+</View>
+
       </View>
     </SafeAreaView>
   );
