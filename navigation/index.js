@@ -10,6 +10,7 @@ import Welcome from '../screens/auth/Welcome';
 import Profile from '../screens/profile/Profile';
 import YearSelection from '../screens/classes/YearSelection';
 import YearCoursesScreen from '../screens/dashboard/YearCoursesScreen';
+import Settings from '../screens/profile/Settings';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,7 @@ const Navigation = () => {
             <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
             <Stack.Screen name="YearSelection" component={YearSelection} options={{ headerShown: true }} />
             <Stack.Screen name="YearCourses" component={YearCoursesScreen} options={{ headerShown: true}}/>
+            <Stack.Screen name="Settings" component={Settings} options={{ headerShown: true }} />
           </>
         ) : (
           <>

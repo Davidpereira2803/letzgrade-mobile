@@ -7,7 +7,6 @@ import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import MenuModal from '../../components/MenuModal';
 import LottieView from "lottie-react-native";
 import { Ionicons } from '@expo/vector-icons';
-import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
 const Dashboard = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -128,19 +127,6 @@ const Dashboard = ({ navigation }) => {
           )}
 
         </ScrollView>
-<View style={{ paddingBottom: 10 }}>
-<BannerAd
-  unitId={Platform.OS === 'ios'
-    ? TestIds.BANNER  // You can replace with your real unitId later
-    : TestIds.BANNER}
-  size={BannerAdSize.FULL_BANNER}
-  requestOptions={{
-    requestNonPersonalizedAdsOnly: true,
-  }}
-  onAdFailedToLoad={(error) => console.log('Ad failed to load:', error)}
-/>
-
-</View>
 
       </View>
     </SafeAreaView>

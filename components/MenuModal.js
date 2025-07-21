@@ -13,13 +13,16 @@ const MenuModal = ({ visible, onClose, onLogout, navigation }) => {
       style={styles.menuModal}
     >
       <View style={styles.menuCard}>
-        <TouchableOpacity onPress={() => navigation.navigate("YearSelection")}>
+        <TouchableOpacity onPress={() => {
+          onClose();
+          navigation.navigate("YearSelection");
+        }}>
           <Text style={styles.menuItem}> Year Selection</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={onClose}>
-          <Text style={styles.menuItem}> Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={onClose}>
+        <TouchableOpacity onPress={() => {
+            onClose();
+            navigation.navigate("Settings");
+        }}>
           <Text style={styles.menuItem}> Settings</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={onLogout}>

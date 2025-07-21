@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
 import { auth, logout, db } from "../../services/firebase";
 import { useNavigation } from "@react-navigation/native";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, Timestamp, } from "firebase/firestore";
+import { format } from "date-fns";
 
 const Profile = () => {
   const navigation = useNavigation();
   const user = auth.currentUser;
   const [fullName, setFullName] = useState("");
+  const [createdAt, setCreatedAt] = useState(null);
 
   useEffect(() => {
     const fetchFullName = async () => {
@@ -18,7 +20,12 @@ const Profile = () => {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setFullName(docSnap.data().fullName);
+        const data = docSnap.data();
+        setFullName(data.fullName);
+
+        if (data.createdAt instanceof Timestamp) {
+          setCreatedAt(data.createdAt.toDate());
+        }
       }
     };
 
@@ -35,8 +42,25 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>Hi {fullName || "User"}</Text>
-      <Text style={styles.email}>{user?.email}</Text>
+      <View style={styles.topSection}>
+        <View style={styles.avatarContainer}>
+          <View style={styles.avatar}>
+            <Text style={styles.avatarText}>
+              {fullName ? fullName[0].toUpperCase() : "U"}
+            </Text>
+          </View>
+        </View>
+
+        <Text style={styles.name}>Hi {fullName || "User"}</Text>
+
+        <View style={styles.infoContainer}>
+          <Text style={styles.infoTitle}>Account Info</Text>
+          <Text style={styles.email}>{user?.email}</Text>
+          <Text style={styles.profileText}>
+            Joined on: {createdAt ? format(createdAt, 'dd MMM yyyy') : 'Unknown'}
+          </Text>
+        </View>
+      </View>
 
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
         <Text style={styles.logoutText}>Log Out</Text>
@@ -50,14 +74,34 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 20,
+    backgroundColor: '#fff',
   },
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+
+  topSection: {
+    alignItems: 'center',
+    width: '100%',
+  },
+
+  infoContainer: {
+    marginTop: 20,
+    width: '100%',
+  },
+
+  infoTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 8,
+  },
+
+  logoutButton: {
+    backgroundColor: "#CA4B4B",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 8,
+    alignSelf: 'center',
     marginBottom: 20,
   },
   name: {
@@ -74,10 +118,33 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 8,
+    alignSelf: 'center',
+    marginBottom: 60,
   },
   logoutText: {
     color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
+  },
+  avatarContainer: {
+    marginBottom: 20,
+  },
+  avatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: "#CA4B4B",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  avatarText: {
+    color: "#fff",
+    fontSize: 32,
+    fontWeight: "bold",
+  },
+  joinDate: {
+    fontSize: 14,
+    color: "#888",
+    marginTop: 4,
   },
 });

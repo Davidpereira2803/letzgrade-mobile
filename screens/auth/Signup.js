@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../../services/firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import Feather from 'react-native-vector-icons/Feather';
 
 const Signup = ({ navigation }) => {
@@ -35,6 +35,7 @@ const Signup = ({ navigation }) => {
       await setDoc(doc(db, 'users', uid), {
         fullName,
         email,
+        createdAt: serverTimestamp(),
       });
 
       Alert.alert('Success', 'Account created!');
