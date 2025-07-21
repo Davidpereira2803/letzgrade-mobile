@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Modal } from "react-native";
 import { getAuth, updateEmail, updatePassword, deleteUser } from "firebase/auth";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
@@ -30,6 +30,14 @@ const Settings = ({ navigation }) => {
       Alert.alert("Error", error.message);
     }
   };
+
+  const EditFieldModal = ({ visible, onClose, label, onSave, defaultValue, secureTextEntry = false }) => {
+    const [value, setValue] = useState(defaultValue || '');
+
+    const handleSave = () => {
+        onSave(value);
+        onClose();
+    };
 
   const handleDeleteAccount = async () => {
     Alert.alert(
