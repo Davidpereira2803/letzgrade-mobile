@@ -1,7 +1,7 @@
 // screens/auth/Signup.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { auth, db } from '../../services/firebase';
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import Feather from 'react-native-vector-icons/Feather';
@@ -39,6 +39,7 @@ const Signup = ({ navigation }) => {
       });
 
       Alert.alert('Success', 'Account created!');
+      await sendEmailVerification(auth.currentUser);
     } catch (error) {
       Alert.alert('Signup Error', error.message);
     }
