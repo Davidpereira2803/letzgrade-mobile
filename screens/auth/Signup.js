@@ -1,4 +1,3 @@
-// screens/auth/Signup.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
@@ -31,6 +30,10 @@ const Signup = ({ navigation }) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const { uid } = userCredential.user;
+      
+      await updateProfile(user, {
+        displayName: fullName,
+      });
 
       await setDoc(doc(db, 'users', uid), {
         fullName,

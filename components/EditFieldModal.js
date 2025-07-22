@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 const EditFieldModal = ({ visible, onClose, label, onSave, defaultValue, secureTextEntry = false }) => {
-  const [value, setValue] = useState(defaultValue || '');
+  const [value, setValue] = useState('');
 
   const handleSave = () => {
     onSave(value);
@@ -19,7 +19,7 @@ const EditFieldModal = ({ visible, onClose, label, onSave, defaultValue, secureT
             value={value}
             onChangeText={setValue}
             secureTextEntry={secureTextEntry}
-            placeholder={label}
+            placeholder={defaultValue || "Enter new value"}
             placeholderTextColor="#777"
           />
           <View style={styles.buttonRow}>

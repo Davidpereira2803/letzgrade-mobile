@@ -100,13 +100,12 @@ const handleDeleteAccount = async (password) => {
         <Text style={styles.buttonText}>Change Password</Text>
       </TouchableOpacity>
 
-      {/* Modals */}
       <EditFieldModal
         visible={showNameModal}
         onClose={() => setShowNameModal(false)}
         label="New Name"
         onSave={handleUpdateName}
-        defaultValue={user.displayName}
+        defaultValue={user.email || ''}
       />
       <EditFieldModal
         visible={showEmailModal}
@@ -123,27 +122,27 @@ const handleDeleteAccount = async (password) => {
         secureTextEntry
       />
 
-<TouchableOpacity
-  style={{
-    backgroundColor: '#CA4B4B',
-    padding: 12,
-    marginTop: 30,
-    borderRadius: 8,
-    alignItems: 'center',
-  }}
-  onPress={() => setReauthVisible(true)}
->
-  <Text style={{ color: '#fff', fontWeight: 'bold' }}>Delete Account</Text>
-</TouchableOpacity>
+      <TouchableOpacity
+        style={{
+          backgroundColor: '#CA4B4B',
+          padding: 12,
+          marginTop: 30,
+          borderRadius: 8,
+          alignItems: 'center',
+        }}
+        onPress={() => setReauthVisible(true)}
+      >
+        <Text style={{ color: '#fff', fontWeight: 'bold' }}>Delete Account</Text>
+      </TouchableOpacity>
 
-<ReauthModal
-  visible={isReauthVisible}
-  onClose={() => setReauthVisible(false)}
-  onConfirm={(password) => {
-    setReauthVisible(false);
-    handleDeleteAccount(password);
-  }}
-/>
+      <ReauthModal
+        visible={isReauthVisible}
+        onClose={() => setReauthVisible(false)}
+        onConfirm={(password) => {
+          setReauthVisible(false);
+          handleDeleteAccount(password);
+        }}
+      />
 
     </View>
     
