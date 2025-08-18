@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 import { auth, db } from '../../services/firebase';
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import Feather from 'react-native-vector-icons/Feather';
@@ -30,6 +30,7 @@ const Signup = ({ navigation }) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const { uid } = userCredential.user;
+      
       
       await updateProfile(user, {
         displayName: fullName,

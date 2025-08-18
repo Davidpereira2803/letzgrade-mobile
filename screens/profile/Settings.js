@@ -76,7 +76,6 @@ const handleDeleteAccount = async (password) => {
     await deleteUser(user);
 
     Alert.alert('Account Deleted', 'Your account has been successfully deleted.');
-    // TODO: Navigate to login or landing screen
   } catch (error) {
     console.error("Account deletion failed:", error);
     Alert.alert('Error', error.message || 'Something went wrong.');
