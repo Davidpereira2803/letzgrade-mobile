@@ -11,9 +11,10 @@ const Login = ({ navigation }) => {
 
   const handleLogin = async () => {
     Keyboard.dismiss();
+    const trimmedEmail = email.trim();
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, trimmedEmail, password);
     } catch (error) {
       Alert.alert("Login Failed", error.message);
     }
@@ -37,6 +38,7 @@ const Login = ({ navigation }) => {
               keyboardType="email-address"
               value={email}
               onChangeText={setEmail}
+              accessibilityLabel="Email Input"
             />
 
             <View style={styles.inputContainer}>
@@ -47,6 +49,7 @@ const Login = ({ navigation }) => {
                 value={password}
                 onChangeText={setPassword}
                 style={styles.inputWithIcon}
+                accessibilityLabel="Password Input"
               />
               <TouchableOpacity
                 style={styles.iconButton}
@@ -56,11 +59,18 @@ const Login = ({ navigation }) => {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity onPress={handleLogin} style={styles.button}>
+            <TouchableOpacity
+              onPress={handleLogin}
+              style={styles.button}
+              accessibilityLabel="Login Button"
+              >
               <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Signup")}
+              accessibilityLabel="Sign Up Button"
+              >
               <Text style={styles.link}>No account? Sign Up</Text>
             </TouchableOpacity>
           </View>

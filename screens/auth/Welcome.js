@@ -21,6 +21,7 @@ const Welcome = ({ navigation }) => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("Login")}
+        accessibilityLabel="Login Button"
       >
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
@@ -28,6 +29,7 @@ const Welcome = ({ navigation }) => {
       <TouchableOpacity
         style={[styles.button, styles.secondaryButton]}
         onPress={() => navigation.navigate("Signup")}
+        accessibilityLabel="Sign Up Button"
       >
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>

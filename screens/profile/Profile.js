@@ -16,16 +16,22 @@ const Profile = () => {
       const currentUser = auth.currentUser;
       if (!currentUser) return;
 
-      const docRef = doc(db, "users", currentUser.uid);
-      const docSnap = await getDoc(docRef);
+      try {
+        const docRef = doc(db, "users", currentUser.uid);
+        const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        setFullName(data.fullName);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setFullName(data.fullName);
 
-        if (data.createdAt instanceof Timestamp) {
-          setCreatedAt(data.createdAt.toDate());
+          if (data.createdAt instanceof Timestamp) {
+            setCreatedAt(data.createdAt.toDate());
+          }
+        } else {
+          Alert.alert("Profile Error", "User data not found.");
         }
+      } catch (error) {
+        Alert.alert("Profile Error", error.message);
       }
     };
 
@@ -40,12 +46,20 @@ const Profile = () => {
     }
   };
 
+  if (!user) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.name}>No user logged in.</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.topSection}>
         <View style={styles.avatarContainer}>
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>
+            <Text style={styles.avatarText} accessibilityLabel={`Avatar for ${fullName || "User"}`}>
               {fullName ? fullName[0].toUpperCase() : "U"}
             </Text>
           </View>
@@ -55,14 +69,23 @@ const Profile = () => {
 
         <View style={styles.infoContainer}>
           <Text style={styles.infoTitle}>Account Info</Text>
-          <Text style={styles.email}>{user?.email}</Text>
+          <View style={styles.emailRow}>
+            <Text style={styles.email}>{user?.email}</Text>
+            <Text style={styles.verification}>
+              {user?.emailVerified ? "Verified" : "Not Verified"}
+            </Text>
+          </View>
           <Text style={styles.profileText}>
             Joined on: {createdAt ? format(createdAt, 'dd MMM yyyy') : 'Unknown'}
           </Text>
         </View>
       </View>
 
-      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+      <TouchableOpacity
+        style={styles.logoutButton}
+        onPress={handleLogout}
+        accessibilityLabel="Logout Button"
+        >
         <Text style={styles.logoutText}>Log Out</Text>
       </TouchableOpacity>
     </View>
@@ -111,7 +134,12 @@ const styles = StyleSheet.create({
   email: {
     fontSize: 16,
     color: "#666",
-    marginBottom: 30,
+  },
+  verification: {
+    fontSize: 16,
+    color: "#CA4B4B",
+    marginLeft: 10,
+    marginBottom: 0,
   },
   logoutButton: {
     backgroundColor: "#CA4B4B",
@@ -146,5 +174,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#888",
     marginTop: 4,
+  },
+  emailRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+    width: '100%',
   },
 });

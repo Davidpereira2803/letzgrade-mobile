@@ -17,8 +17,26 @@ const Signup = ({ navigation }) => {
   const handleSignup = async () => {
     Keyboard.dismiss();
 
-    if (!fullName || !email || !password || !confirmPassword) {
+    const trimmedFullName = fullName.trim();
+    const trimmedEmail = email.trim();
+
+    if (!trimmedFullName || !trimmedEmail || !password || !confirmPassword) {
       Alert.alert('Error', 'Please fill in all fields');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      Alert.alert('Error', 'Please enter a valid email address');
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[^A-Za-z0-9]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      Alert.alert(
+        'Error',
+        'Password must be at least 8 characters long, contain a lowercase letter, and a non-alphanumeric character'
+      );
       return;
     }
 
@@ -28,21 +46,20 @@ const Signup = ({ navigation }) => {
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, trimmedEmail, password);
       const { uid } = userCredential.user;
       
-      
-      await updateProfile(user, {
-        displayName: fullName,
+      await updateProfile(userCredential.user, {
+        displayName: trimmedFullName,
       });
 
       await setDoc(doc(db, 'users', uid), {
-        fullName,
-        email,
+        fullName: trimmedFullName,
+        email: trimmedEmail,
         createdAt: serverTimestamp(),
       });
 
-      Alert.alert('Success', 'Account created!');
+      Alert.alert('Success', 'Account created! Verify your email!');
       await sendEmailVerification(auth.currentUser);
     } catch (error) {
       Alert.alert('Signup Error', error.message);
@@ -63,6 +80,7 @@ const Signup = ({ navigation }) => {
               placeholderTextColor="#777"
               value={fullName}
               onChangeText={setFullName}
+              accessibilityLabel='Full Name Input'
               />
             <TextInput style={styles.input} 
               placeholder="Email" 
@@ -70,7 +88,9 @@ const Signup = ({ navigation }) => {
               value={email} 
               onChangeText={setEmail} 
               keyboardType="email-address" 
-              autoCapitalize="none" />
+              autoCapitalize="none"
+              accessibilityLabel='Email Input'
+              />
 
             <View style={styles.inputContainer}>
               <TextInput
@@ -80,6 +100,7 @@ const Signup = ({ navigation }) => {
                 value={password}
                 onChangeText={setPassword}
                 style={styles.inputWithIcon}
+                accessibilityLabel='Password Input'
               />
               <TouchableOpacity
                 style={styles.iconButton}
@@ -97,6 +118,7 @@ const Signup = ({ navigation }) => {
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
                 style={styles.inputWithIcon}
+                accessibilityLabel='Confirm Password Input'
               />
               <TouchableOpacity
                 style={styles.iconButton}
@@ -106,10 +128,18 @@ const Signup = ({ navigation }) => {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity onPress={handleSignup} style={styles.button}>
+            <TouchableOpacity
+              onPress={handleSignup}
+              style={styles.button}
+              accessibilityLabel='Sign Up Button'
+              >
               <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Login')}
+              accessibilityLabel='Login Button'
+              >
               <Text style={styles.link}>Already have an account? Login</Text>
             </TouchableOpacity>
           </View>
