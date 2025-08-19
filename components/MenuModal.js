@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableHighlight, StyleSheet } from 'react-native';
 import Modal from 'react-native-modal';
 
 const MenuModal = ({ visible, onClose, onLogout, navigation }) => {
@@ -12,19 +12,33 @@ const MenuModal = ({ visible, onClose, onLogout, navigation }) => {
       style={styles.menuModal}
     >
       <View style={styles.menuCard}>
-        <TouchableOpacity onPress={() => {
-          onClose();
-          navigation.navigate("YearSelection");
-        }}>
+        <TouchableHighlight
+          onPress={() => {
+            onClose();
+            navigation.navigate("YearSelection");
+          }}
+          underlayColor="#f2f2f2"
+          accessibilityLabel="Go to Year Selection"
+          style={styles.menuHighlight}
+        >
           <Text style={styles.menuItem}> Year Selection</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
             onClose();
             navigation.navigate("Settings");
-        }}>
+          }}
+          underlayColor="#f2f2f2"
+          accessibilityLabel="Go to Settings"
+          style={styles.menuHighlight}
+        >
           <Text style={styles.menuItem}> Settings</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={onLogout}>
+        </TouchableHighlight>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={onLogout}
+          accessibilityLabel="Logout"
+        >
           <Text style={styles.buttonText}> Logout</Text>
         </TouchableOpacity>
       </View>
@@ -70,5 +84,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
     fontSize: 18,
+  },
+  menuHighlight: {
+    borderRadius: 6,
   },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, TouchableHighlight, StyleSheet, Alert } from 'react-native';
 import Modal from 'react-native-modal';
 
 const ReauthModal = ({ visible, onClose, onConfirm }) => {
@@ -25,11 +25,17 @@ const ReauthModal = ({ visible, onClose, onConfirm }) => {
           value={password}
           onChangeText={setPassword}
           placeholderTextColor="#aaa"
+          accessibilityLabel="Password Input"
         />
-        <TouchableOpacity style={styles.button} onPress={handleConfirm}>
+        <TouchableHighlight
+          style={styles.button}
+          onPress={handleConfirm}
+          underlayColor="#b03a3a"
+          accessibilityLabel="Confirm Re-authentication"
+        >
           <Text style={styles.buttonText}>Confirm</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={onClose}>
+        </TouchableHighlight>
+        <TouchableOpacity onPress={onClose} accessibilityLabel="Cancel Re-authentication">
           <Text style={styles.cancelText}>Cancel</Text>
         </TouchableOpacity>
       </View>

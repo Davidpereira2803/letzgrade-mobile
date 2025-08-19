@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { db } from '../../services/firebase';
 import { getAuth } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
@@ -21,11 +21,15 @@ const YearCoursesScreen = ({ route, navigation }) => {
       const user = auth.currentUser;
       if (!user) return;
 
-      const coursesRef = collection(db, 'users', user.uid, 'studyPrograms', yearId, 'courses');
-      const snapshot = await getDocs(coursesRef);
-      const courseList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      try {
+        const coursesRef = collection(db, 'users', user.uid, 'studyPrograms', yearId, 'courses');
+        const snapshot = await getDocs(coursesRef);
+        const courseList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-      setCourses(courseList);
+        setCourses(courseList);
+      } catch (error) {
+        Alert.alert("Error", "Failed to fetch courses. Please try again later.");
+      }
     };
 
     fetchCourses();
@@ -38,9 +42,14 @@ const YearCoursesScreen = ({ route, navigation }) => {
           <Text>No courses found for this year.</Text>
         ) : (
           courses.map(course => (
-            <View key={course.id} style={styles.courseBox}>
-              <Text>{course.name} ({course.credits} credits)</Text>
-            </View>
+            <TouchableOpacity
+              key={course.id}
+              style={styles.courseBox}
+              onPress={() => navigation.navigate('AddGradeScreen', { yearId, courseId: course.id, courseName: course.name })}
+              accessibilityLabel={`Add grade to ${course.name}`}
+            >
+              <Text style={styles.courseName}>{course.name}</Text>
+            </TouchableOpacity>
           ))
         )}
       </ScrollView>

@@ -11,11 +11,13 @@ import { Ionicons } from '@expo/vector-icons';
 const Dashboard = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [years, setYears] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const animationRef = useRef(null);
 
   useEffect(() => {
     const fetchYears = async () => {
+      setLoading(true);
       const auth = getAuth();
       const user = auth.currentUser;
       if (!user) return;
@@ -31,13 +33,14 @@ const Dashboard = ({ navigation }) => {
 
         setYears(yearList);
       } catch (error) {
-        console.error("Failed to fetch years:", error);
+        Alert.alert("Error", "Failed to fetch years. Please try again later.");
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchYears();
   }, []);
-
 
   const handleLogout = async () => {
     try {
@@ -63,7 +66,7 @@ const Dashboard = ({ navigation }) => {
               await deleteDoc(yearRef);
               setYears(prev => prev.filter(p => p.id !== yearName));
             } catch (error) {
-              console.error("Error deleting year:", error);
+              Alert.alert("Error", "Failed to delete year. Please try again.");
             }
           }
         }
@@ -104,8 +107,10 @@ const Dashboard = ({ navigation }) => {
           />
           <Text style={styles.welcome}>Your Classes:</Text>
 
-          {years.length === 0 ? (
-            <Text>Loading or no years found.</Text>
+          {loading ? (
+            <Text>Loading...</Text>
+          ) : years.length === 0 ? (
+            <Text>No years found.</Text>
           ) : (
             years.map((year) => (
 
@@ -113,11 +118,13 @@ const Dashboard = ({ navigation }) => {
             key={year.id}
             style={styles.yearRowButton}
             onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
+            accessibilityLabel={`Open ${year.id} details`}
           >
             <Text style={styles.yearText}>{year.id}</Text>
             <TouchableOpacity
               onPress={() => handleDeleteYear(year.id)}
               style={styles.trashButton}
+              accessibilityLabel={`Delete ${year.id}`}
             >
               <Ionicons name="trash" size={20} color="white" />
             </TouchableOpacity>

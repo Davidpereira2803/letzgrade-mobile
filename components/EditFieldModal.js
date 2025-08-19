@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 const EditFieldModal = ({ visible, onClose, label, onSave, defaultValue, secureTextEntry = false }) => {
   const [value, setValue] = useState('');
+
+  useEffect(() => {
+    if (visible) setValue(defaultValue || '');
+  }, [visible, defaultValue]);
 
   const handleSave = () => {
     onSave(value);
@@ -21,12 +25,13 @@ const EditFieldModal = ({ visible, onClose, label, onSave, defaultValue, secureT
             secureTextEntry={secureTextEntry}
             placeholder={defaultValue || "Enter new value"}
             placeholderTextColor="#777"
+            accessibilityLabel={`${label} Input`}
           />
           <View style={styles.buttonRow}>
-            <TouchableOpacity onPress={onClose} style={[styles.button, styles.cancel]}>
+            <TouchableOpacity onPress={onClose} style={[styles.button, styles.cancel]} accessibilityLabel="Cancel Edit">
               <Text style={styles.buttonText}>Cancel</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleSave} style={[styles.button, styles.save]}>
+            <TouchableOpacity onPress={handleSave} style={[styles.button, styles.save]} accessibilityLabel="Save Edit">
               <Text style={styles.buttonText}>Save</Text>
             </TouchableOpacity>
           </View>

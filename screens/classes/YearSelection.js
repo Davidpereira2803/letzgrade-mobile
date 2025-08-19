@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ActivityIndicator } from 'react-native';
 import { db } from "../../services/firebase";
 import { getAuth } from 'firebase/auth';
 import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
@@ -16,74 +16,90 @@ const schoolYears = allClasses
 
 const YearSelection = ({ navigation }) => {
     const [addedYears, setAddedYears] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       const fetchExistingYears = async () => {
+        setLoading(true);
         const auth = getAuth();
         const user = auth.currentUser;
-        if (!user) return;
+        if (!user) {
+          setLoading(false);
+          return;
+        }
 
         const studyProgramsSnapshot = await getDocs(collection(db, 'users', user.uid, 'studyPrograms'));
         const yearNames = studyProgramsSnapshot.docs.map(doc => doc.id);
         setAddedYears(yearNames);
+        setLoading(false);
       };
 
       fetchExistingYears();
     }, []);
 
     const handleYearPress = async (year) => {
-    const selectedClass = allClasses.find(cls => cls.name === year);
-    if (!selectedClass) return;
+      setLoading(true);
+      const selectedClass = allClasses.find(cls => cls.name === year);
+      if (!selectedClass) return;
 
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (!user) {
-        console.error("User not logged in");
-        return;
-    }
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (!user) {
+          console.error("User not logged in");
+          return;
+      }
 
-    try {
-        const programRef = doc(db, 'users', user.uid, 'studyPrograms', selectedClass.name);
-        await setDoc(programRef, {
-        name: selectedClass.name,
-        hasExams: selectedClass.hasExams,
-        createdAt: Date.now()
-        });
+      try {
+          const programRef = doc(db, 'users', user.uid, 'studyPrograms', selectedClass.name);
+          await setDoc(programRef, {
+          name: selectedClass.name,
+          hasExams: selectedClass.hasExams,
+          createdAt: Date.now()
+          });
 
-        for (const subject of selectedClass.subjects) {
-        const courseRef = doc(programRef, 'courses', subject.name);
-        await setDoc(courseRef, {
-            name: subject.name,
-            credits: subject.coef,
-            ...(subject.subSubjects ? { subSubjects: subject.subSubjects } : {})
-        });
-        }
+          for (const subject of selectedClass.subjects) {
+          const courseRef = doc(programRef, 'courses', subject.name);
+          await setDoc(courseRef, {
+              name: subject.name,
+              credits: subject.coef,
+              ...(subject.subSubjects ? { subSubjects: subject.subSubjects } : {})
+          });
+          }
 
-        navigation.navigate('Dashboard');
-    } catch (err) {
-        console.error("Error adding year to Firestore:", err);
-    }
+          navigation.navigate('Dashboard');
+      } catch (err) {
+          console.error("Error adding year to Firestore:", err);
+          Alert.alert("Error", "Failed to add year. Please try again.");
+      } finally {
+        setLoading(false);
+      }
     };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Choose your school year</Text>
-      <FlatList
-        data={schoolYears}
-        keyExtractor={(item) => item}
-        contentContainerStyle={styles.list}
-        renderItem={({ item }) => (
-
-          <TouchableOpacity
-            style={[styles.yearButton,{ opacity: addedYears.includes(item) ? 0.5 : 1 }]}
-            disabled={addedYears.includes(item)}
-            onPress={() => handleYearPress(item)}
-          >
-            <Text style={styles.yearText}>{item}</Text>
-          </TouchableOpacity>
-
-        )}
-      />
+      {loading ? (
+        <ActivityIndicator size="large" color="#CA4B4B" style={{ marginVertical: 20 }} />
+      ) : (
+        <FlatList
+          data={schoolYears}
+          keyExtractor={(item) => item}
+          contentContainerStyle={styles.list}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={[
+                styles.yearButton,
+                { opacity: addedYears.includes(item) || loading ? 0.5 : 1 }
+              ]}
+              disabled={addedYears.includes(item) || loading}
+              onPress={() => handleYearPress(item)}
+              accessibilityLabel={`Select year ${item}`}
+            >
+              <Text style={styles.yearText}>{item}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      )}
     </View>
   );
 };
