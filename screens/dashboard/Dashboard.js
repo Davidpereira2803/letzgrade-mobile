@@ -1,7 +1,7 @@
 import React , { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, ScrollView, Platform } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { logout, db } from '../../services/firebase';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { getAuth } from 'firebase/auth';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import MenuModal from '../../components/MenuModal';
@@ -219,5 +219,21 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+    adContainer: {
+    borderTopWidth: 1,
+    borderTopColor: "#eee",
+    paddingTop: 6,
+    paddingBottom: 6,
+    paddingHorizontal: 12,
+    alignItems: "center",
+  },
+  adPlaceholder: {
+    width: "100%",
+    height: 50,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
