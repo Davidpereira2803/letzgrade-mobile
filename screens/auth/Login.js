@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, TextInput, Text, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback, Keyboard, TouchableOpacity, StyleSheet, Alert, useColorScheme } from "react-native";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../services/firebase";
 import Feather from "react-native-vector-icons/Feather";
 import { useTheme } from '../../context/ThemeContext';
@@ -145,6 +145,19 @@ const Login = ({ navigation }) => {
     }
   };
 
+  const handleResetPassword = async () => {
+    if (!email.trim()) {
+      Alert.alert("Please enter your email to reset password.");
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email.trim());
+      Alert.alert("Password Reset", "A password reset email has been sent.");
+    } catch (error) {
+      Alert.alert("Error", error.message);
+    }
+  };
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -192,12 +205,20 @@ const Login = ({ navigation }) => {
               <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Signup")}
-              accessibilityLabel="Sign Up Button"
-            >
-              <Text style={styles.link}>No account? Sign Up</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row', justifyContent: 'center'}}>
+              <TouchableOpacity
+                onPress={handleResetPassword}
+                accessibilityLabel="Reset Password Button"
+              >
+                <Text style={[styles.link, { color: "#CA4B4B", marginRight: 18 }]}>Forgot password?</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Signup")}
+                accessibilityLabel="Sign Up Button"
+              >
+                <Text style={styles.link}>No account? Sign Up</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>
