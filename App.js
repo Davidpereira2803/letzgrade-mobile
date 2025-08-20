@@ -1,6 +1,11 @@
-import React from 'react';
-import Navigation from './navigation';
+import React from "react";
+import { ThemeProvider } from "./context/ThemeContext";
+import Navigation from "./navigation";
 
 export default function App() {
-  return <Navigation />;
+  return (
+    <ThemeProvider>
+      <Navigation />
+    </ThemeProvider>
+  );
 }

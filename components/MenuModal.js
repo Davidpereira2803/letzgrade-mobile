@@ -1,7 +1,11 @@
 import { View, Text, TouchableOpacity, TouchableHighlight, StyleSheet } from 'react-native';
 import Modal from 'react-native-modal';
+import { useTheme } from '../context/ThemeContext';
 
 const MenuModal = ({ visible, onClose, onLogout, navigation }) => {
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
+
   return (
     <Modal
       isVisible={visible}
@@ -17,7 +21,7 @@ const MenuModal = ({ visible, onClose, onLogout, navigation }) => {
             onClose();
             navigation.navigate("YearSelection");
           }}
-          underlayColor="#f2f2f2"
+          underlayColor={isDark ? "#333" : "#f2f2f2"}
           accessibilityLabel="Go to Year Selection"
           style={styles.menuHighlight}
         >
@@ -28,7 +32,7 @@ const MenuModal = ({ visible, onClose, onLogout, navigation }) => {
             onClose();
             navigation.navigate("Settings");
           }}
-          underlayColor="#f2f2f2"
+          underlayColor={isDark ? "#333" : "#f2f2f2"}
           accessibilityLabel="Go to Settings"
           style={styles.menuHighlight}
         >
@@ -48,7 +52,7 @@ const MenuModal = ({ visible, onClose, onLogout, navigation }) => {
 
 export default MenuModal;
 
-const styles = StyleSheet.create({
+const lightStyles = StyleSheet.create({
   menuModal: {
     flex: 1,
     justifyContent: 'flex-start',
@@ -71,6 +75,49 @@ const styles = StyleSheet.create({
   menuItem: {
     fontSize: 18,
     paddingVertical: 10,
+  },
+  button: {
+    backgroundColor: '#CA4B4B',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    marginTop: 15,
+  },
+  buttonText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#fff',
+    fontSize: 18,
+  },
+  menuHighlight: {
+    borderRadius: 6,
+  },
+});
+
+const darkStyles = StyleSheet.create({
+  menuModal: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    margin: 0,
+    paddingTop: 90,
+  },
+  menuCard: {
+    backgroundColor: '#222',
+    borderRadius: 12,
+    paddingVertical: 24,
+    paddingHorizontal: 32,
+    width: '90%',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+  },
+  menuItem: {
+    fontSize: 18,
+    paddingVertical: 10,
+    color: '#fff',
   },
   button: {
     backgroundColor: '#CA4B4B',

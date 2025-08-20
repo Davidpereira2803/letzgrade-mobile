@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ActivityIndicator, useColorScheme } from 'react-native';
 import { db } from "../../services/firebase";
 import { getAuth } from 'firebase/auth';
 import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
 import allClasses from '../../assets/allClasses.json'; 
+import { useTheme } from '../../context/ThemeContext';
 
 const schoolYears = allClasses
   .map(cls => cls.name)
@@ -14,9 +15,77 @@ const schoolYears = allClasses
   });
 
 
+const lightStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'flex-start',
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#222',
+  },
+  list: {
+    paddingBottom: 20,
+  },
+  yearButton: {
+    backgroundColor: '#CA4B4B',
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginBottom: 15,
+    elevation: 2,
+  },
+  yearText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+});
+
+const darkStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'flex-start',
+    backgroundColor: '#181818',
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#fff',
+  },
+  list: {
+    paddingBottom: 20,
+  },
+  yearButton: {
+    backgroundColor: '#CA4B4B',
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginBottom: 15,
+    elevation: 2,
+  },
+  yearText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+});
+
 const YearSelection = ({ navigation }) => {
     const [addedYears, setAddedYears] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { isDark } = useTheme();
+    const styles = isDark ? darkStyles : lightStyles;
 
     useEffect(() => {
       const fetchExistingYears = async () => {
@@ -105,35 +174,3 @@ const YearSelection = ({ navigation }) => {
 };
 
 export default YearSelection;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    justifyContent: 'flex-start',
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  list: {
-    paddingBottom: 20,
-  },
-  yearButton: {
-    backgroundColor: '#CA4B4B',
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    marginBottom: 15,
-    elevation: 2,
-  },
-  yearText: {
-    color: '#fff',
-    fontSize: 18,
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-});

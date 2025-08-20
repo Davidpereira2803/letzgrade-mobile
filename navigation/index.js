@@ -14,12 +14,14 @@ import Settings from '../screens/profile/Settings';
 import AddGradeScreen from '../screens/dashboard/AddGradeScreen';
 import CourseGradesScreen from '../screens/dashboard/CourseGradesScreen';
 import EditGradeScreen from '../screens/dashboard/EditGradeScreen';
+import { useTheme } from '../context/ThemeContext';
 
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { theme, isDark } = useTheme();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -33,7 +35,14 @@ const Navigation = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: isDark ? '#222' : '#f5f5f5' },
+          headerTitleStyle: { color: isDark ? '#fff' : '#222' },
+          headerTintColor: isDark ? '#fff' : '#222',
+          contentStyle: { backgroundColor: isDark ? '#181818' : '#fff' },
+        }}
+      >
         {user ? (
           <>
             <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }}/>

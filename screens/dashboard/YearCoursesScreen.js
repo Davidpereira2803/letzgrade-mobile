@@ -1,15 +1,115 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Alert, TouchableOpacity, SafeAreaView, useColorScheme } from 'react-native';
 import { db } from '../../services/firebase';
 import { getAuth } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
-import { SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useTheme } from '../../context/ThemeContext';
+
+const lightStyles = StyleSheet.create({
+  container: {
+    padding: 20,
+    paddingTop: 10,
+    backgroundColor: '#fff',
+  },
+  yearAverage: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#CA4B4B',
+    marginBottom: 18,
+    textAlign: 'center',
+  },
+  courseBox: {
+    marginBottom: 12,
+    padding: 0,
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  courseRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+  },
+  courseName: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#222',
+  },
+  courseCredits: {
+    fontSize: 14,
+    color: '#888',
+  },
+  courseAverage: {
+    fontSize: 14,
+    color: '#CA4B4B',
+  },
+  noCourses: {
+    color: '#222',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+});
+
+const darkStyles = StyleSheet.create({
+  container: {
+    padding: 20,
+    paddingTop: 10,
+    backgroundColor: '#181818',
+  },
+  yearAverage: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#CA4B4B',
+    marginBottom: 18,
+    textAlign: 'center',
+  },
+  courseBox: {
+    marginBottom: 12,
+    padding: 0,
+    backgroundColor: '#222',
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  courseRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+  },
+  courseName: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#fff',
+  },
+  courseCredits: {
+    fontSize: 14,
+    color: '#bbb',
+  },
+  courseAverage: {
+    fontSize: 14,
+    color: '#CA4B4B',
+  },
+  noCourses: {
+    color: '#fff',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+});
 
 const YearCoursesScreen = ({ route, navigation }) => {
   const { yearId } = route.params;
   const [courses, setCourses] = useState([]);
   const [yearAverage, setYearAverage] = useState(null);
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
 
   const fetchCoursesAndGrades = async () => {
     const auth = getAuth();
@@ -78,13 +178,13 @@ const YearCoursesScreen = ({ route, navigation }) => {
   }, [navigation, yearId]);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: styles.container.backgroundColor }}>
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.yearAverage}>
           Year Average: {yearAverage !== null ? `${yearAverage} / 60` : 'N/A'}
         </Text>
         {courses.length === 0 ? (
-          <Text>No courses found for this year.</Text>
+          <Text style={styles.noCourses}>No courses found for this year.</Text>
         ) : (
           courses.map(course => (
             <TouchableOpacity
@@ -103,7 +203,7 @@ const YearCoursesScreen = ({ route, navigation }) => {
                     Average: {course.average !== null ? `${course.average.toFixed(2)} / 60` : 'N/A'}
                   </Text>
                 </View>
-                <Ionicons name="chevron-forward" size={24} color="#888" style={{ marginLeft: 'auto' }} />
+                <Ionicons name="chevron-forward" size={24} color={isDark ? "#bbb" : "#888"} style={{ marginLeft: 'auto' }} />
               </View>
             </TouchableOpacity>
           ))
@@ -114,46 +214,3 @@ const YearCoursesScreen = ({ route, navigation }) => {
 };
 
 export default YearCoursesScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    paddingTop: 10,
-  },
-  yearAverage: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#CA4B4B',
-    marginBottom: 18,
-    textAlign: 'center',
-  },
-  courseBox: {
-    marginBottom: 12,
-    padding: 0,
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  courseRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-  },
-  courseName: {
-    fontSize: 18,
-    fontWeight: '500',
-    color: '#222',
-  },
-  courseCredits: {
-    fontSize: 14,
-    color: '#888',
-  },
-  courseAverage: {
-    fontSize: 14,
-    color: '#CA4B4B',
-  },
-});

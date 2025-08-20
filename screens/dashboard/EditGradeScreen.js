@@ -3,6 +3,79 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvo
 import { getAuth } from 'firebase/auth';
 import { db } from '../../services/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
+import { useTheme } from '../../context/ThemeContext';
+
+const lightStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 30,
+    textAlign: 'center',
+    color: '#222',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 6,
+    padding: 12,
+    marginBottom: 15,
+    color: '#333',
+    backgroundColor: '#fff',
+  },
+  button: {
+    backgroundColor: '#CA4B4B',
+    padding: 15,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+});
+
+const darkStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: '#181818',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 30,
+    textAlign: 'center',
+    color: '#fff',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#444',
+    borderRadius: 6,
+    padding: 12,
+    marginBottom: 15,
+    color: '#fff',
+    backgroundColor: '#222',
+  },
+  button: {
+    backgroundColor: '#CA4B4B',
+    padding: 15,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+});
 
 const EditGradeScreen = ({ route, navigation }) => {
   const { yearId, courseId, gradeId, gradeData } = route.params;
@@ -10,6 +83,8 @@ const EditGradeScreen = ({ route, navigation }) => {
   const [grade, setGrade] = useState(String(gradeData.grade || ''));
   const [weight, setWeight] = useState(String(gradeData.weight || ''));
   const [description, setDescription] = useState(gradeData.description || '');
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
 
   const handleUpdateGrade = async () => {
     if (!examName || !grade || !weight) {
@@ -70,6 +145,7 @@ const EditGradeScreen = ({ route, navigation }) => {
         <TextInput
           style={styles.input}
           placeholder="Exam Name"
+          placeholderTextColor={isDark ? "#bbb" : "#777"}
           value={examName}
           onChangeText={setExamName}
           accessibilityLabel="Exam Name Input"
@@ -77,6 +153,7 @@ const EditGradeScreen = ({ route, navigation }) => {
         <TextInput
           style={styles.input}
           placeholder="Grade (out of 60)"
+          placeholderTextColor={isDark ? "#bbb" : "#777"}
           value={grade}
           onChangeText={setGrade}
           keyboardType="numeric"
@@ -85,6 +162,7 @@ const EditGradeScreen = ({ route, navigation }) => {
         <TextInput
           style={styles.input}
           placeholder="Exam Weight"
+          placeholderTextColor={isDark ? "#bbb" : "#777"}
           value={weight}
           onChangeText={setWeight}
           keyboardType="numeric"
@@ -93,6 +171,7 @@ const EditGradeScreen = ({ route, navigation }) => {
         <TextInput
           style={styles.input}
           placeholder="Description (optional)"
+          placeholderTextColor={isDark ? "#bbb" : "#777"}
           value={description}
           onChangeText={setDescription}
           accessibilityLabel="Description Input"
@@ -106,37 +185,3 @@ const EditGradeScreen = ({ route, navigation }) => {
 };
 
 export default EditGradeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 30,
-    textAlign: 'center',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 6,
-    padding: 12,
-    marginBottom: 15,
-    color: '#333',
-  },
-  button: {
-    backgroundColor: '#CA4B4B',
-    padding: 15,
-    borderRadius: 5,
-    marginTop: 10,
-  },
-  buttonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-});

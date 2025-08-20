@@ -7,13 +7,59 @@ import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import MenuModal from '../../components/MenuModal';
 import LottieView from "lottie-react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { useTheme } from '../../context/ThemeContext';
+
+const lightStyles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#fff' },
+  header: {
+    paddingTop: 50, paddingHorizontal: 20, paddingBottom: 16,
+    backgroundColor: '#f5f5f5',
+    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+    borderBottomWidth: 1, borderBottomColor: '#ddd',
+  },
+  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#333' },
+  body: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 },
+  welcome: { fontSize: 20, fontWeight: '600', marginBottom: 32, textAlign: 'center', color: '#222' },
+  yearRowButton: {
+    backgroundColor: '#CA4B4B', paddingVertical: 15, paddingHorizontal: 20,
+    borderRadius: 10, marginBottom: 15, elevation: 2, width: '80%', alignSelf: 'center',
+    shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 3,
+    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+  },
+  yearText: { color: '#fff', fontSize: 18, textAlign: 'center', fontWeight: 'bold' },
+  animation: { width: 200, height: 200, marginBottom: 20 },
+  trashButton: { marginLeft: 10, justifyContent: 'center', alignItems: 'center' },
+});
+
+const darkStyles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#181818' },
+  header: {
+    paddingTop: 50, paddingHorizontal: 20, paddingBottom: 16,
+    backgroundColor: '#222',
+    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+    borderBottomWidth: 1, borderBottomColor: '#444',
+  },
+  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#fff' },
+  body: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 },
+  welcome: { fontSize: 20, fontWeight: '600', marginBottom: 32, textAlign: 'center', color: '#fff' },
+  yearRowButton: {
+    backgroundColor: '#CA4B4B', paddingVertical: 15, paddingHorizontal: 20,
+    borderRadius: 10, marginBottom: 15, elevation: 2, width: '80%', alignSelf: 'center',
+    shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 3,
+    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+  },
+  yearText: { color: '#fff', fontSize: 18, textAlign: 'center', fontWeight: 'bold' },
+  animation: { width: 200, height: 200, marginBottom: 20 },
+  trashButton: { marginLeft: 10, justifyContent: 'center', alignItems: 'center' },
+});
 
 const Dashboard = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [years, setYears] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const animationRef = useRef(null);
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
 
   useEffect(() => {
     const fetchYears = async () => {
@@ -79,13 +125,13 @@ const Dashboard = ({ navigation }) => {
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => setMenuVisible(true)}>
-            <Icon name="menu" size={28} color="#333" />
+            <Icon name="menu" size={28} color={isDark ? "#fff" : "#333"} />
           </TouchableOpacity>
 
           <Text style={styles.headerTitle}>Dashboard</Text>
 
           <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-            <Icon name="person-circle" size={28} color="#333" />
+            <Icon name="person-circle" size={28} color={isDark ? "#fff" : "#333"} />
           </TouchableOpacity>
         </View>
 
@@ -108,132 +154,32 @@ const Dashboard = ({ navigation }) => {
           <Text style={styles.welcome}>Your Classes:</Text>
 
           {loading ? (
-            <Text>Loading...</Text>
+            <Text style={{ color: isDark ? "#fff" : "#222" }}>Loading...</Text>
           ) : years.length === 0 ? (
-            <Text>No years found.</Text>
+            <Text style={{ color: isDark ? "#fff" : "#222" }}>No years found.</Text>
           ) : (
             years.map((year) => (
-
-          <TouchableOpacity
-            key={year.id}
-            style={styles.yearRowButton}
-            onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
-            accessibilityLabel={`Open ${year.id} details`}
-          >
-            <Text style={styles.yearText}>{year.id}</Text>
-            <TouchableOpacity
-              onPress={() => handleDeleteYear(year.id)}
-              style={styles.trashButton}
-              accessibilityLabel={`Delete ${year.id}`}
-            >
-              <Ionicons name="trash" size={20} color="white" />
-            </TouchableOpacity>
-          </TouchableOpacity>
-
+              <TouchableOpacity
+                key={year.id}
+                style={styles.yearRowButton}
+                onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
+                accessibilityLabel={`Open ${year.id} details`}
+              >
+                <Text style={styles.yearText}>{year.id}</Text>
+                <TouchableOpacity
+                  onPress={() => handleDeleteYear(year.id)}
+                  style={styles.trashButton}
+                  accessibilityLabel={`Delete ${year.id}`}
+                >
+                  <Ionicons name="trash" size={20} color="#fff" />
+                </TouchableOpacity>
+              </TouchableOpacity>
             ))
           )}
-
         </ScrollView>
-
       </View>
     </SafeAreaView>
   );
 };
 
 export default Dashboard;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  header: {
-    paddingTop: 50,
-    paddingHorizontal: 20,
-    paddingBottom: 16,
-    backgroundColor: '#f5f5f5',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  body: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
-  },
-  welcome: {
-    fontSize: 20,
-    fontWeight: '600',
-    marginBottom: 32,
-    textAlign: 'center',
-  },
-  courseItem: {
-    fontSize: 16,
-    marginBottom: 8,
-    color: '#333',
-    textAlign: 'center',
-  },
-  yearRowButton: {
-    backgroundColor: '#CA4B4B',
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    marginBottom: 15,
-    elevation: 2,
-    width: '80%',
-    alignSelf: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  yearText: {
-    color: '#fff',
-    fontSize: 18,
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-  animation: {
-    width: 200,
-    height: 200,
-    marginBottom: 20,
-  },
-  yearRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 15,
-  },
-  trashButton: {
-    marginLeft: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-    adContainer: {
-    borderTopWidth: 1,
-    borderTopColor: "#eee",
-    paddingTop: 6,
-    paddingBottom: 6,
-    paddingHorizontal: 12,
-    alignItems: "center",
-  },
-  adPlaceholder: {
-    width: "100%",
-    height: 50,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

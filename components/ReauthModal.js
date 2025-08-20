@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableHighlight, StyleSheet, Alert } from 'react-native';
 import Modal from 'react-native-modal';
+import { useTheme } from '../context/ThemeContext';
 
 const ReauthModal = ({ visible, onClose, onConfirm }) => {
   const [password, setPassword] = useState('');
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
 
   const handleConfirm = () => {
     if (!password) {
@@ -24,7 +27,7 @@ const ReauthModal = ({ visible, onClose, onConfirm }) => {
           style={styles.input}
           value={password}
           onChangeText={setPassword}
-          placeholderTextColor="#aaa"
+          placeholderTextColor={isDark ? "#bbb" : "#aaa"}
           accessibilityLabel="Password Input"
         />
         <TouchableHighlight
@@ -45,7 +48,7 @@ const ReauthModal = ({ visible, onClose, onConfirm }) => {
 
 export default ReauthModal;
 
-const styles = StyleSheet.create({
+const lightStyles = StyleSheet.create({
   modal: { justifyContent: 'center', alignItems: 'center' },
   container: {
     backgroundColor: '#fff',
@@ -67,6 +70,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 16,
     color: '#333',
+    backgroundColor: '#fff',
   },
   button: {
     backgroundColor: '#CA4B4B',
@@ -82,6 +86,49 @@ const styles = StyleSheet.create({
   cancelText: {
     textAlign: 'center',
     color: '#888',
+    marginTop: 5
+  }
+});
+
+const darkStyles = StyleSheet.create({
+  modal: { justifyContent: 'center', alignItems: 'center' },
+  container: {
+    backgroundColor: '#222',
+    padding: 24,
+    borderRadius: 12,
+    width: '100%',
+    maxWidth: 320,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    textAlign: 'center',
+    color: '#fff'
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#444',
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 16,
+    color: '#fff',
+    backgroundColor: '#222',
+  },
+  button: {
+    backgroundColor: '#CA4B4B',
+    padding: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 10
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold'
+  },
+  cancelText: {
+    textAlign: 'center',
+    color: '#bbb',
     marginTop: 5
   }
 });

@@ -1,13 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, useColorScheme } from 'react-native';
 import { getAuth } from 'firebase/auth';
 import { db } from '../../services/firebase';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { Ionicons } from '@expo/vector-icons';
+import { useTheme } from '../../context/ThemeContext';
+
+const lightStyles = StyleSheet.create({
+  container: { flex: 1, padding: 24, backgroundColor: '#fff' },
+  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20, color: '#222' },
+  gradeBox: { backgroundColor: '#f2f2f2', padding: 12, borderRadius: 8, marginBottom: 12 },
+  examName: { fontWeight: 'bold', fontSize: 16, marginBottom: 4, color: '#222' },
+  button: { backgroundColor: '#CA4B4B', padding: 15, borderRadius: 5, marginTop: 10 },
+  buttonText: { color: '#fff', textAlign: 'center', fontWeight: 'bold' },
+});
+
+const darkStyles = StyleSheet.create({
+  container: { flex: 1, padding: 24, backgroundColor: '#181818' },
+  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20, color: '#fff' },
+  gradeBox: { backgroundColor: '#222', padding: 12, borderRadius: 8, marginBottom: 12 },
+  examName: { fontWeight: 'bold', fontSize: 16, marginBottom: 4, color: '#fff' },
+  button: { backgroundColor: '#CA4B4B', padding: 15, borderRadius: 5, marginTop: 10 },
+  buttonText: { color: '#fff', textAlign: 'center', fontWeight: 'bold' },
+});
 
 const CourseGradesScreen = ({ route, navigation }) => {
   const { yearId, courseId, courseName } = route.params;
   const [grades, setGrades] = useState([]);
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
 
   const fetchGrades = async () => {
     const auth = getAuth();
@@ -85,9 +106,9 @@ const CourseGradesScreen = ({ route, navigation }) => {
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
               <View>
                 <Text style={styles.examName}>{item.examName}</Text>
-                <Text>Grade: {item.grade} / 60</Text>
-                <Text>Weight: {item.weight}</Text>
-                {item.description ? <Text>Description: {item.description}</Text> : null}
+                <Text style={{ color: isDark ? "#fff" : "#222" }}>Grade: {item.grade} / 60</Text>
+                <Text style={{ color: isDark ? "#fff" : "#222" }}>Weight: {item.weight}</Text>
+                {item.description ? <Text style={{ color: isDark ? "#bbb" : "#666" }}>Description: {item.description}</Text> : null}
               </View>
               <View style={{ flexDirection: 'row' }}>
                 <TouchableOpacity
@@ -125,12 +146,3 @@ const CourseGradesScreen = ({ route, navigation }) => {
 };
 
 export default CourseGradesScreen;
-
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 24, backgroundColor: '#fff' },
-  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20 },
-  gradeBox: { backgroundColor: '#f2f2f2', padding: 12, borderRadius: 8, marginBottom: 12 },
-  examName: { fontWeight: 'bold', fontSize: 16, marginBottom: 4 },
-  button: { backgroundColor: '#CA4B4B', padding: 15, borderRadius: 5, marginTop: 10 },
-  buttonText: { color: '#fff', textAlign: 'center', fontWeight: 'bold' },
-});
