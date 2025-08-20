@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ActivityIndi
 import { db } from "../../services/firebase";
 import { getAuth } from 'firebase/auth';
 import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
-import allClasses from '../../assets/allClasses.json'; 
+import allClasses from '../../assets/classes/classes.json'; 
 import { useTheme } from '../../context/ThemeContext';
 
 const schoolYears = allClasses

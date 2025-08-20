@@ -2,144 +2,48 @@
   {
     "name": "7e",
     "subjects": [
-      {
-        "name": "Franc\u0327ais",
-        "coef": 4.0
-      },
-      {
-        "name": "Allemand",
-        "coef": 4.0
-      },
-      {
-        "name": "Math\u00e9matiques",
-        "coef": 4.0
-      },
-      {
-        "name": "SciNa",
-        "coef": 3.0
-      },
-      {
-        "name": "Histoire",
-        "coef": 2.0
-      },
-      {
-        "name": "VieSo",
-        "coef": 2.0
-      },
-      {
-        "name": "G\u00e9ographie",
-        "coef": 2.0
-      },
-      {
-        "name": "Artistique",
-        "coef": 1.0
-      },
-      {
-        "name": "EduMusic",
-        "coef": 1.0
-      },
-      {
-        "name": "Luxembourgeois",
-        "coef": 1.0
-      },
-      {
-        "name": "EduPhys",
-        "coef": 1.0
-      }
-    ],
-    "hasExams": false
+      { "name": "Franc\u0327ais", "coef": 4.0 },
+      { "name": "Allemand", "coef": 4.0 },
+      { "name": "Math\u00e9matiques", "coef": 4.0 },
+      { "name": "SciNa", "coef": 3.0 },
+      { "name": "Histoire", "coef": 2.0 },
+      { "name": "VieSo", "coef": 2.0 },
+      { "name": "G\u00e9ographie", "coef": 2.0 },
+      { "name": "Artistique", "coef": 1.0 },
+      { "name": "EduMusic", "coef": 1.0 },
+      { "name": "Luxembourgeois", "coef": 1.0 },
+      { "name": "EduPhys", "coef": 1.0 }
+    ]
   },
   {
     "name": "6C",
     "subjects": [
-      {
-        "name": "Franc\u0327ais",
-        "coef": 4.0
-      },
-      {
-        "name": "Allemand",
-        "coef": 4.0
-      },
-      {
-        "name": "Latin",
-        "coef": 4.0
-      },
-      {
-        "name": "Math\u00e9matiques",
-        "coef": 4.0
-      },
-      {
-        "name": "SciNa",
-        "coef": 3.0
-      },
-      {
-        "name": "Histoire",
-        "coef": 2.0
-      },
-      {
-        "name": "VieSo",
-        "coef": 2.0
-      },
-      {
-        "name": "G\u00e9ographie",
-        "coef": 2.0
-      },
-      {
-        "name": "Artistique",
-        "coef": 1.0
-      },
-      {
-        "name": "EduPhys",
-        "coef": 1.0
-      }
-    ],
-    "hasExams": false
+      { "name": "Franc\u0327ais", "coef": 4.0 },
+      { "name": "Allemand", "coef": 4.0 },
+      { "name": "Latin", "coef": 4.0 },
+      { "name": "Math\u00e9matiques", "coef": 4.0 },
+      { "name": "SciNa", "coef": 3.0 },
+      { "name": "Histoire", "coef": 2.0 },
+      { "name": "VieSo", "coef": 2.0 },
+      { "name": "G\u00e9ographie", "coef": 2.0 },
+      { "name": "Artistique", "coef": 1.0 },
+      { "name": "EduPhys", "coef": 1.0 } 
+    ]
   },
   {
     "name": "6M",
     "subjects": [
-      {
-        "name": "Franc\u0327ais",
-        "coef": 4.0
-      },
-      {
-        "name": "Allemand",
-        "coef": 4.0
-      },
-      {
-        "name": "Anglais",
-        "coef": 4.0
-      },
-      {
-        "name": "Math\u00e9matiques",
-        "coef": 4.0
-      },
-      {
-        "name": "SciNa",
-        "coef": 3.0
-      },
-      {
-        "name": "Histoire",
-        "coef": 2.0
-      },
-      {
-        "name": "VieSo",
-        "coef": 2.0
-      },
-      {
-        "name": "G\u00e9ographie",
-        "coef": 2.0
-      },
-      {
-        "name": "Artistique",
-        "coef": 1.0
-      },
-      {
-        "name": "EduPhys",
-        "coef": 1.0
-      }
-    ],
-    "hasExams": false
+      { "name": "Franc\u0327ais", "coef": 4.0 },
+      { "name": "Allemand", "coef": 4.0 },
+      { "name": "Anglais", "coef": 4.0 },
+      { "name": "Math\u00e9matiques", "coef": 4.0 },
+      { "name": "SciNa", "coef": 3.0 },
+      { "name": "Histoire", "coef": 2.0 },
+      { "name": "VieSo", "coef": 2.0 },
+      { "name": "G\u00e9ographie", "coef": 2.0 },
+      { "name": "Artistique", "coef": 1.0 },
+      { "name": "EduPhys", "coef": 1.0 }
+    ]
   },
   {
     "name": "5C",
@@ -192,8 +96,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "5M",
@@ -242,8 +146,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "4C",
@@ -300,8 +204,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "4M",
@@ -354,8 +258,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3MA",
@@ -412,8 +316,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3CA",
@@ -470,8 +374,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3MB",
@@ -524,8 +428,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3CB",
@@ -578,8 +482,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3MC",
@@ -632,8 +536,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3CC",
@@ -686,8 +590,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3MD",
@@ -744,8 +648,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3CD",
@@ -802,8 +706,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3ME",
@@ -874,8 +778,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3CE",
@@ -946,8 +850,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3MF",
@@ -1004,8 +908,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3CF",
@@ -1062,8 +966,8 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
+    
   },
   {
     "name": "3MG",
@@ -1124,8 +1028,7 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
   },
   {
     "name": "2CA",
@@ -1180,8 +1083,7 @@
         "name": "EduPhys",
         "coef": 1.0
       }
-    ],
-    "hasExams": false
+    ]
   },
   {
     "name": "2CAL",
