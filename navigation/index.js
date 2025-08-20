@@ -12,6 +12,8 @@ import YearSelection from '../screens/classes/YearSelection';
 import YearCoursesScreen from '../screens/dashboard/YearCoursesScreen';
 import Settings from '../screens/profile/Settings';
 import AddGradeScreen from '../screens/dashboard/AddGradeScreen';
+import CourseGradesScreen from '../screens/dashboard/CourseGradesScreen';
+import EditGradeScreen from '../screens/dashboard/EditGradeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,7 +41,30 @@ const Navigation = () => {
             <Stack.Screen name="YearSelection" component={YearSelection} options={{ headerShown: true }} />
             <Stack.Screen name="YearCourses" component={YearCoursesScreen} options={{ headerShown: true}}/>
             <Stack.Screen name="Settings" component={Settings} options={{ headerShown: true }} />
-            <Stack.Screen name="AddGradeScreen" component={AddGradeScreen} options={{ headerShown: true }} />
+            <Stack.Screen
+              name="CourseGradesScreen"
+              component={CourseGradesScreen}
+              options={({ route }) => ({
+                title: `Grades for ${route.params?.courseName || ''}`,
+                headerShown: true
+              })}
+            />
+            <Stack.Screen
+              name="AddGradeScreen"
+              component={AddGradeScreen}
+              options={({ route }) => ({
+                title: `Add Grade to ${route.params?.courseName || ''}`,
+                headerShown: true,
+              })}
+            />
+            <Stack.Screen
+              name="EditGradeScreen"
+              component={EditGradeScreen}
+              options={({ route }) => ({
+                title: `Edit Grade for ${route.params?.courseName || ''}`,
+                headerShown: true
+              })}
+            />
           </>
         ) : (
           <>

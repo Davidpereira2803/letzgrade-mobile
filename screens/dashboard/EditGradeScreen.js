@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvoidingView, Platform, ScrollView, Keyboard } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { getAuth } from 'firebase/auth';
 import { db } from '../../services/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 
-const AddGradeScreen = ({ route, navigation }) => {
-  const { courseId, courseName, yearId } = route.params;
-  const [examName, setExamName] = useState('');
-  const [grade, setGrade] = useState('');
-  const [weight, setWeight] = useState('');
-  const [description, setDescription] = useState('');
+const EditGradeScreen = ({ route, navigation }) => {
+  const { yearId, courseId, gradeId, gradeData } = route.params;
+  const [examName, setExamName] = useState(gradeData.examName || '');
+  const [grade, setGrade] = useState(String(gradeData.grade || ''));
+  const [weight, setWeight] = useState(String(gradeData.weight || ''));
+  const [description, setDescription] = useState(gradeData.description || '');
 
-  const handleAddGrade = async () => {
-    Keyboard.dismiss();
+  const handleUpdateGrade = async () => {
     if (!examName || !grade || !weight) {
       Alert.alert('Error', 'Please fill in all required fields.');
       return;
@@ -34,7 +33,7 @@ const AddGradeScreen = ({ route, navigation }) => {
       return;
     }
     try {
-      const gradesRef = collection(
+      const gradeRef = doc(
         db,
         'users',
         user.uid,
@@ -42,19 +41,19 @@ const AddGradeScreen = ({ route, navigation }) => {
         yearId,
         'courses',
         courseId,
-        'grades'
+        'grades',
+        gradeId
       );
-      await addDoc(gradesRef, {
+      await updateDoc(gradeRef, {
         examName,
         grade: gradeValue,
         weight: weightValue,
         description,
-        createdAt: new Date()
       });
-      Alert.alert('Success', 'Grade added!');
+      Alert.alert('Success', 'Grade updated!');
       navigation.goBack();
     } catch (error) {
-      Alert.alert('Error', 'Failed to add grade. Please try again.');
+      Alert.alert('Error', 'Failed to update grade. Please try again.');
     }
   };
 
@@ -67,6 +66,7 @@ const AddGradeScreen = ({ route, navigation }) => {
         contentContainerStyle={styles.container}
         keyboardShouldPersistTaps="handled"
       >
+        <Text style={styles.title}>Edit Grade</Text>
         <TextInput
           style={styles.input}
           placeholder="Exam Name"
@@ -97,15 +97,15 @@ const AddGradeScreen = ({ route, navigation }) => {
           onChangeText={setDescription}
           accessibilityLabel="Description Input"
         />
-        <TouchableOpacity style={styles.button} onPress={handleAddGrade} accessibilityLabel="Add Grade Button">
-          <Text style={styles.buttonText}>Add Grade</Text>
+        <TouchableOpacity style={styles.button} onPress={handleUpdateGrade} accessibilityLabel="Update Grade Button">
+          <Text style={styles.buttonText}>Update Grade</Text>
         </TouchableOpacity>
       </ScrollView>
     </KeyboardAvoidingView>
   );
 };
 
-export default AddGradeScreen;
+export default EditGradeScreen;
 
 const styles = StyleSheet.create({
   container: {
