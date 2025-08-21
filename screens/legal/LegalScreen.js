@@ -4,6 +4,7 @@ import { getAuth } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
 import { LEGAL_CONFIG } from "../../config/legal";
+import { useTheme } from "../../context/ThemeContext";
 
 const TOS_URL = "https://letzgrade.com/tos";
 const PRIVACY_URL = "https://letzgrade.com/privacy";
@@ -12,6 +13,8 @@ const LegalScreen = () => {
   const [consent, setConsent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
 
   useEffect(() => {
     const fetchConsent = async () => {
@@ -98,6 +101,8 @@ const LegalScreen = () => {
           onValueChange={(val) => updateConsent("analyticsOptIn", val)}
           disabled={saving}
           accessibilityLabel="Analytics Opt-In"
+          thumbColor={isDark ? "#CA4B4B" : "#ccc"}
+          trackColor={{ false: "#bbb", true: "#CA4B4B" }}
         />
       </View>
       <View style={styles.toggleRow}>
@@ -109,6 +114,8 @@ const LegalScreen = () => {
           onValueChange={(val) => updateConsent("marketingOptIn", val)}
           disabled={saving}
           accessibilityLabel="Marketing Opt-In"
+          thumbColor={isDark ? "#CA4B4B" : "#ccc"}
+          trackColor={{ false: "#bbb", true: "#CA4B4B" }}
         />
       </View>
     </View>
@@ -117,7 +124,7 @@ const LegalScreen = () => {
 
 export default LegalScreen;
 
-const styles = StyleSheet.create({
+const lightStyles = StyleSheet.create({
   container: { flex: 1, padding: 24, backgroundColor: "#fff" },
   title: { fontSize: 22, fontWeight: "bold", marginBottom: 10, color: "#CA4B4B" },
   version: { fontSize: 16, marginBottom: 2, color: "#222" },
@@ -132,4 +139,21 @@ const styles = StyleSheet.create({
     minHeight: 44,
   },
   toggleLabel: { fontSize: 15, color: "#222", flex: 1, marginRight: 8 },
+});
+
+const darkStyles = StyleSheet.create({
+  container: { flex: 1, padding: 24, backgroundColor: "#181818" },
+  title: { fontSize: 22, fontWeight: "bold", marginBottom: 10, color: "#CA4B4B" },
+  version: { fontSize: 16, marginBottom: 2, color: "#fff" },
+  effective: { fontSize: 14, marginBottom: 18, color: "#bbb" },
+  linkButton: { marginBottom: 12, paddingVertical: 8 },
+  linkText: { color: "#CA4B4B", fontWeight: "bold", fontSize: 16 },
+  toggleRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginVertical: 12,
+    minHeight: 44,
+  },
+  toggleLabel: { fontSize: 15, color: "#fff", flex: 1, marginRight: 8 },
 });

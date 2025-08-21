@@ -48,134 +48,45 @@
   {
     "name": "5C",
     "subjects": [
-      {
-        "name": "Franc\u0327ais",
-        "coef": 4.0
-      },
-      {
-        "name": "Allemand",
-        "coef": 4.0
-      },
-      {
-        "name": "Anglais",
-        "coef": 4.0
-      },
-      {
-        "name": "Latin",
-        "coef": 4.0
-      },
-      {
-        "name": "Math\u00e9matiques",
-        "coef": 4.0
-      },
-      {
-        "name": "Biologie",
-        "coef": 2.0
-      },
-      {
-        "name": "Chimie-Physique",
-        "coef": 2.0
-      },
-      {
-        "name": "Histoire",
-        "coef": 2.0
-      },
-      {
-        "name": "VieSo",
-        "coef": 2.0
-      },
-      {
-        "name": "G\u00e9ographie",
-        "coef": 2.0
-      },
-      {
-        "name": "Artistique",
-        "coef": 2.0
-      },
-      {
-        "name": "EduPhys",
-        "coef": 1.0
-      }
+      { "name": "Franc\u0327ais", "coef": 4.0 },
+      { "name": "Allemand", "coef": 4.0 },
+      { "name": "Anglais", "coef": 4.0 },
+      { "name": "Latin", "coef": 4.0 },
+      { "name": "Math\u00e9matiques", "coef": 4.0 },
+      { "name": "Biologie", "coef": 2.0 },
+      { "name": "Chimie-Physique", "coef": 2.0 },
+      { "name": "Histoire", "coef": 2.0 },
+      { "name": "VieSo", "coef": 2.0 },
+      { "name": "G\u00e9ographie", "coef": 2.0 },
+      { "name": "Artistique", "coef": 2.0 },
+      { "name": "EduPhys", "coef": 1.0 }
     ]
-    
   },
   {
     "name": "5M",
     "subjects": [
-      {
-        "name": "Franc\u0327ais",
-        "coef": 4.0
-      },
-      {
-        "name": "Allemand",
-        "coef": 4.0
-      },
-      {
-        "name": "Anglais",
-        "coef": 4.0
-      },
-      {
-        "name": "Math\u00e9matiques",
-        "coef": 4.0
-      },
-      {
-        "name": "Biologie",
-        "coef": 2.0
-      },
-      {
-        "name": "Chimie-Physique",
-        "coef": 2.0
-      },
-      {
-        "name": "Histoire",
-        "coef": 2.0
-      },
-      {
-        "name": "VieSo",
-        "coef": 2.0
-      },
-      {
-        "name": "G\u00e9ographie",
-        "coef": 2.0
-      },
-      {
-        "name": "Artistique",
-        "coef": 2.0
-      },
-      {
-        "name": "EduPhys",
-        "coef": 1.0
-      }
+      { "name": "Franc\u0327ais", "coef": 4.0 },
+      { "name": "Allemand", "coef": 4.0 },
+      { "name": "Anglais", "coef": 4.0 },
+      { "name": "Math\u00e9matiques", "coef": 4.0 },
+      { "name": "Biologie", "coef": 2.0 },
+      { "name": "Chimie-Physique", "coef": 2.0 },
+      { "name": "Histoire", "coef": 2.0 },
+      { "name": "VieSo", "coef": 2.0 },
+      { "name": "G\u00e9ographie", "coef": 2.0 },
+      { "name": "Artistique", "coef": 2.0 },
+      { "name": "EduPhys", "coef": 1.0 }
     ]
-    
   },
   {
     "name": "4C",
     "subjects": [
-      {
-        "name": "Franc\u0327ais",
-        "coef": 4.0
-      },
-      {
-        "name": "Allemand",
-        "coef": 4.0
-      },
-      {
-        "name": "Anglais",
-        "coef": 4.0
-      },
-      {
-        "name": "Math\u00e9matiques",
-        "coef": 4.0
-      },
-      {
-        "name": "Latin",
-        "coef": 3.0
-      },
-      {
-        "name": "Biologie",
-        "coef": 2.0
-      },
+      { "name": "Franc\u0327ais", "coef": 4.0 },
+      { "name": "Allemand", "coef": 4.0 },
+      { "name": "Anglais", "coef": 4.0 },
+      { "name": "Math\u00e9matiques", "coef": 4.0 },
+      { "name": "Latin", "coef": 3.0 },
+      { "name": "Biologie", "coef": 2.0 },
       {
         "name": "Chimie-Physique",
         "coef": 2.0

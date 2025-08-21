@@ -68,7 +68,7 @@ const TermsModal = ({
       }
 
       setSaving(false);
-      onDone(consentPayload); // Close modal and continue
+      onDone(consentPayload);
     } catch (error) {
       setSaving(false);
       Alert.alert("Error", "Failed to save consent. Please check your connection and try again.");
@@ -97,6 +97,7 @@ const TermsModal = ({
           </Text>
           <ScrollView
             style={styles.scroll}
+            contentContainerStyle={{ paddingBottom: 20 }}
             onScroll={handleScroll}
             scrollEventThrottle={32}
             showsVerticalScrollIndicator={true}
@@ -114,17 +115,18 @@ const TermsModal = ({
             <Text style={styles.sectionText}>
               For full documents, visit our website or contact support.
             </Text>
-            <View style={{ height: 80 }} /> {/* Spacer to ensure scroll gating */}
+            <View style={{ height: 80 }} />
           </ScrollView>
 
-          {/* Required checkboxes */}
           <View style={styles.checkboxRow}>
             <Pressable
               style={styles.checkboxTouch}
               onPress={() => setAgreeTos((v) => !v)}
               accessibilityLabel="Agree to Terms of Service"
             >
-              <View style={[styles.checkbox, agreeTos && styles.checkboxChecked]} />
+              <View style={[styles.checkbox, agreeTos && styles.checkboxChecked]}>
+                {agreeTos && <Text style={styles.checkboxMark}>✕</Text>}
+              </View>
               <Text style={styles.checkboxLabel}>I agree to the Terms of Service</Text>
             </Pressable>
           </View>
@@ -134,12 +136,13 @@ const TermsModal = ({
               onPress={() => setReadPrivacy((v) => !v)}
               accessibilityLabel="Read Privacy Policy"
             >
-              <View style={[styles.checkbox, readPrivacy && styles.checkboxChecked]} />
+              <View style={[styles.checkbox, readPrivacy && styles.checkboxChecked]}>
+                {readPrivacy && <Text style={styles.checkboxMark}>✕</Text>}
+              </View>
               <Text style={styles.checkboxLabel}>I have read the Privacy Policy</Text>
             </Pressable>
           </View>
 
-          {/* Optional toggles */}
           <View style={styles.toggleRow}>
             <Text style={styles.toggleLabel}>
               Allow anonymous analytics & crash reports (optional)
@@ -161,7 +164,6 @@ const TermsModal = ({
             />
           </View>
 
-          {/* Navigation to full documents */}
           <View style={styles.linkRow}>
             <TouchableOpacity onPress={() => Linking.openURL("https://letzgrade.com/tos")}>
               <Text style={styles.linkText}>Open full ToS</Text>
@@ -171,7 +173,6 @@ const TermsModal = ({
             </TouchableOpacity>
           </View>
 
-          {/* Buttons */}
           <View style={styles.buttonRow}>
             <TouchableOpacity
               style={[
@@ -213,21 +214,24 @@ const styles = StyleSheet.create({
   modal: {
     backgroundColor: "#fff",
     borderRadius: 16,
-    padding: 24,
-    width: "90%",
-    maxWidth: 400,
+    padding: 18,
+    width: "95%",
+    maxWidth: 500,
+    maxHeight: "90%",
+    alignSelf: "center",
     elevation: 8,
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 18,
+    marginBottom: 14,
     textAlign: "center",
     color: "#CA4B4B",
   },
   scroll: {
-    maxHeight: 220,
-    marginBottom: 16,
+    flexGrow: 1,
+    maxHeight: 260,
+    marginBottom: 12,
     borderWidth: 1,
     borderColor: "#eee",
     borderRadius: 8,
@@ -269,8 +273,14 @@ const styles = StyleSheet.create({
   checkboxChecked: {
     backgroundColor: "#CA4B4B",
   },
-  checkboxLabel: {
+  checkboxMark: {
+    color: "#fff",
     fontSize: 16,
+    fontWeight: "bold",
+    lineHeight: 20,
+  },
+  checkboxLabel: {
+    fontSize: 15,
     color: "#222",
   },
   toggleRow: {
@@ -281,7 +291,7 @@ const styles = StyleSheet.create({
     minHeight: 44,
   },
   toggleLabel: {
-    fontSize: 15,
+    fontSize: 14,
     color: "#222",
     flex: 1,
     marginRight: 8,
@@ -289,11 +299,11 @@ const styles = StyleSheet.create({
   buttonRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 18,
+    marginTop: 12,
   },
   button: {
     flex: 1,
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderRadius: 8,
     marginHorizontal: 4,
     backgroundColor: "#CA4B4B",
@@ -311,16 +321,16 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 13, // smaller font
   },
   linkRow: {
-    marginTop: 12,
-    marginBottom: 18,
+    marginTop: 10,
+    marginBottom: 14,
   },
   linkText: {
     color: "#CA4B4B",
     textDecorationLine: "underline",
-    fontSize: 15,
-    marginBottom: 8,
+    fontSize: 13,
+    marginBottom: 6,
   },
 });
