@@ -1,0 +1,8 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "yourClasses": "Your Classes:",
+    "loading": "Loading...",
+    "noYearsFound": "No years found."
+  }
+}

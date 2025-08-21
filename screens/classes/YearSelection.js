@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ActivityIndicator, useColorScheme } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ActivityIndicator, TextInput } from 'react-native';
 import { db } from "../../services/firebase";
 import { getAuth } from 'firebase/auth';
 import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
@@ -46,6 +46,15 @@ const lightStyles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
+  searchBar: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 16,
+    color: '#222',
+    backgroundColor: '#fff',
+  },
 });
 
 const darkStyles = StyleSheet.create({
@@ -79,79 +88,102 @@ const darkStyles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
+  searchBar: {
+    borderWidth: 1,
+    borderColor: '#444',
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 16,
+    color: '#fff',
+    backgroundColor: '#222',
+  },
 });
 
 const YearSelection = ({ navigation }) => {
-    const [addedYears, setAddedYears] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const { isDark } = useTheme();
-    const styles = isDark ? darkStyles : lightStyles;
+  const [addedYears, setAddedYears] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
 
-    useEffect(() => {
-      const fetchExistingYears = async () => {
-        setLoading(true);
-        const auth = getAuth();
-        const user = auth.currentUser;
-        if (!user) {
-          setLoading(false);
-          return;
-        }
-
-        const studyProgramsSnapshot = await getDocs(collection(db, 'users', user.uid, 'studyPrograms'));
-        const yearNames = studyProgramsSnapshot.docs.map(doc => doc.id);
-        setAddedYears(yearNames);
-        setLoading(false);
-      };
-
-      fetchExistingYears();
-    }, []);
-
-    const handleYearPress = async (year) => {
+  useEffect(() => {
+    const fetchExistingYears = async () => {
       setLoading(true);
-      const selectedClass = allClasses.find(cls => cls.name === year);
-      if (!selectedClass) return;
-
       const auth = getAuth();
       const user = auth.currentUser;
       if (!user) {
-          console.error("User not logged in");
-          return;
-      }
-
-      try {
-          const programRef = doc(db, 'users', user.uid, 'studyPrograms', selectedClass.name);
-          await setDoc(programRef, {
-          name: selectedClass.name,
-          hasExams: selectedClass.hasExams,
-          createdAt: Date.now()
-          });
-
-          for (const subject of selectedClass.subjects) {
-          const courseRef = doc(programRef, 'courses', subject.name);
-          await setDoc(courseRef, {
-              name: subject.name,
-              credits: subject.coef,
-              ...(subject.subSubjects ? { subSubjects: subject.subSubjects } : {})
-          });
-          }
-
-          navigation.navigate('Dashboard');
-      } catch (err) {
-          console.error("Error adding year to Firestore:", err);
-          Alert.alert("Error", "Failed to add year. Please try again.");
-      } finally {
         setLoading(false);
+        return;
       }
+
+      const studyProgramsSnapshot = await getDocs(collection(db, 'users', user.uid, 'studyPrograms'));
+      const yearNames = studyProgramsSnapshot.docs.map(doc => doc.id);
+      setAddedYears(yearNames);
+      setLoading(false);
     };
+
+    fetchExistingYears();
+  }, []);
+
+  const handleYearPress = async (year) => {
+    setLoading(true);
+    const selectedClass = allClasses.find(cls => cls.name === year);
+    if (!selectedClass) return;
+
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (!user) {
+        console.error("User not logged in");
+        return;
+    }
+
+    try {
+        const programRef = doc(db, 'users', user.uid, 'studyPrograms', selectedClass.name);
+        await setDoc(programRef, {
+        name: selectedClass.name,
+        hasExams: selectedClass.hasExams,
+        createdAt: Date.now()
+        });
+
+        for (const subject of selectedClass.subjects) {
+        const courseRef = doc(programRef, 'courses', subject.name);
+        await setDoc(courseRef, {
+            name: subject.name,
+            credits: subject.coef,
+            ...(subject.subSubjects ? { subSubjects: subject.subSubjects } : {})
+        });
+        }
+
+        navigation.navigate('Dashboard');
+    } catch (err) {
+        console.error("Error adding year to Firestore:", err);
+        Alert.alert("Error", "Failed to add year. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Filter schoolYears based on search
+  const filteredYears = schoolYears.filter(year =>
+    year.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Choose your school year</Text>
+      <TextInput
+        style={styles.searchBar}
+        placeholder="Search year..."
+        placeholderTextColor={isDark ? "#bbb" : "#888"}
+        value={search}
+        onChangeText={setSearch}
+        accessibilityLabel="Search School Year"
+      />
       {loading ? (
         <ActivityIndicator size="large" color="#CA4B4B" style={{ marginVertical: 20 }} />
       ) : (
         <FlatList
-          data={schoolYears}
+          data={filteredYears}
           keyExtractor={(item) => item}
           contentContainerStyle={styles.list}
           renderItem={({ item }) => (

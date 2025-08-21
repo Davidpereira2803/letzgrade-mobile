@@ -8,49 +8,144 @@ import MenuModal from '../../components/MenuModal';
 import LottieView from "lottie-react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 const lightStyles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff'
+  },
   header: {
-    paddingTop: 50, paddingHorizontal: 20, paddingBottom: 16,
+    paddingTop: 50,
+    paddingHorizontal: 20,
+    paddingBottom: 16,
     backgroundColor: '#f5f5f5',
-    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    borderBottomWidth: 1, borderBottomColor: '#ddd',
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+    borderBottomWidth: 1, 
+    borderBottomColor: '#ddd',
   },
-  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#333' },
-  body: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 },
-  welcome: { fontSize: 20, fontWeight: '600', marginBottom: 32, textAlign: 'center', color: '#222' },
+  headerTitle: { 
+    fontSize: 20, 
+    fontWeight: 'bold', 
+    color: '#333' 
+  },
+  body: { 
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    padding: 24 
+  },
+  welcome: { 
+    fontSize: 20, 
+    fontWeight: '600', 
+    marginBottom: 32, 
+    textAlign: 'center', 
+    color: '#222' 
+  },
   yearRowButton: {
-    backgroundColor: '#CA4B4B', paddingVertical: 15, paddingHorizontal: 20,
-    borderRadius: 10, marginBottom: 15, elevation: 2, width: '80%', alignSelf: 'center',
-    shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 3,
-    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+    backgroundColor: '#CA4B4B', 
+    paddingVertical: 15,  
+    paddingHorizontal: 20,
+    borderRadius: 10, 
+    marginBottom: 15, 
+    elevation: 2, 
+    width: '80%', 
+    alignSelf: 'center',
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 }, 
+    shadowOpacity: 0.2, 
+    shadowRadius: 3,
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
   },
-  yearText: { color: '#fff', fontSize: 18, textAlign: 'center', fontWeight: 'bold' },
-  animation: { width: 200, height: 200, marginBottom: 20 },
-  trashButton: { marginLeft: 10, justifyContent: 'center', alignItems: 'center' },
+  yearText: { 
+    color: '#fff', 
+    fontSize: 18, 
+    textAlign: 'center', 
+    fontWeight: 'bold' 
+  },
+  animation: { 
+    width: 200, 
+    height: 200, 
+    marginBottom: 20 
+  },
+  trashButton: { 
+    marginLeft: 10, 
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
 });
 
 const darkStyles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#181818' },
+  container: { 
+    flex: 1, 
+    backgroundColor: '#181818' 
+  },
   header: {
-    paddingTop: 50, paddingHorizontal: 20, paddingBottom: 16,
+    paddingTop: 50, 
+    paddingHorizontal: 20, 
+    paddingBottom: 16,
     backgroundColor: '#222',
-    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    borderBottomWidth: 1, borderBottomColor: '#444',
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+    borderBottomWidth: 1, 
+    borderBottomColor: '#444',
   },
-  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#fff' },
-  body: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 },
-  welcome: { fontSize: 20, fontWeight: '600', marginBottom: 32, textAlign: 'center', color: '#fff' },
+  headerTitle: { 
+    fontSize: 20, 
+    fontWeight: 'bold', 
+    color: '#fff' 
+  },
+  body: { 
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    padding: 24 
+  },
+  welcome: { 
+    fontSize: 20, 
+    fontWeight: '600', 
+    marginBottom: 32, 
+    textAlign: 'center', 
+    color: '#fff' 
+  },
   yearRowButton: {
-    backgroundColor: '#CA4B4B', paddingVertical: 15, paddingHorizontal: 20,
-    borderRadius: 10, marginBottom: 15, elevation: 2, width: '80%', alignSelf: 'center',
-    shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 3,
-    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+    backgroundColor: '#CA4B4B', 
+    paddingVertical: 15, 
+    paddingHorizontal: 20,
+    borderRadius: 10, 
+    marginBottom: 15, 
+    elevation: 2, 
+    width: '80%', 
+    alignSelf: 'center',
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 }, 
+    shadowOpacity: 0.2, 
+    shadowRadius: 3,
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
   },
-  yearText: { color: '#fff', fontSize: 18, textAlign: 'center', fontWeight: 'bold' },
-  animation: { width: 200, height: 200, marginBottom: 20 },
-  trashButton: { marginLeft: 10, justifyContent: 'center', alignItems: 'center' },
+  yearText: { 
+    color: '#fff', 
+    fontSize: 18, 
+    textAlign: 'center', 
+    fontWeight: 'bold' 
+  },
+  animation: { 
+    width: 200, 
+    height: 200, 
+    marginBottom: 20 
+  },
+  trashButton: { 
+    marginLeft: 10, 
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
 });
 
 const Dashboard = ({ navigation }) => {
@@ -60,6 +155,7 @@ const Dashboard = ({ navigation }) => {
   const animationRef = useRef(null);
   const { isDark } = useTheme();
   const styles = isDark ? darkStyles : lightStyles;
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchYears = async () => {
@@ -128,7 +224,7 @@ const Dashboard = ({ navigation }) => {
             <Icon name="menu" size={28} color={isDark ? "#fff" : "#333"} />
           </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>Dashboard</Text>
+          <Text style={styles.headerTitle}>{t('dashboard.title')}</Text>
 
           <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
             <Icon name="person-circle" size={28} color={isDark ? "#fff" : "#333"} />
@@ -143,7 +239,6 @@ const Dashboard = ({ navigation }) => {
         />
 
         <ScrollView contentContainerStyle={styles.body}>
-          <Text style={styles.welcome}>Welcome to LetzGrade Dashboard!</Text>
           <LottieView
               ref={animationRef}
               source={require("../../assets/animations/graph-animation.json")}
@@ -151,12 +246,12 @@ const Dashboard = ({ navigation }) => {
               loop
               style={styles.animation}
           />
-          <Text style={styles.welcome}>Your Classes:</Text>
+          <Text style={styles.welcome}>{t('dashboard.yourClasses')}</Text>
 
           {loading ? (
-            <Text style={{ color: isDark ? "#fff" : "#222" }}>Loading...</Text>
+            <Text style={{ color: isDark ? "#fff" : "#222" }}>{t('dashboard.loading')}</Text>
           ) : years.length === 0 ? (
-            <Text style={{ color: isDark ? "#fff" : "#222" }}>No years found.</Text>
+            <Text style={{ color: isDark ? "#fff" : "#222" }}>{t('dashboard.noYearsFound')}</Text>
           ) : (
             years.map((year) => (
               <TouchableOpacity
