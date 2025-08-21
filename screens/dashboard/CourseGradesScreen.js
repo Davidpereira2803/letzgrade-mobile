@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, useColorScheme } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, useColorScheme, Share } from 'react-native';
 import { getAuth } from 'firebase/auth';
 import { db } from '../../services/firebase';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
@@ -91,6 +91,24 @@ const CourseGradesScreen = ({ route, navigation }) => {
     }
   };
 
+  const handleShareAverage = () => {
+    let message = average !== null
+      ? `My average for ${courseName} is ${average} / 60.\n\nGrades:\n`
+      : `No grades yet for ${courseName}.`;
+
+    if (grades.length > 0) {
+      grades.forEach(g => {
+        message += `• ${g.examName}\n  Grade: ${g.grade} / 60\n  Weight: ${g.weight}\n`;
+        if (g.description) {
+          message += `  Description: ${g.description}\n`;
+        }
+        message += '\n';
+      });
+    }
+
+    Share.share({ message });
+  };
+
   const average = computeWeightedAverage();
 
   return (
@@ -140,6 +158,14 @@ const CourseGradesScreen = ({ route, navigation }) => {
         accessibilityLabel="Add Grade Button"
       >
         <Text style={styles.buttonText}>Add Grade</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.button, { backgroundColor: '#888', marginTop: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}
+        onPress={handleShareAverage}
+        accessibilityLabel="Share Average Button"
+      >
+        <Ionicons name="share-social-outline" size={18} color="#fff" style={{ marginRight: 6 }} />
+        <Text style={[styles.buttonText, { fontSize: 15 }]}>Share</Text>
       </TouchableOpacity>
     </View>
   );
