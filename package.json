@@ -19,6 +19,7 @@
     "expo-constants": "~17.1.7",
     "expo-dev-client": "~5.2.4",
     "expo-font": "~13.3.2",
+    "expo-localization": "^16.1.6",
     "expo-status-bar": "~2.2.3",
     "firebase": "^11.10.0",
     "i18next": "^25.4.0",

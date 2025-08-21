@@ -1,10 +1,13 @@
 import React, { useRef } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import LottieView from "lottie-react-native";
+import { useTheme } from "../../context/ThemeContext";
 
 const Welcome = ({ navigation }) => {
   const animationRef = useRef(null);
-  
+  const { isDark } = useTheme();
+  const styles = isDark ? darkStyles : lightStyles;
+
   return (
     <View style={styles.container}>
       <LottieView
@@ -39,10 +42,23 @@ const Welcome = ({ navigation }) => {
 
 export default Welcome;
 
-const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", padding: 20, alignItems: "center" },
-  title: { fontSize: 28, fontWeight: "bold", marginBottom: 10 },
-  subtitle: { fontSize: 16, color: "#666", marginBottom: 30 },
+const lightStyles = StyleSheet.create({
+  container: { 
+    flex: 1, 
+    justifyContent: "center", 
+    padding: 20, 
+    alignItems: "center" 
+  },
+  title: { 
+    fontSize: 28, 
+    fontWeight: "bold", 
+    marginBottom: 10 
+  },
+  subtitle: { 
+    fontSize: 16, 
+    color: "#666", 
+    marginBottom: 30 
+  },
   button: {
     backgroundColor: "#CA4B4B",
     padding: 15,
@@ -59,8 +75,48 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   animation: {
-  width: 300,
-  height: 300,
-  marginBottom: 20,
+    width: 300,
+    height: 300,
+    marginBottom: 20,
+  },
+});
+
+const darkStyles = StyleSheet.create({
+  container: { 
+    flex: 1, 
+    justifyContent: "center", 
+    padding: 20, 
+    alignItems: "center" 
+  },
+  title: {
+    fontSize: 28, 
+    fontWeight: "bold",
+    color: "#fff", 
+    marginBottom: 10
+  },  
+  subtitle: { 
+    fontSize: 16, 
+    color: "#fff", 
+    marginBottom: 30 
+  },
+  button: {
+    backgroundColor: "#CA4B4B",
+    padding: 15,
+    borderRadius: 5,
+    marginBottom: 15,
+    width: "100%",
+  },
+  secondaryButton: {
+    backgroundColor: "#444",
+  },
+  buttonText: {
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  animation: {
+    width: 300,
+    height: 300,
+    marginBottom: 20,
   },
 });

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert, ActivityIndicator, Switch } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, ActivityIndicator, Switch, ScrollView } from 'react-native';
 import { auth, db } from '../../services/firebase';
 import { updateProfile, updateEmail, updatePassword, deleteUser, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import { doc, updateDoc, deleteDoc, collection, getDocs } from 'firebase/firestore';
 import EditFieldModal from '../../components/EditFieldModal';
 import ReauthModal from '../../components/ReauthModal';
 import { useTheme } from '../../context/ThemeContext';
+import { useNavigation } from '@react-navigation/native';
 
 const Settings = () => {
+  const navigation = useNavigation();
   const { theme, setAppTheme, isDark } = useTheme();
   const user = auth.currentUser;
   const [showNameModal, setShowNameModal] = useState(false);
@@ -119,61 +121,71 @@ const Settings = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Settings</Text>
+      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+        <Text style={styles.title}>Settings</Text>
 
-      {/* Appearance Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Appearance</Text>
-        <View style={styles.row}>
-          <Text style={styles.label}>Dark Mode</Text>
-          <Switch
-            value={theme === "dark"}
-            onValueChange={val => setAppTheme(val ? "dark" : "light")}
-            thumbColor={isDark ? "#CA4B4B" : "#ccc"}
-            trackColor={{ false: "#bbb", true: "#CA4B4B" }}
-          />
+        {/* Appearance Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Appearance</Text>
+          <View style={styles.row}>
+            <Text style={styles.label}>Dark Mode</Text>
+            <Switch
+              value={theme === "dark"}
+              onValueChange={val => setAppTheme(val ? "dark" : "light")}
+              thumbColor={isDark ? "#CA4B4B" : "#ccc"}
+              trackColor={{ false: "#bbb", true: "#CA4B4B" }}
+            />
+          </View>
         </View>
-      </View>
 
-      {/* Account Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Account</Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => setShowNameModal(true)}
-          accessibilityLabel="Change Name Button"
-        >
-          <Text style={styles.buttonText}>Change Name</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => setShowEmailModal(true)}
-          accessibilityLabel='Change Email Button'
-        >
-          <Text style={styles.buttonText}>Change Email</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => setShowPasswordModal(true)}
-          accessibilityLabel='Change Password Button'
-        >
-          <Text style={styles.buttonText}>Change Password</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Account</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => setShowNameModal(true)}
+            accessibilityLabel="Change Name Button"
+          >
+            <Text style={styles.buttonText}>Change Name</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => setShowEmailModal(true)}
+            accessibilityLabel='Change Email Button'
+          >
+            <Text style={styles.buttonText}>Change Email</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => setShowPasswordModal(true)}
+            accessibilityLabel='Change Password Button'
+          >
+            <Text style={styles.buttonText}>Change Password</Text>
+          </TouchableOpacity>
+        </View>
 
-      {/* Danger Zone Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Danger Zone</Text>
-        <TouchableOpacity
-          style={styles.deleteButton}
-          onPress={() => setReauthVisible(true)}
-          accessibilityLabel="Delete Account Button"
-        >
-          <Text style={styles.deleteButtonText}>Delete Account</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Danger Zone</Text>
+          <TouchableOpacity
+            style={styles.deleteButton}
+            onPress={() => setReauthVisible(true)}
+            accessibilityLabel="Delete Account Button"
+          >
+            <Text style={styles.deleteButtonText}>Delete Account</Text>
+          </TouchableOpacity>
+        </View>
 
-      {/* Modals */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Legal & Privacy</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("LegalScreen")}
+            accessibilityLabel="Legal & Privacy"
+          >
+            <Text style={styles.buttonText}>Legal & Privacy</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+
       <EditFieldModal
         visible={showNameModal}
         onClose={() => setShowNameModal(false)}

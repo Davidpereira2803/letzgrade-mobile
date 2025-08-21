@@ -1,0 +1,5 @@
+export const LEGAL_CONFIG = {
+  TOS_VERSION: "1.0",
+  PRIVACY_VERSION: "1.0",
+  MIN_SCROLL_PX_FROM_BOTTOM: 60,
+};

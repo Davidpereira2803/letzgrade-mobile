@@ -2,11 +2,14 @@ import './i18n';
 import React from "react";
 import { ThemeProvider } from "./context/ThemeContext";
 import Navigation from "./navigation";
+import OnAuthGate from "./screens/auth/OnAuthGate";
 
 export default function App() {
   return (
     <ThemeProvider>
-      <Navigation />
+      <OnAuthGate>
+        <Navigation />
+      </OnAuthGate>
     </ThemeProvider>
   );
 }

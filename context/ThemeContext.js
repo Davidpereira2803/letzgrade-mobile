@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light"); // "light" or "dark"
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     AsyncStorage.getItem("theme").then((savedTheme) => {

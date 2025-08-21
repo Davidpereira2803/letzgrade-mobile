@@ -14,6 +14,7 @@ import Settings from '../screens/profile/Settings';
 import AddGradeScreen from '../screens/dashboard/AddGradeScreen';
 import CourseGradesScreen from '../screens/dashboard/CourseGradesScreen';
 import EditGradeScreen from '../screens/dashboard/EditGradeScreen';
+import LegalScreen from '../screens/legal/LegalScreen';
 import { useTheme } from '../context/ThemeContext';
 
 const Stack = createNativeStackNavigator();
@@ -74,6 +75,7 @@ const Navigation = () => {
                 headerShown: true
               })}
             />
+            <Stack.Screen name="LegalScreen" component={LegalScreen} options={{ title: "Legal & Privacy" }}/>
           </>
         ) : (
           <>
