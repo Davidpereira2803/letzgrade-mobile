@@ -108,6 +108,7 @@ const AddGradeScreen = ({ route, navigation }) => {
       Alert.alert('Error', 'User not authenticated.');
       return;
     }
+
     try {
       const gradesRef = collection(
         db,
@@ -126,7 +127,16 @@ const AddGradeScreen = ({ route, navigation }) => {
         description,
         createdAt: new Date()
       });
-      Alert.alert('Success', 'Grade added!');
+    
+    if (gradeValue >= 50) {
+      Alert.alert('Great job!', 'You scored very high on this exam!');
+    } else if (gradeValue >= 40) {
+      Alert.alert('Good work!', 'Solid score, keep it up!');
+    } else if (gradeValue >= 30) {
+      Alert.alert('Keep going!', 'You passed, but there is room to improve.');
+    } else {
+      Alert.alert('Don\'t give up!', 'Consider reviewing the material and trying again.');
+    }
       navigation.goBack();
     } catch (error) {
       Alert.alert('Error', 'Failed to add grade. Please try again.');
