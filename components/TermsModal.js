@@ -165,10 +165,10 @@ const TermsModal = ({
           </View>
 
           <View style={styles.linkRow}>
-            <TouchableOpacity onPress={() => Linking.openURL("https://letzgrade.com/tos")}>
+            <TouchableOpacity onPress={() => Linking.openURL("https://davidpereira2803.github.io/letzgrade.web/#/terms")}>
               <Text style={styles.linkText}>Open full ToS</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => Linking.openURL("https://letzgrade.com/privacy")}>
+            <TouchableOpacity onPress={() => Linking.openURL("https://davidpereira2803.github.io/letzgrade.web/#/policy")}>
               <Text style={styles.linkText}>Open full Privacy Policy</Text>
             </TouchableOpacity>
           </View>
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 13, // smaller font
+    fontSize: 13,
   },
   linkRow: {
     marginTop: 10,
