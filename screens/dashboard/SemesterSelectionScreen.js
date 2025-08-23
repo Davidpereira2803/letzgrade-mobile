@@ -5,6 +5,27 @@ import { useTheme } from '../../context/ThemeContext';
 import { getAuth } from 'firebase/auth';
 import { db } from '../../services/firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { ProgressChart } from 'react-native-chart-kit';
+import { Dimensions } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
+
+const chartConfigLight = {
+  backgroundGradientFrom: "#fff",
+  backgroundGradientTo: "#fff",
+  color: (opacity = 1) => `rgba(202, 75, 75, ${opacity})`,
+  strokeWidth: 8,
+  barPercentage: 0.5,
+  useShadowColorFromDataset: false,
+};
+const chartConfigDark = {
+  backgroundGradientFrom: "#181818",
+  backgroundGradientTo: "#181818",
+  color: (opacity = 1) => `rgba(202, 75, 75, ${opacity})`,
+  strokeWidth: 8,
+  barPercentage: 0.5,
+  useShadowColorFromDataset: false,
+};
 
 const lightStyles = StyleSheet.create({
   container: {
@@ -370,6 +391,10 @@ export default function SemesterSelectionScreen({ navigation, route }) {
     fetchAverages();
   }, [yearId]);
 
+  const chartData = {
+    data: [yearAvg ? Math.min(Number(yearAvg) / 60, 1) : 0]
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.body}>
@@ -434,6 +459,55 @@ export default function SemesterSelectionScreen({ navigation, route }) {
           <Ionicons name="school-outline" size={22} color="#fff" />
           <Text style={styles.buttonText}>Semester 2</Text>
         </TouchableOpacity>
+        <View style={{ marginTop: 10, alignItems: 'center', width: '100%', justifyContent: 'center' }}>
+          <Text style={{
+            fontSize: 16,
+            fontWeight: 'bold',
+            color: '#CA4B4B',
+            marginBottom: 8,
+            textAlign: 'center'
+          }}>
+            Year Progress
+          </Text>
+          <View style={{ width: screenWidth * 0.7, height: 160, alignItems: 'center', justifyContent: 'center' }}>
+            <ProgressChart
+              data={chartData}
+              width={screenWidth * 0.7}
+              height={160}
+              strokeWidth={12}
+              radius={48}
+              chartConfig={isDark ? chartConfigDark : chartConfigLight}
+              hideLegend={true}
+              style={{ position: 'absolute', top: 0, left: 0 }}
+            />
+            <View style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: screenWidth * 0.7,
+              height: 160,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+              <Text style={{
+                fontSize: 20,
+                fontWeight: 'bold',
+                color: '#CA4B4B',
+                textAlign: 'center',
+              }}>
+                {yearAvg !== null ? yearAvg : 'N/A'}
+              </Text>
+              <Text style={{
+                fontSize: 16,
+                color: isDark ? '#fff' : '#222',
+                textAlign: 'center',
+                marginTop: -4,
+              }}>
+                / 60
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );
