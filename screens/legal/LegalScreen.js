@@ -6,8 +6,8 @@ import { db } from "../../services/firebase";
 import { LEGAL_CONFIG } from "../../config/legal";
 import { useTheme } from "../../context/ThemeContext";
 
-const TOS_URL = "https://letzgrade.com/tos";
-const PRIVACY_URL = "https://letzgrade.com/privacy";
+const TOS_URL = "https://davidpereira2803.github.io/letzgrade.web/#terms";
+const PRIVACY_URL = "https://davidpereira2803.github.io/letzgrade.web/#policy";
 
 const LegalScreen = () => {
   const [consent, setConsent] = useState(null);

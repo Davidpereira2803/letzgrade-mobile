@@ -25,7 +25,7 @@ const darkStyles = StyleSheet.create({
 });
 
 const CourseGradesScreen = ({ route, navigation }) => {
-  const { yearId, courseId, courseName } = route.params;
+  const { yearId, semesterId, courseId, courseName } = route.params;
   const [grades, setGrades] = useState([]);
   const { isDark } = useTheme();
   const styles = isDark ? darkStyles : lightStyles;
@@ -40,6 +40,8 @@ const CourseGradesScreen = ({ route, navigation }) => {
       user.uid,
       'studyPrograms',
       yearId,
+      'semesters',
+      semesterId,
       'courses',
       courseId,
       'grades'
@@ -51,7 +53,7 @@ const CourseGradesScreen = ({ route, navigation }) => {
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', fetchGrades);
     return unsubscribe;
-  }, [navigation, yearId, courseId]);
+  }, [navigation, yearId, semesterId, courseId]);
 
   const computeWeightedAverage = () => {
     if (grades.length === 0) return null;
@@ -80,6 +82,8 @@ const CourseGradesScreen = ({ route, navigation }) => {
         user.uid,
         'studyPrograms',
         yearId,
+        'semesters',
+        semesterId,
         'courses',
         courseId,
         'grades',
@@ -132,6 +136,7 @@ const CourseGradesScreen = ({ route, navigation }) => {
                 <TouchableOpacity
                   onPress={() => navigation.navigate('EditGradeScreen', {
                     yearId,
+                    semesterId,
                     courseId,
                     gradeId: item.id,
                     gradeData: item
@@ -154,7 +159,7 @@ const CourseGradesScreen = ({ route, navigation }) => {
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('AddGradeScreen', { yearId, courseId, courseName })}
+        onPress={() => navigation.navigate('AddGradeScreen', { yearId, semesterId, courseId, courseName })}
         accessibilityLabel="Add Grade Button"
       >
         <Text style={styles.buttonText}>Add Grade</Text>

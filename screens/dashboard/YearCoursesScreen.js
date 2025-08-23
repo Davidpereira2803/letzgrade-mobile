@@ -105,7 +105,7 @@ const darkStyles = StyleSheet.create({
 });
 
 const YearCoursesScreen = ({ route, navigation }) => {
-  const { yearId } = route.params;
+  const { yearId, semesterId } = route.params;
   const [courses, setCourses] = useState([]);
   const [yearAverage, setYearAverage] = useState(null);
   const { isDark } = useTheme();
@@ -117,7 +117,16 @@ const YearCoursesScreen = ({ route, navigation }) => {
     if (!user) return;
 
     try {
-      const coursesRef = collection(db, 'users', user.uid, 'studyPrograms', yearId, 'courses');
+      const coursesRef = collection(
+        db,
+        'users',
+        user.uid,
+        'studyPrograms',
+        yearId,
+        'semesters',
+        semesterId,
+        'courses'
+      );
       const snapshot = await getDocs(coursesRef);
       const courseList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
@@ -130,6 +139,8 @@ const YearCoursesScreen = ({ route, navigation }) => {
           user.uid,
           'studyPrograms',
           yearId,
+          'semesters',
+          semesterId,
           'courses',
           course.id,
           'grades'
@@ -175,22 +186,27 @@ const YearCoursesScreen = ({ route, navigation }) => {
     const unsubscribe = navigation.addListener('focus', fetchCoursesAndGrades);
     fetchCoursesAndGrades();
     return unsubscribe;
-  }, [navigation, yearId]);
+  }, [navigation, yearId, semesterId]);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: styles.container.backgroundColor }}>
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.yearAverage}>
-          Year Average: {yearAverage !== null ? `${yearAverage} / 60` : 'N/A'}
+          Semester Average: {yearAverage !== null ? `${yearAverage} / 60` : 'N/A'}
         </Text>
         {courses.length === 0 ? (
-          <Text style={styles.noCourses}>No courses found for this year.</Text>
+          <Text style={styles.noCourses}>No courses found for this semester.</Text>
         ) : (
           courses.map(course => (
             <TouchableOpacity
               key={course.id}
               style={styles.courseBox}
-              onPress={() => navigation.navigate('CourseGradesScreen', { yearId, courseId: course.id, courseName: course.name })}
+              onPress={() => navigation.navigate('CourseGradesScreen', {
+                yearId,
+                semesterId,
+                courseId: course.id,
+                courseName: course.name
+              })}
               accessibilityLabel={`View grades for ${course.name}`}
               activeOpacity={0.7}
             >

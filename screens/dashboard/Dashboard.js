@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, ScrollVi
 import { logout, db } from '../../services/firebase';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { getAuth } from 'firebase/auth';
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc, doc, writeBatch } from 'firebase/firestore';
 import MenuModal from '../../components/MenuModal';
 import LottieView from "lottie-react-native";
 import { Ionicons } from '@expo/vector-icons';
@@ -192,10 +192,10 @@ const Dashboard = ({ navigation }) => {
     }
   };
 
-  const handleDeleteYear = (yearName) => {
+  const handleDeleteYear = (yearId) => {
     Alert.alert(
       "Delete Year",
-      `Are you sure you want to delete ${yearName}?`,
+      `Are you sure you want to delete ${yearId}?`,
       [
         { text: "Cancel", style: "cancel" },
         {
@@ -204,9 +204,44 @@ const Dashboard = ({ navigation }) => {
           onPress: async () => {
             try {
               const auth = getAuth();
-              const yearRef = doc(db, 'users', auth.currentUser.uid, 'studyPrograms', yearName);
+              const userId = auth.currentUser.uid;
+              const yearRef = doc(db, 'users', userId, 'studyPrograms', yearId);
+
+              const semestersRef = collection(db, 'users', userId, 'studyPrograms', yearId, 'semesters');
+              const semestersSnap = await getDocs(semestersRef);
+
+              for (const semesterDoc of semestersSnap.docs) {
+                const semesterId = semesterDoc.id;
+                const coursesRef = collection(db, 'users', userId, 'studyPrograms', yearId, 'semesters', semesterId, 'courses');
+                const coursesSnap = await getDocs(coursesRef);
+
+                for (const courseDoc of coursesSnap.docs) {
+                  const courseId = courseDoc.id;
+                  const gradesRef = collection(db, 'users', userId, 'studyPrograms', yearId, 'semesters', semesterId, 'courses', courseId, 'grades');
+                  const gradesSnap = await getDocs(gradesRef);
+
+                  const batch = writeBatch(db);
+                  gradesSnap.forEach(gradeDoc => {
+                    batch.delete(gradeDoc.ref);
+                  });
+                  await batch.commit();
+
+                  await deleteDoc(courseDoc.ref);
+                }
+                await deleteDoc(semesterDoc.ref);
+              }
+
+              const yearCoursesRef = collection(db, 'users', userId, 'studyPrograms', yearId, 'courses');
+              const yearCoursesSnap = await getDocs(yearCoursesRef);
+              const batch = writeBatch(db);
+              yearCoursesSnap.forEach(courseDoc => {
+                batch.delete(courseDoc.ref);
+              });
+              await batch.commit();
+
               await deleteDoc(yearRef);
-              setYears(prev => prev.filter(p => p.id !== yearName));
+
+              setYears(prev => prev.filter(p => p.id !== yearId));
             } catch (error) {
               Alert.alert("Error", "Failed to delete year. Please try again.");
             }
@@ -214,6 +249,10 @@ const Dashboard = ({ navigation }) => {
         }
       ]
     );
+  };
+
+  const onYearPress = (yearId) => {
+    navigation.navigate('SemesterSelectionScreen', { yearId });
   };
 
   return (
@@ -257,7 +296,7 @@ const Dashboard = ({ navigation }) => {
               <TouchableOpacity
                 key={year.id}
                 style={styles.yearRowButton}
-                onPress={() => navigation.navigate('YearCourses', { yearId: year.id })}
+                onPress={() => onYearPress(year.id)}
                 accessibilityLabel={`Open ${year.id} details`}
               >
                 <Text style={styles.yearText}>{year.id}</Text>

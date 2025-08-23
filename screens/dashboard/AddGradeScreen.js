@@ -78,7 +78,7 @@ const darkStyles = StyleSheet.create({
 });
 
 const AddGradeScreen = ({ route, navigation }) => {
-  const { courseId, courseName, yearId } = route.params;
+  const { courseId, courseName, yearId, semesterId } = route.params;
   const [examName, setExamName] = useState('');
   const [grade, setGrade] = useState('');
   const [weight, setWeight] = useState('');
@@ -116,6 +116,8 @@ const AddGradeScreen = ({ route, navigation }) => {
         user.uid,
         'studyPrograms',
         yearId,
+        'semesters',
+        semesterId,
         'courses',
         courseId,
         'grades'

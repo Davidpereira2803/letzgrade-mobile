@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ActivityIndicator, TextInput } from 'react-native';
-import { db } from "../../services/firebase";
+import { db } from '../../services/firebase';
 import { getAuth } from 'firebase/auth';
-import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
 import allClasses from '../../assets/classes/classes.json'; 
 import { useTheme } from '../../context/ThemeContext';
 
@@ -99,6 +99,50 @@ const darkStyles = StyleSheet.create({
   },
 });
 
+async function ensureSemestersHaveCourses(yearId, userId) {
+  const semesterIds = ['semester1', 'semester2'];
+  const yearCoursesRef = collection(
+    db,
+    'users',
+    userId,
+    'studyPrograms',
+    yearId,
+    'courses'
+  );
+  const yearCoursesSnap = await getDocs(yearCoursesRef);
+  const yearCourses = yearCoursesSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+  for (const semesterId of semesterIds) {
+    const semesterCoursesRef = collection(
+      db,
+      'users',
+      userId,
+      'studyPrograms',
+      yearId,
+      'semesters',
+      semesterId,
+      'courses'
+    );
+    const semesterCoursesSnap = await getDocs(semesterCoursesRef);
+    if (semesterCoursesSnap.empty) {
+      await Promise.all(yearCourses.map(async (course) => {
+        const semesterCourseRef = doc(
+          db,
+          'users',
+          userId,
+          'studyPrograms',
+          yearId,
+          'semesters',
+          semesterId,
+          'courses',
+          course.id
+        );
+        await setDoc(semesterCourseRef, course);
+      }));
+    }
+  }
+}
+
 const YearSelection = ({ navigation }) => {
   const [addedYears, setAddedYears] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -154,6 +198,8 @@ const YearSelection = ({ navigation }) => {
         });
         }
 
+        await ensureSemestersHaveCourses(selectedClass.name, user.uid);
+
         navigation.navigate('Dashboard');
     } catch (err) {
         console.error("Error adding year to Firestore:", err);
@@ -163,7 +209,6 @@ const YearSelection = ({ navigation }) => {
     }
   };
 
-  // Filter schoolYears based on search
   const filteredYears = schoolYears.filter(year =>
     year.toLowerCase().includes(search.toLowerCase())
   );

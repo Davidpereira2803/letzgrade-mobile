@@ -15,7 +15,9 @@ import AddGradeScreen from '../screens/dashboard/AddGradeScreen';
 import CourseGradesScreen from '../screens/dashboard/CourseGradesScreen';
 import EditGradeScreen from '../screens/dashboard/EditGradeScreen';
 import LegalScreen from '../screens/legal/LegalScreen';
+import SemesterSelectionScreen from '../screens/dashboard/SemesterSelectionScreen';
 import { useTheme } from '../context/ThemeContext';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -49,7 +51,7 @@ const Navigation = () => {
             <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }}/>
             <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
             <Stack.Screen name="YearSelection" component={YearSelection} options={{ headerShown: true }} />
-            <Stack.Screen name="YearCourses" component={YearCoursesScreen} options={{ headerShown: true}}/>
+            <Stack.Screen name="YearCoursesScreen" component={YearCoursesScreen} options={{ headerShown: true}}/>
             <Stack.Screen name="Settings" component={Settings} options={{ headerShown: true }} />
             <Stack.Screen
               name="CourseGradesScreen"
@@ -76,6 +78,7 @@ const Navigation = () => {
               })}
             />
             <Stack.Screen name="LegalScreen" component={LegalScreen} options={{ title: "Legal & Privacy" }}/>
+            <Stack.Screen name="SemesterSelectionScreen" component={SemesterSelectionScreen} options={{ title: "Select Semester" }}/>
           </>
         ) : (
           <>

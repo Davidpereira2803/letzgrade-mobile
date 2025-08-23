@@ -78,7 +78,7 @@ const darkStyles = StyleSheet.create({
 });
 
 const EditGradeScreen = ({ route, navigation }) => {
-  const { yearId, courseId, gradeId, gradeData } = route.params;
+  const { yearId, semesterId, courseId, gradeId, gradeData } = route.params;
   const [examName, setExamName] = useState(gradeData.examName || '');
   const [grade, setGrade] = useState(String(gradeData.grade || ''));
   const [weight, setWeight] = useState(String(gradeData.weight || ''));
@@ -114,6 +114,8 @@ const EditGradeScreen = ({ route, navigation }) => {
         user.uid,
         'studyPrograms',
         yearId,
+        'semesters',
+        semesterId,
         'courses',
         courseId,
         'grades',
