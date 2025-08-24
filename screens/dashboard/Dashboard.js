@@ -376,6 +376,7 @@ const Dashboard = ({ navigation }) => {
             ))
           )}
         </View>
+
       </ScrollView>
     </SafeAreaView>
   );
