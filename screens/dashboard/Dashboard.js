@@ -1,5 +1,5 @@
-import React , { useEffect, useState, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, ScrollView, Platform } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, ScrollView } from 'react-native';
 import { logout, db } from '../../services/firebase';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { getAuth } from 'firebase/auth';
@@ -9,6 +9,7 @@ import LottieView from "lottie-react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
+import DashboardCalendar from '../../components/DashboardCalendar';
 
 const lightStyles = StyleSheet.create({
   container: {
@@ -20,131 +21,179 @@ const lightStyles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 16,
     backgroundColor: '#f5f5f5',
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomWidth: 1, 
+    borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },
-  headerTitle: { 
-    fontSize: 20, 
-    fontWeight: 'bold', 
-    color: '#333' 
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#333'
   },
-  body: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    padding: 24 
+  scrollContent: {
+    padding: 0,
+    paddingBottom: 32,
   },
-  welcome: { 
-    fontSize: 20, 
-    fontWeight: '600', 
-    marginBottom: 32, 
-    textAlign: 'center', 
-    color: '#222' 
+  section: {
+    width: '100%',
+    alignSelf: 'center',
+    marginBottom: 28,
+    paddingHorizontal: 8,
+  },
+  animation: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+    marginBottom: 10
+  },
+  welcome: {
+    fontSize: 20,
+    fontWeight: '600',
+    marginBottom: 18,
+    textAlign: 'center',
+    color: '#222'
+  },
+  calendarTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#CA4B4B',
+    marginBottom: 8,
+    textAlign: 'center'
   },
   yearRowButton: {
-    backgroundColor: '#CA4B4B', 
-    paddingVertical: 15,  
+    backgroundColor: '#CA4B4B',
+    paddingVertical: 15,
     paddingHorizontal: 20,
-    borderRadius: 10, 
-    marginBottom: 15, 
-    elevation: 2, 
-    width: '80%', 
+    borderRadius: 10,
+    marginBottom: 15,
+    elevation: 2,
+    width: '90%',
     alignSelf: 'center',
-    shadowColor: '#000', 
-    shadowOffset: { width: 0, height: 2 }, 
-    shadowOpacity: 0.2, 
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
     shadowRadius: 3,
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
-  yearText: { 
-    color: '#fff', 
-    fontSize: 18, 
-    textAlign: 'center', 
-    fontWeight: 'bold' 
+  yearText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
-  animation: { 
-    width: 200, 
-    height: 200, 
-    marginBottom: 20 
+  trashButton: {
+    marginLeft: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  trashButton: { 
-    marginLeft: 10, 
-    justifyContent: 'center', 
-    alignItems: 'center' 
+  noYears: {
+    color: '#222',
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 16,
+  },
+  loadingText: {
+    color: '#222',
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 16,
   },
 });
 
 const darkStyles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: '#181818' 
+  container: {
+    flex: 1,
+    backgroundColor: '#181818'
   },
   header: {
-    paddingTop: 50, 
-    paddingHorizontal: 20, 
+    paddingTop: 50,
+    paddingHorizontal: 20,
     paddingBottom: 16,
     backgroundColor: '#222',
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomWidth: 1, 
+    borderBottomWidth: 1,
     borderBottomColor: '#444',
   },
-  headerTitle: { 
-    fontSize: 20, 
-    fontWeight: 'bold', 
-    color: '#fff' 
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff'
   },
-  body: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    padding: 24 
+  scrollContent: {
+    padding: 0,
+    paddingBottom: 32,
   },
-  welcome: { 
-    fontSize: 20, 
-    fontWeight: '600', 
-    marginBottom: 32, 
-    textAlign: 'center', 
-    color: '#fff' 
+  section: {
+    width: '100%',
+    alignSelf: 'center',
+    marginBottom: 28,
+    paddingHorizontal: 8,
+  },
+  animation: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+    marginBottom: 10
+  },
+  welcome: {
+    fontSize: 20,
+    fontWeight: '600',
+    marginBottom: 18,
+    textAlign: 'center',
+    color: '#fff'
+  },
+  calendarTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#CA4B4B',
+    marginBottom: 8,
+    textAlign: 'center'
   },
   yearRowButton: {
-    backgroundColor: '#CA4B4B', 
-    paddingVertical: 15, 
+    backgroundColor: '#CA4B4B',
+    paddingVertical: 15,
     paddingHorizontal: 20,
-    borderRadius: 10, 
-    marginBottom: 15, 
-    elevation: 2, 
-    width: '80%', 
+    borderRadius: 10,
+    marginBottom: 15,
+    elevation: 2,
+    width: '90%',
     alignSelf: 'center',
-    shadowColor: '#000', 
-    shadowOffset: { width: 0, height: 2 }, 
-    shadowOpacity: 0.2, 
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
     shadowRadius: 3,
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
-  yearText: { 
-    color: '#fff', 
-    fontSize: 18, 
-    textAlign: 'center', 
-    fontWeight: 'bold' 
+  yearText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
-  animation: { 
-    width: 200, 
-    height: 200, 
-    marginBottom: 20 
+  trashButton: {
+    marginLeft: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  trashButton: { 
-    marginLeft: 10, 
-    justifyContent: 'center', 
-    alignItems: 'center' 
+  noYears: {
+    color: '#fff',
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 16,
+  },
+  loadingText: {
+    color: '#fff',
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 16,
   },
 });
 
@@ -152,6 +201,7 @@ const Dashboard = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [years, setYears] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedDate, setSelectedDate] = useState(null);
   const animationRef = useRef(null);
   const { isDark } = useTheme();
   const styles = isDark ? darkStyles : lightStyles;
@@ -255,42 +305,57 @@ const Dashboard = ({ navigation }) => {
     navigation.navigate('SemesterSelectionScreen', { yearId });
   };
 
+  const onDayPress = (day) => {
+    setSelectedDate(day.dateString);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => setMenuVisible(true)}>
-            <Icon name="menu" size={28} color={isDark ? "#fff" : "#333"} />
-          </TouchableOpacity>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => setMenuVisible(true)}>
+          <Icon name="menu" size={28} color={isDark ? "#fff" : "#333"} />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>{t('dashboard.title')}</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+          <Icon name="person-circle" size={28} color={isDark ? "#fff" : "#333"} />
+        </TouchableOpacity>
+      </View>
 
-          <Text style={styles.headerTitle}>{t('dashboard.title')}</Text>
+      <MenuModal
+        visible={menuVisible}
+        onClose={() => setMenuVisible(false)}
+        onLogout={handleLogout}
+        navigation={navigation}
+      />
 
-          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-            <Icon name="person-circle" size={28} color={isDark ? "#fff" : "#333"} />
-          </TouchableOpacity>
+      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        {/*
+        <View style={styles.section}>
+          <LottieView
+            ref={animationRef}
+            source={require("../../assets/animations/graph-animation.json")}
+            autoPlay
+            loop
+            style={styles.animation}
+          />
+        </View>
+        */}
+
+        <View style={styles.section}>
+          <DashboardCalendar
+            selectedDate={selectedDate}
+            onDayPress={onDayPress}
+            isDark={isDark}
+          />
         </View>
 
-        <MenuModal
-          visible={menuVisible}
-          onClose={() => setMenuVisible(false)}
-          onLogout={handleLogout}
-          navigation={navigation}
-        />
-
-        <ScrollView contentContainerStyle={styles.body}>
-          <LottieView
-              ref={animationRef}
-              source={require("../../assets/animations/graph-animation.json")}
-              autoPlay
-              loop
-              style={styles.animation}
-          />
+        <View style={styles.section}>
           <Text style={styles.welcome}>{t('dashboard.yourClasses')}</Text>
 
           {loading ? (
-            <Text style={{ color: isDark ? "#fff" : "#222" }}>{t('dashboard.loading')}</Text>
+            <Text style={styles.loadingText}>{t('dashboard.loading')}</Text>
           ) : years.length === 0 ? (
-            <Text style={{ color: isDark ? "#fff" : "#222" }}>{t('dashboard.noYearsFound')}</Text>
+            <Text style={styles.noYears}>{t('dashboard.noYearsFound')}</Text>
           ) : (
             years.map((year) => (
               <TouchableOpacity
@@ -310,8 +375,8 @@ const Dashboard = ({ navigation }) => {
               </TouchableOpacity>
             ))
           )}
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert, ActivityIndicator, Switch, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, ActivityIndicator, Switch, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { auth, db } from '../../services/firebase';
 import { updateProfile, updateEmail, updatePassword, deleteUser, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import { doc, updateDoc, deleteDoc, collection, getDocs } from 'firebase/firestore';
@@ -120,106 +120,116 @@ const Settings = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
-        <Text style={styles.title}>Settings</Text>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+      keyboardVerticalOffset={80}
+    >
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 40, flexGrow: 1 }}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.container}>
+          <Text style={styles.title}>Settings</Text>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Appearance</Text>
-          <View style={styles.row}>
-            <Text style={styles.label}>Dark Mode</Text>
-            <Switch
-              value={theme === "dark"}
-              onValueChange={val => setAppTheme(val ? "dark" : "light")}
-              thumbColor={isDark ? "#CA4B4B" : "#ccc"}
-              trackColor={{ false: "#bbb", true: "#CA4B4B" }}
-            />
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Appearance</Text>
+            <View style={styles.row}>
+              <Text style={styles.label}>Dark Mode</Text>
+              <Switch
+                value={theme === "dark"}
+                onValueChange={val => setAppTheme(val ? "dark" : "light")}
+                thumbColor={isDark ? "#CA4B4B" : "#ccc"}
+                trackColor={{ false: "#bbb", true: "#CA4B4B" }}
+              />
+            </View>
           </View>
-        </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Account</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => setShowNameModal(true)}
-            accessibilityLabel="Change Name Button"
-          >
-            <Text style={styles.buttonText}>Change Name</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => setShowEmailModal(true)}
-            accessibilityLabel='Change Email Button'
-          >
-            <Text style={styles.buttonText}>Change Email</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => setShowPasswordModal(true)}
-            accessibilityLabel='Change Password Button'
-          >
-            <Text style={styles.buttonText}>Change Password</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Account</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setShowNameModal(true)}
+              accessibilityLabel="Change Name Button"
+            >
+              <Text style={styles.buttonText}>Change Name</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setShowEmailModal(true)}
+              accessibilityLabel='Change Email Button'
+            >
+              <Text style={styles.buttonText}>Change Email</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setShowPasswordModal(true)}
+              accessibilityLabel='Change Password Button'
+            >
+              <Text style={styles.buttonText}>Change Password</Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Danger Zone</Text>
-          <TouchableOpacity
-            style={styles.deleteButton}
-            onPress={() => setReauthVisible(true)}
-            accessibilityLabel="Delete Account Button"
-          >
-            <Text style={styles.deleteButtonText}>Delete Account</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Danger Zone</Text>
+            <TouchableOpacity
+              style={styles.deleteButton}
+              onPress={() => setReauthVisible(true)}
+              accessibilityLabel="Delete Account Button"
+            >
+              <Text style={styles.deleteButtonText}>Delete Account</Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Legal & Privacy</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate("LegalScreen")}
-            accessibilityLabel="Legal & Privacy"
-          >
-            <Text style={styles.buttonText}>Legal & Privacy</Text>
-          </TouchableOpacity>
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Legal & Privacy</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate("LegalScreen")}
+              accessibilityLabel="Legal & Privacy"
+            >
+              <Text style={styles.buttonText}>Legal & Privacy</Text>
+            </TouchableOpacity>
+          </View>
+
+          <EditFieldModal
+            visible={showNameModal}
+            onClose={() => setShowNameModal(false)}
+            label="New Name"
+            onSave={handleUpdateName}
+            defaultValue={user.displayName || ''}
+          />
+          <EditFieldModal
+            visible={showEmailModal}
+            onClose={() => setShowEmailModal(false)}
+            label="New Email"
+            onSave={handleUpdateEmail}
+            defaultValue={user.email || ''}
+          />
+          <EditFieldModal
+            visible={showPasswordModal}
+            onClose={() => setShowPasswordModal(false)}
+            label="New Password"
+            defaultValue={'Enter new password'}
+            onSave={handleUpdatePassword}
+            secureTextEntry
+          />
+          <ReauthModal
+            visible={isReauthVisible}
+            onClose={() => setReauthVisible(false)}
+            onConfirm={(password) => {
+              setReauthVisible(false);
+              handleDeleteAccount(password);
+            }}
+          />
+
+          {loading && (
+            <ActivityIndicator size="large" color="#CA4B4B" style={{ marginVertical: 20 }} />
+          )}
         </View>
       </ScrollView>
-
-      <EditFieldModal
-        visible={showNameModal}
-        onClose={() => setShowNameModal(false)}
-        label="New Name"
-        onSave={handleUpdateName}
-        defaultValue={user.displayName || ''}
-      />
-      <EditFieldModal
-        visible={showEmailModal}
-        onClose={() => setShowEmailModal(false)}
-        label="New Email"
-        onSave={handleUpdateEmail}
-        defaultValue={user.email || ''}
-      />
-      <EditFieldModal
-        visible={showPasswordModal}
-        onClose={() => setShowPasswordModal(false)}
-        label="New Password"
-        defaultValue={'Enter new password'}
-        onSave={handleUpdatePassword}
-        secureTextEntry
-      />
-      <ReauthModal
-        visible={isReauthVisible}
-        onClose={() => setReauthVisible(false)}
-        onConfirm={(password) => {
-          setReauthVisible(false);
-          handleDeleteAccount(password);
-        }}
-      />
-
-      {loading && (
-        <ActivityIndicator size="large" color="#CA4B4B" style={{ marginVertical: 20 }} />
-      )}
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
