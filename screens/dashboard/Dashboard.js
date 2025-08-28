@@ -10,6 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import DashboardCalendar from '../../components/DashboardCalendar';
+import { Button } from 'react-native'; // Add if not already imported
 
 const lightStyles = StyleSheet.create({
   container: {
@@ -350,6 +351,35 @@ const Dashboard = ({ navigation }) => {
         </View>
 
         <View style={styles.section}>
+          
+          {/* --- New Button to HowMuchdoINeed Screen --- */}
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#CA4B4B',
+              paddingVertical: 16,
+              borderRadius: 10,
+              marginBottom: 18,
+              alignItems: 'center',
+              width: '90%',
+              alignSelf: 'center',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              elevation: 2,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.12,
+              shadowRadius: 3,
+            }}
+            onPress={() => navigation.navigate('HowMuchDoINeed')}
+            accessibilityLabel="Go to HowMuchdoINeed"
+          >
+            <Ionicons name="calculator-outline" size={22} color="#fff" style={{ marginRight: 10 }} />
+            <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>
+              How Much Do I Need?
+            </Text>
+          </TouchableOpacity>
+          {/* --- End New Button --- */}
+          
           <Text style={styles.welcome}>{t('dashboard.yourClasses')}</Text>
 
           {loading ? (

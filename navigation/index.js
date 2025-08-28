@@ -16,6 +16,7 @@ import CourseGradesScreen from '../screens/dashboard/CourseGradesScreen';
 import EditGradeScreen from '../screens/dashboard/EditGradeScreen';
 import LegalScreen from '../screens/legal/LegalScreen';
 import SemesterSelectionScreen from '../screens/dashboard/SemesterSelectionScreen';
+import HowMuchDoINeed from '../screens/dashboard/HowMuchDoINeed';
 import { useTheme } from '../context/ThemeContext';
 
 
@@ -79,6 +80,7 @@ const Navigation = () => {
             />
             <Stack.Screen name="LegalScreen" component={LegalScreen} options={{ title: "Legal & Privacy" }}/>
             <Stack.Screen name="SemesterSelectionScreen" component={SemesterSelectionScreen} options={{ title: "Select Semester" }}/>
+            <Stack.Screen name="HowMuchDoINeed" component={HowMuchDoINeed} options={{ title: "How Much Do I Need?" }}/>
           </>
         ) : (
           <>
