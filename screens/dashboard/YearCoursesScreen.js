@@ -205,15 +205,15 @@ const YearCoursesScreen = ({ route, navigation }) => {
                 yearId,
                 semesterId,
                 courseId: course.id,
-                courseName: course.name
+                courseName: course.label
               })}
-              accessibilityLabel={`View grades for ${course.name}`}
+              accessibilityLabel={`View grades for ${course.label}`}
               activeOpacity={0.7}
             >
               <View style={styles.courseRow}>
                 <Ionicons name="book-outline" size={24} color="#CA4B4B" style={{ marginRight: 12 }} />
                 <View style={{ flex: 1 }}>
-                  <Text style={styles.courseName}>{course.name}</Text>
+                  <Text style={styles.courseName}>{course.label}</Text>
                   <Text style={styles.courseCredits}>Credits: {course.credits || 'N/A'}</Text>
                   <Text style={styles.courseAverage}>
                     Average: {course.average !== null ? `${course.average.toFixed(2)} / 60` : 'N/A'}

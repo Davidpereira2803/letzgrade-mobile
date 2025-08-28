@@ -6,14 +6,10 @@ import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
 import allClasses from '../../assets/classes/classes.json'; 
 import { useTheme } from '../../context/ThemeContext';
 
+// Updated: Use "year" and "courses" keys from new classes.json structure
 const schoolYears = allClasses
-  .map(cls => cls.name)
-  .sort((a, b) => {
-    const numA = parseInt(a);
-    const numB = parseInt(b);
-    return numA - numB;
-  });
-
+  .map(cls => cls.year)
+  .filter(year => typeof year === 'string' && year.length > 0);
 
 const lightStyles = StyleSheet.create({
   container: {
@@ -169,41 +165,42 @@ const YearSelection = ({ navigation }) => {
     fetchExistingYears();
   }, []);
 
+  // Updated: Use "year" and "courses" keys
   const handleYearPress = async (year) => {
     setLoading(true);
-    const selectedClass = allClasses.find(cls => cls.name === year);
+    const selectedClass = allClasses.find(cls => cls.year === year);
     if (!selectedClass) return;
 
     const auth = getAuth();
     const user = auth.currentUser;
     if (!user) {
-        console.error("User not logged in");
-        return;
+      console.error("User not logged in");
+      return;
     }
 
     try {
-        const programRef = doc(db, 'users', user.uid, 'studyPrograms', selectedClass.name);
-        await setDoc(programRef, {
-        name: selectedClass.name,
-        hasExams: selectedClass.hasExams,
+      const programRef = doc(db, 'users', user.uid, 'studyPrograms', selectedClass.year);
+      await setDoc(programRef, {
+        year: selectedClass.year,
         createdAt: Date.now()
-        });
+      });
 
-        for (const subject of selectedClass.subjects) {
-        const courseRef = doc(programRef, 'courses', subject.name);
+      // Use course.name instead of course.label
+      for (const course of selectedClass.courses) {
+        const courseRef = doc(programRef, 'courses', course.code);
         await setDoc(courseRef, {
-            name: subject.name,
-            credits: subject.coef,
-            ...(subject.subSubjects ? { subSubjects: subject.subSubjects } : {})
+          code: course.code,
+          name: course.name, // <-- changed from label to name
+          coeff: course.coeff
         });
-        }
+      }
 
-        await ensureSemestersHaveCourses(selectedClass.name, user.uid);
+      await ensureSemestersHaveCourses(selectedClass.year, user.uid);
 
-        navigation.navigate('Dashboard');
+      navigation.navigate('Dashboard');
     } catch (err) {
-        console.error("Error adding year to Firestore:", err);
-        Alert.alert("Error", "Failed to add year. Please try again.");
+      console.error("Error adding year to Firestore:", err);
+      Alert.alert("Error", "Failed to add year. Please try again.");
     } finally {
       setLoading(false);
     }
