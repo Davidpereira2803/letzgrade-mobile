@@ -165,10 +165,10 @@ const TermsModal = ({
           </View>
 
           <View style={styles.linkRow}>
-            <TouchableOpacity onPress={() => Linking.openURL("https://davidpereira2803.github.io/letzgrade.web/#/terms")}>
+            <TouchableOpacity onPress={() => Linking.openURL("https://davidpereira2803.github.io/letzgrade-mobile/Terms.md")}>
               <Text style={styles.linkText}>Open full ToS</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => Linking.openURL("https://davidpereira2803.github.io/letzgrade.web/#/policy")}>
+            <TouchableOpacity onPress={() => Linking.openURL("https://davidpereira2803.github.io/letzgrade-mobile/Privacy.md")}>
               <Text style={styles.linkText}>Open full Privacy Policy</Text>
             </TouchableOpacity>
           </View>
