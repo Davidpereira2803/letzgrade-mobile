@@ -129,6 +129,247 @@
         { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
         { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
       ]
+    },
+    {
+      "year": "4CZH",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 4 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 4 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 4 },
+        { "code": "CHINO", "name": "Chinois", "coeff": 3 },
+        { "code": "LUXEM", "name": "Luxembourgeois", "coeff": 2 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 4 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "GEOGR", "name": "Géographie", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYCH", "name": "Physique / Chimie", "coeff": 2 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "4C",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 4 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 4 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 4 },
+        { "code": "LUXEM", "name": "Luxembourgeois", "coeff": 2 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 4 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "GEOGR", "name": "Géographie", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYCH", "name": "Physique / Chimie", "coeff": 2 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CLA",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 4 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 4 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 4 },
+        { "code": "LATIN", "name": "Latin", "coeff": 3 },
+        { "code": "GRECA", "name": "Grec ancien", "coeff": 3 },
+        { "code": "ESPAN", "name": "Espagnol", "coeff": 3 },
+        { "code": "ITALI", "name": "Italien", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 2 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 2 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2 },
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CLB",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "LATIN", "name": "Latin", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 4 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 3 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 3 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2 },
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CLC",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "LATIN", "name": "Latin", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 3 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 4 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 3 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 3 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2 },
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CLD",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "LATIN", "name": "Latin", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 3 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "SCIES", "name": "Sciences économiques et sociales", "coeff": 4 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 2 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2 },
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CLE",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "LATIN", "name": "Latin", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 3 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 2 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 4, "subsubjects": [
+          { "code": "DESSI", "name": "Dessin", "coeff": 1 },
+          { "code": "COMVU", "name": "Communication visuelle", "coeff": 1 },
+          { "code": "HISAR", "name": "Histoire de l'art", "coeff": 1 }
+        ] },
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CLF",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "LATIN", "name": "Latin", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 3 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 2 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2},
+        { "code": "EDMUS", "name": "Éducation musicale", "coeff": 4, "subsubjects": [
+          { "code": "HISMU", "name": "Histoire de la musique", "coeff": 2 },
+          { "code": "THEFO", "name": "Théorie et formes", "coeff": 2 },
+          { "code": "CHACH", "name": "Chant choral", "coeff": 1 },
+          { "code": "PRAIN", "name": "Pratique instrumentale", "coeff": 1 }
+        ] },
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CLG",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "LATIN", "name": "Latin", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 3 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "GEOGR", "name": "Géographie", "coeff": 2 },
+        { "code": "SCIES", "name": "Sciences économiques et sociales", "coeff": 4 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 2 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2},
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CZHA",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 4 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 4 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 4 },
+        { "code": "CHINO", "name": "Chinois", "coeff": 3 },
+        { "code": "ESPAN", "name": "Espagnol", "coeff": 3 },
+        { "code": "ITALI", "name": "Italien", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 2 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 2 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2},
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CZHB",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "CHINO", "name": "Chinois", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 4 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 3 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 3 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2},
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CZHC",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "CHINO", "name": "Chinois", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 3 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 4 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 3 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 3 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2},
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
+    },
+    {
+      "year": "3CZHD",
+      "courses": [
+        { "code": "FRANC", "name": "Français", "coeff": 3 },
+        { "code": "ALLEM", "name": "Allemand", "coeff": 3 },
+        { "code": "ANGLA", "name": "Anglais", "coeff": 3 },
+        { "code": "CHINO", "name": "Chinois", "coeff": 3 },
+        { "code": "MATHE", "name": "Mathématiques", "coeff": 3 },
+        { "code": "HISTO", "name": "Histoire", "coeff": 2 },
+        { "code": "SCIES", "name": "Sciences économiques et sociales", "coeff": 4 },
+        { "code": "BIOLO", "name": "Biologie", "coeff": 2 },
+        { "code": "PHYSI", "name": "Physique", "coeff": 2 },
+        { "code": "CHIMI", "name": "Chimie", "coeff": 2 },
+        { "code": "EDUPH", "name": "Éducation physique et sportive", "coeff": 1 },
+        { "code": "EDART", "name": "Éducation artistique", "coeff": 2},
+        { "code": "VIESO", "name": "Vie et société", "coeff": 2 }
+      ]
     }
   ]
 }
