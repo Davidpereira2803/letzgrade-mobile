@@ -362,7 +362,7 @@ export default function SemesterSelectionScreen({ navigation, route }) {
           });
           const courseAverage = courseTotalWeight > 0 ? courseWeighted / courseTotalWeight : null;
 
-          const credits = Number(course.credits) || 0;
+          const credits = Number(course.coeff) || 0;
           if (courseAverage !== null && credits > 0) {
             totalWeighted += courseAverage * credits;
             totalCredits += credits;

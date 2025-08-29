@@ -10,7 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import DashboardCalendar from '../../components/DashboardCalendar';
-import { Button } from 'react-native'; // Add if not already imported
+import { Button } from 'react-native';
 
 const lightStyles = StyleSheet.create({
   container: {
@@ -378,7 +378,6 @@ const Dashboard = ({ navigation }) => {
               How Much Do I Need?
             </Text>
           </TouchableOpacity>
-          {/* --- End New Button --- */}
           
           <Text style={styles.welcome}>{t('dashboard.yourClasses')}</Text>
 

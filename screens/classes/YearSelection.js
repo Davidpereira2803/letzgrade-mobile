@@ -3,11 +3,10 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert, ActivityIndi
 import { db } from '../../services/firebase';
 import { getAuth } from 'firebase/auth';
 import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
-import allClasses from '../../assets/classes/classes.json'; 
+import classesData from '../../assets/catalog/classes.json';
 import { useTheme } from '../../context/ThemeContext';
 
-// Updated: Use "year" and "courses" keys from new classes.json structure
-const schoolYears = allClasses
+const schoolYears = classesData.years
   .map(cls => cls.year)
   .filter(year => typeof year === 'string' && year.length > 0);
 
@@ -165,10 +164,9 @@ const YearSelection = ({ navigation }) => {
     fetchExistingYears();
   }, []);
 
-  // Updated: Use "year" and "courses" keys
   const handleYearPress = async (year) => {
     setLoading(true);
-    const selectedClass = allClasses.find(cls => cls.year === year);
+    const selectedClass = classesData.years.find(cls => cls.year === year);
     if (!selectedClass) return;
 
     const auth = getAuth();
@@ -182,15 +180,16 @@ const YearSelection = ({ navigation }) => {
       const programRef = doc(db, 'users', user.uid, 'studyPrograms', selectedClass.year);
       await setDoc(programRef, {
         year: selectedClass.year,
-        createdAt: Date.now()
+        createdAt: Date.now(),
+        system: classesData.system,
+        version: classesData.version
       });
 
-      // Use course.name instead of course.label
       for (const course of selectedClass.courses) {
         const courseRef = doc(programRef, 'courses', course.code);
         await setDoc(courseRef, {
           code: course.code,
-          name: course.name, // <-- changed from label to name
+          name: course.name,
           coeff: course.coeff
         });
       }

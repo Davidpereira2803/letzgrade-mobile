@@ -160,7 +160,7 @@ const YearCoursesScreen = ({ route, navigation }) => {
         });
         const courseAverage = courseTotalWeight > 0 ? courseWeighted / courseTotalWeight : null;
 
-        const credits = Number(course.credits) || 0;
+        const credits = Number(course.coeff) || 0;
         if (courseAverage !== null && credits > 0) {
           totalWeighted += courseAverage * credits;
           totalCredits += credits;
@@ -214,7 +214,7 @@ const YearCoursesScreen = ({ route, navigation }) => {
                 <Ionicons name="book-outline" size={24} color="#CA4B4B" style={{ marginRight: 12 }} />
                 <View style={{ flex: 1 }}>
                   <Text style={styles.courseName}>{course.label}</Text>
-                  <Text style={styles.courseCredits}>Credits: {course.credits || 'N/A'}</Text>
+                  <Text style={styles.courseCredits}>Coefficient: {course.coeff || 'N/A'}</Text>
                   <Text style={styles.courseAverage}>
                     Average: {course.average !== null ? `${course.average.toFixed(2)} / 60` : 'N/A'}
                   </Text>
