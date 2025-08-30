@@ -7,7 +7,8 @@
       "courses": [
         {
           "code": "LANGU",
-          "name": "Langues"
+          "name": "Langues",
+          "coeff": null
         },
         {
           "code": "ALLUX",
@@ -36,20 +37,18 @@
         },
         {
           "code": "EDTEC",
-          "name": "Éducation technologique"
+          "name": "Éducation technologique",
+          "coeff": null
         },
         {
           "code": "INFOR",
-          "name": "Informatique"
+          "name": "Informatique",
+          "coeff": null
         },
         {
           "code": "DESTE",
-          "name": "Dessin / Techniques"
-        },
-        {
-          "code": "ATxxx",
-          "name": "Ateliers",
-          "coeff": 4
+          "name": "Dessin / Techniques",
+          "coeff": null
         },
         {
           "code": "OPxxx",
@@ -58,7 +57,8 @@
         },
         {
           "code": "BRCO1",
-          "name": "Discipline combinée"
+          "name": "Discipline combinée",
+          "coeff": null
         },
         {
           "code": "EDUPH",
@@ -72,7 +72,8 @@
         },
         {
           "code": "TUPRE",
-          "name": "Tutorat"
+          "name": "Tutorat",
+          "coeff": null
         }
       ]
     },
@@ -81,15 +82,18 @@
       "courses": [
         {
           "code": "LANLU",
-          "name": "Langues"
+          "name": "Langues",
+          "coeff": null
         },
         {
           "code": "LUXEM",
-          "name": "Luxembourgeois"
+          "name": "Luxembourgeois",
+          "coeff": null
         },
         {
           "code": "FRANC",
-          "name": "Français"
+          "name": "Français",
+          "coeff": null
         },
         {
           "code": "MATHE",
@@ -108,24 +112,22 @@
         },
         {
           "code": "EDTEC",
-          "name": "Éducation technologique"
+          "name": "Éducation technologique",
+          "coeff": null
         },
         {
           "code": "INFOR",
-          "name": "Informatique"
+          "name": "Informatique",
+          "coeff": null
         },
         {
           "code": "DESTE",
-          "name": "Dessin / Techniques"
+          "name": "Dessin / Techniques",
+          "coeff": null
         },
         {
           "code": "OPxxx",
           "name": "Options",
-          "coeff": 4
-        },
-        {
-          "code": "ATxxx",
-          "name": "Ateliers",
           "coeff": 4
         },
         {
@@ -170,15 +172,18 @@
         },
         {
           "code": "LAPLA",
-          "name": "Langage plastique bidimensionnel"
+          "name": "Langage plastique bidimensionnel",
+          "coeff": null
         },
         {
           "code": "DESMA",
-          "name": "Dessin à main levée"
+          "name": "Dessin à main levée",
+          "coeff": null
         },
         {
           "code": "THCOP",
-          "name": "Théorie de la couleur / Peinture"
+          "name": "Théorie de la couleur / Peinture",
+          "coeff": null
         },
         {
           "code": "COMGR",
@@ -197,15 +202,20 @@
         },
         {
           "code": "CITCL",
-          "name": "Citoyenneté, culture et langue luxembourgeoises"
-        },
-        {
-          "code": "LUXEM",
-          "name": "Luxembourgeois"
-        },
-        {
-          "code": "EDCIT",
-          "name": "Éducation à la citoyenneté"
+          "name": "Citoyenneté, culture et langue luxembourgeoises",
+          "coeff": null,
+          "subsubjects": [
+            {
+              "code": "LUXEM",
+              "name": "Luxembourgeois",
+              "coeff": null
+            },
+            {
+              "code": "EDCIT",
+              "name": "Éducation à la citoyenneté",
+              "coeff": null
+            }
+          ]
         },
         {
           "code": "VIESO",
@@ -216,11 +226,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -264,15 +269,20 @@
         },
         {
           "code": "CITCL",
-          "name": "Citoyenneté, culture et langue luxembourgeoises"
-        },
-        {
-          "code": "LUXEM",
-          "name": "Luxembourgeois"
-        },
-        {
-          "code": "EDCIT",
-          "name": "Éducation à la citoyenneté"
+          "name": "Citoyenneté, culture et langue luxembourgeoises",
+          "coeff": null,
+          "subsubjects": [
+            {
+              "code": "LUXEM",
+              "name": "Luxembourgeois",
+              "coeff": null
+            },
+            {
+              "code": "EDCIT",
+              "name": "Éducation à la citoyenneté",
+              "coeff": null
+            }
+          ]
         },
         {
           "code": "VIESO",
@@ -283,11 +293,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -343,11 +348,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -403,11 +403,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -461,25 +456,25 @@
         },
         {
           "code": "CITCL",
-          "name": "Citoyenneté, culture et langue luxembourgeoises"
-        },
-        {
-          "code": "LUXEM",
-          "name": "Luxembourgeois"
-        },
-        {
-          "code": "EDCIT",
-          "name": "Éducation à la citoyenneté"
+          "name": "Citoyenneté, culture et langue luxembourgeoises",
+          "coeff": null,
+          "subsubjects": [
+            {
+              "code": "LUXEM",
+              "name": "Luxembourgeois",
+              "coeff": null
+            },
+            {
+              "code": "EDCIT",
+              "name": "Éducation à la citoyenneté",
+              "coeff": null
+            }
+          ]
         },
         {
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -533,15 +528,20 @@
         },
         {
           "code": "CITCL",
-          "name": "Citoyenneté, culture et langue luxembourgeoises"
-        },
-        {
-          "code": "LUXEM",
-          "name": "Luxembourgeois"
-        },
-        {
-          "code": "EDCIT",
-          "name": "Éducation à la citoyenneté"
+          "name": "Citoyenneté, culture et langue luxembourgeoises",
+          "coeff": null,
+          "subsubjects": [
+            {
+              "code": "LUXEM",
+              "name": "Luxembourgeois",
+              "coeff": null
+            },
+            {
+              "code": "EDCIT",
+              "name": "Éducation à la citoyenneté",
+              "coeff": null
+            }
+          ]
         },
         {
           "code": "VIESO",
@@ -552,11 +552,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -622,11 +617,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -692,11 +682,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -765,20 +750,20 @@
         },
         {
           "code": "CITCL",
-          "name": "Citoyenneté, culture et langue luxembourgeoises"
-        },
-        {
-          "code": "LUXEM",
-          "name": "Luxembourgeois"
-        },
-        {
-          "code": "EDCIT",
-          "name": "Éducation à la citoyenneté"
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
+          "name": "Citoyenneté, culture et langue luxembourgeoises",
+          "coeff": null,
+          "subsubjects": [
+            {
+              "code": "LUXEM",
+              "name": "Luxembourgeois",
+              "coeff": null
+            },
+            {
+              "code": "EDCIT",
+              "name": "Éducation à la citoyenneté",
+              "coeff": null
+            }
+          ]
         }
       ]
     },
@@ -849,11 +834,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -924,11 +904,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -982,15 +957,20 @@
         },
         {
           "code": "CITCL",
-          "name": "Citoyenneté, culture et langue luxembourgeoises"
-        },
-        {
-          "code": "LUXEM",
-          "name": "Luxembourgeois"
-        },
-        {
-          "code": "EDCIT",
-          "name": "Éducation à la citoyenneté"
+          "name": "Citoyenneté, culture et langue luxembourgeoises",
+          "coeff": null,
+          "subsubjects": [
+            {
+              "code": "LUXEM",
+              "name": "Luxembourgeois",
+              "coeff": null
+            },
+            {
+              "code": "EDCIT",
+              "name": "Éducation à la citoyenneté",
+              "coeff": null
+            }
+          ]
         },
         {
           "code": "VIESO",
@@ -1001,11 +981,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1071,11 +1046,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1141,11 +1111,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1204,15 +1169,20 @@
         },
         {
           "code": "CITCL",
-          "name": "Citoyenneté, culture et langue luxembourgeoises"
-        },
-        {
-          "code": "LUXEM",
-          "name": "Luxembourgeois"
-        },
-        {
-          "code": "EDCIT",
-          "name": "Éducation à la citoyenneté"
+          "name": "Citoyenneté, culture et langue luxembourgeoises",
+          "coeff": null,
+          "subsubjects": [
+            {
+              "code": "LUXEM",
+              "name": "Luxembourgeois",
+              "coeff": null
+            },
+            {
+              "code": "EDCIT",
+              "name": "Éducation à la citoyenneté",
+              "coeff": null
+            }
+          ]
         },
         {
           "code": "VIESO",
@@ -1223,11 +1193,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1298,11 +1263,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1373,11 +1333,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1416,15 +1371,18 @@
         },
         {
           "code": "LAPLA",
-          "name": "Langage plastique bidimensionnel"
+          "name": "Langage plastique bidimensionnel",
+          "coeff": null
         },
         {
           "code": "DESMA",
-          "name": "Dessin à main levée"
+          "name": "Dessin à main levée",
+          "coeff": null
         },
         {
           "code": "IMPGR",
-          "name": "Impression graphique"
+          "name": "Impression graphique",
+          "coeff": null
         },
         {
           "code": "COMGR",
@@ -1455,11 +1413,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1528,15 +1481,18 @@
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -1605,15 +1561,18 @@
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -1682,15 +1641,18 @@
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -1751,11 +1713,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1821,11 +1778,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1891,11 +1843,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -1961,11 +1908,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2036,11 +1978,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2111,11 +2048,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2186,11 +2118,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2256,11 +2183,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2326,11 +2248,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2396,11 +2313,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2466,11 +2378,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2536,11 +2443,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2606,11 +2508,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2664,7 +2561,8 @@
         },
         {
           "code": "TRAPE",
-          "name": "Travail personnel"
+          "name": "Travail personnel",
+          "coeff": null
         },
         {
           "code": "CONMO",
@@ -2673,15 +2571,18 @@
         },
         {
           "code": "SCIEN",
-          "name": "Sciences"
+          "name": "Sciences",
+          "coeff": null
         },
         {
           "code": "CHIMI",
-          "name": "Chimie"
+          "name": "Chimie",
+          "coeff": null
         },
         {
           "code": "PHYSI",
-          "name": "Physique"
+          "name": "Physique",
+          "coeff": null
         },
         {
           "code": "EDUPH",
@@ -2740,7 +2641,8 @@
         },
         {
           "code": "GESPJ",
-          "name": "Gestion de projet"
+          "name": "Gestion de projet",
+          "coeff": null
         },
         {
           "code": "CONMO",
@@ -2754,19 +2656,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -2820,7 +2726,8 @@
         },
         {
           "code": "GESPJ",
-          "name": "Gestion de projet"
+          "name": "Gestion de projet",
+          "coeff": null
         },
         {
           "code": "CONMO",
@@ -2834,19 +2741,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -2955,7 +2866,8 @@
         },
         {
           "code": "GESPJ",
-          "name": "Gestion de projet"
+          "name": "Gestion de projet",
+          "coeff": null
         },
         {
           "code": "CONMO",
@@ -2969,19 +2881,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -3030,7 +2946,8 @@
         },
         {
           "code": "GESPJ",
-          "name": "Gestion de projet"
+          "name": "Gestion de projet",
+          "coeff": null
         },
         {
           "code": "CONMO",
@@ -3044,19 +2961,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -3105,7 +3026,8 @@
         },
         {
           "code": "GESPJ",
-          "name": "Gestion de projet"
+          "name": "Gestion de projet",
+          "coeff": null
         },
         {
           "code": "CONMO",
@@ -3119,19 +3041,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -3195,33 +3121,40 @@
         },
         {
           "code": "EXPAN",
-          "name": "Expression et animation"
+          "name": "Expression et animation",
+          "coeff": null
         },
         {
           "code": "PEAPS",
-          "name": "Pédagogie des activités physiques et sportives"
+          "name": "Pédagogie des activités physiques et sportives",
+          "coeff": null
         },
         {
           "code": "EDMUS",
           "name": "Éducation musicale",
+          "coeff": null,
           "subsubjects": []
         },
         {
           "code": "EDART",
           "name": "Éducation artistique",
+          "coeff": null,
           "subsubjects": []
         },
         {
           "code": "PSYMO",
-          "name": "Psychomotricité"
+          "name": "Psychomotricité",
+          "coeff": null
         },
         {
           "code": "COACH",
-          "name": "Coaching"
+          "name": "Coaching",
+          "coeff": null
         },
         {
           "code": "PRAPR",
-          "name": "Pratique professionnelle"
+          "name": "Pratique professionnelle",
+          "coeff": null
         },
         {
           "code": "BIOLO",
@@ -3320,15 +3253,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -3392,15 +3328,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -3464,15 +3403,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -3536,15 +3478,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "PROGR",
@@ -3700,11 +3645,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -3770,11 +3710,6 @@
           "code": "TRAPE",
           "name": "Travail personnel",
           "coeff": 3
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -3798,15 +3733,18 @@
         },
         {
           "code": "CONSC",
-          "name": "Connaissances scientifiques"
+          "name": "Connaissances scientifiques",
+          "coeff": null
         },
         {
           "code": "BIOPC",
-          "name": "Biophysique / Biochimie"
+          "name": "Biophysique / Biochimie",
+          "coeff": null
         },
         {
           "code": "MATHA",
-          "name": "Mathématiques appliquées"
+          "name": "Mathématiques appliquées",
+          "coeff": null
         },
         {
           "code": "BIOHU",
@@ -3815,27 +3753,33 @@
         },
         {
           "code": "COPR1",
-          "name": "Connaissances professionnelles de base 1"
+          "name": "Connaissances professionnelles de base 1",
+          "coeff": null
         },
         {
           "code": "PHARM",
-          "name": "Pharmacologie"
+          "name": "Pharmacologie",
+          "coeff": null
         },
         {
           "code": "HYGMI",
-          "name": "Hygiène professionnelle / Microbiologie"
+          "name": "Hygiène professionnelle / Microbiologie",
+          "coeff": null
         },
         {
           "code": "COPR2",
-          "name": "Connaissances professionnelles de base 2"
+          "name": "Connaissances professionnelles de base 2",
+          "coeff": null
         },
         {
           "code": "NUTDI",
-          "name": "Nutrition et diététique"
+          "name": "Nutrition et diététique",
+          "coeff": null
         },
         {
           "code": "ETAPE",
-          "name": "Étapes de la vie"
+          "name": "Étapes de la vie",
+          "coeff": null
         },
         {
           "code": "SCMED",
@@ -3849,19 +3793,23 @@
         },
         {
           "code": "CONRD",
-          "name": "Connaissances relationnelles et déontologiques"
+          "name": "Connaissances relationnelles et déontologiques",
+          "coeff": null
         },
         {
           "code": "COMPR",
-          "name": "Communication professionnelle"
+          "name": "Communication professionnelle",
+          "coeff": null
         },
         {
           "code": "CONPR",
-          "name": "Connaissance du monde professionnel"
+          "name": "Connaissance du monde professionnel",
+          "coeff": null
         },
         {
           "code": "LABPS",
-          "name": "Laboratoire d'enseignement clinique"
+          "name": "Laboratoire d'enseignement clinique",
+          "coeff": null
         },
         {
           "code": "SCHUS",
@@ -3895,15 +3843,18 @@
         },
         {
           "code": "CONSC",
-          "name": "Connaissances scientifiques"
+          "name": "Connaissances scientifiques",
+          "coeff": null
         },
         {
           "code": "BIOPC",
-          "name": "Biophysique / Biochimie"
+          "name": "Biophysique / Biochimie",
+          "coeff": null
         },
         {
           "code": "MATHA",
-          "name": "Mathématiques appliquées"
+          "name": "Mathématiques appliquées",
+          "coeff": null
         },
         {
           "code": "BIOHU",
@@ -3912,27 +3863,33 @@
         },
         {
           "code": "COPR1",
-          "name": "Connaissances professionnelles de base 1"
+          "name": "Connaissances professionnelles de base 1",
+          "coeff": null
         },
         {
           "code": "PHARM",
-          "name": "Pharmacologie"
+          "name": "Pharmacologie",
+          "coeff": null
         },
         {
           "code": "HYGMI",
-          "name": "Hygiène professionnelle / Microbiologie"
+          "name": "Hygiène professionnelle / Microbiologie",
+          "coeff": null
         },
         {
           "code": "COPR2",
-          "name": "Connaissances professionnelles de base 2"
+          "name": "Connaissances professionnelles de base 2",
+          "coeff": null
         },
         {
           "code": "NUTDI",
-          "name": "Nutrition et diététique"
+          "name": "Nutrition et diététique",
+          "coeff": null
         },
         {
           "code": "ETAPE",
-          "name": "Étapes de la vie"
+          "name": "Étapes de la vie",
+          "coeff": null
         },
         {
           "code": "SCMED",
@@ -3946,19 +3903,23 @@
         },
         {
           "code": "CONRD",
-          "name": "Connaissances relationnelles et déontologiques"
+          "name": "Connaissances relationnelles et déontologiques",
+          "coeff": null
         },
         {
           "code": "COMPR",
-          "name": "Communication professionnelle"
+          "name": "Communication professionnelle",
+          "coeff": null
         },
         {
           "code": "CONPR",
-          "name": "Connaissance du monde professionnel"
+          "name": "Connaissance du monde professionnel",
+          "coeff": null
         },
         {
           "code": "LABPS",
-          "name": "Laboratoire d'enseignement clinique"
+          "name": "Laboratoire d'enseignement clinique",
+          "coeff": null
         },
         {
           "code": "SCHUS",
@@ -4034,10 +3995,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option"
         }
       ]
     },
@@ -4103,10 +4060,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option"
         }
       ]
     },
@@ -4172,10 +4125,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option"
         }
       ]
     },
@@ -4241,11 +4190,6 @@
           "code": "TRAPE",
           "name": "Travail personnel",
           "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 1
         }
       ]
     },
@@ -4311,11 +4255,6 @@
           "code": "TRAPE",
           "name": "Travail personnel",
           "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 1
         }
       ]
     },
@@ -4381,11 +4320,6 @@
           "code": "TRAPE",
           "name": "Travail personnel",
           "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 1
         }
       ]
     },
@@ -4444,15 +4378,18 @@
         },
         {
           "code": "SCIEN",
-          "name": "Sciences"
+          "name": "Sciences",
+          "coeff": null
         },
         {
           "code": "CHIMI",
-          "name": "Chimie"
+          "name": "Chimie",
+          "coeff": null
         },
         {
           "code": "PHYSI",
-          "name": "Physique"
+          "name": "Physique",
+          "coeff": null
         },
         {
           "code": "EDUPH",
@@ -4521,19 +4458,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -4597,19 +4538,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -4723,19 +4668,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -4794,19 +4743,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -4865,19 +4818,23 @@
         },
         {
           "code": "OLFRA",
-          "name": "Français appliqué"
+          "name": "Français appliqué",
+          "coeff": null
         },
         {
           "code": "OLALL",
-          "name": "Allemand appliqué"
+          "name": "Allemand appliqué",
+          "coeff": null
         },
         {
           "code": "OLANG",
-          "name": "Anglais appliqué"
+          "name": "Anglais appliqué",
+          "coeff": null
         },
         {
           "code": "OSPEC",
-          "name": "Cours spécifique"
+          "name": "Cours spécifique",
+          "coeff": null
         }
       ]
     },
@@ -4906,15 +4863,18 @@
         },
         {
           "code": "SOAES",
-          "name": "Sociologie et action éducative et sociale"
+          "name": "Sociologie et action éducative et sociale",
+          "coeff": null
         },
         {
           "code": "SOCIO",
-          "name": "Sociologie"
+          "name": "Sociologie",
+          "coeff": null
         },
         {
           "code": "ACTES",
-          "name": "Action éducative et sociale"
+          "name": "Action éducative et sociale",
+          "coeff": null
         },
         {
           "code": "PEDAG",
@@ -4928,27 +4888,33 @@
         },
         {
           "code": "PRMPR",
-          "name": "Pratique et méthodologie professionnelle"
+          "name": "Pratique et méthodologie professionnelle",
+          "coeff": null
         },
         {
           "code": "MEPRP",
-          "name": "Méthodologie de la pratique professionnelle"
+          "name": "Méthodologie de la pratique professionnelle",
+          "coeff": null
         },
         {
           "code": "EXPAN",
-          "name": "Expression et animation"
+          "name": "Expression et animation",
+          "coeff": null
         },
         {
           "code": "PEAPS",
-          "name": "Pédagogie des activités physiques et sportives"
+          "name": "Pédagogie des activités physiques et sportives",
+          "coeff": null
         },
         {
           "code": "OBLO1",
-          "name": "Matière à option 1"
+          "name": "Matière à option 1",
+          "coeff": null
         },
         {
           "code": "OBLO2",
-          "name": "Matière à option 2"
+          "name": "Matière à option 2",
+          "coeff": null
         },
         {
           "code": "BIOLO",
@@ -5057,15 +5023,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -5129,15 +5098,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -5201,15 +5173,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -5273,15 +5248,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "PROGR",
@@ -5437,11 +5415,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -5502,11 +5475,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -5535,27 +5503,33 @@
         },
         {
           "code": "COPR1",
-          "name": "Connaissances professionnelles de base 1"
+          "name": "Connaissances professionnelles de base 1",
+          "coeff": null
         },
         {
           "code": "PHARM",
-          "name": "Pharmacologie"
+          "name": "Pharmacologie",
+          "coeff": null
         },
         {
           "code": "HYGMI",
-          "name": "Hygiène professionnelle / Microbiologie"
+          "name": "Hygiène professionnelle / Microbiologie",
+          "coeff": null
         },
         {
           "code": "COPR2",
-          "name": "Connaissances professionnelles de base 2"
+          "name": "Connaissances professionnelles de base 2",
+          "coeff": null
         },
         {
           "code": "ETAPE",
-          "name": "Étapes de la vie"
+          "name": "Étapes de la vie",
+          "coeff": null
         },
         {
           "code": "EDSAP",
-          "name": "Éducation pour la santé - santé publique"
+          "name": "Éducation pour la santé - santé publique",
+          "coeff": null
         },
         {
           "code": "SCMED",
@@ -5569,19 +5543,23 @@
         },
         {
           "code": "CONRD",
-          "name": "Connaissances relationnelles et déontologiques"
+          "name": "Connaissances relationnelles et déontologiques",
+          "coeff": null
         },
         {
           "code": "COMPR",
-          "name": "Communication professionnelle"
+          "name": "Communication professionnelle",
+          "coeff": null
         },
         {
           "code": "CONPR",
-          "name": "Connaissance du monde professionnel"
+          "name": "Connaissance du monde professionnel",
+          "coeff": null
         },
         {
           "code": "LABPS",
-          "name": "Laboratoire d'enseignement clinique"
+          "name": "Laboratoire d'enseignement clinique",
+          "coeff": null
         },
         {
           "code": "SCHUS",
@@ -5620,27 +5598,33 @@
         },
         {
           "code": "COPR1",
-          "name": "Connaissances professionnelles de base 1"
+          "name": "Connaissances professionnelles de base 1",
+          "coeff": null
         },
         {
           "code": "PHARM",
-          "name": "Pharmacologie"
+          "name": "Pharmacologie",
+          "coeff": null
         },
         {
           "code": "HYGMI",
-          "name": "Hygiène professionnelle / Microbiologie"
+          "name": "Hygiène professionnelle / Microbiologie",
+          "coeff": null
         },
         {
           "code": "COPR2",
-          "name": "Connaissances professionnelles de base 2"
+          "name": "Connaissances professionnelles de base 2",
+          "coeff": null
         },
         {
           "code": "ETAPE",
-          "name": "Étapes de la vie"
+          "name": "Étapes de la vie",
+          "coeff": null
         },
         {
           "code": "EDSAP",
-          "name": "Éducation pour la santé - santé publique"
+          "name": "Éducation pour la santé - santé publique",
+          "coeff": null
         },
         {
           "code": "SCMED",
@@ -5654,19 +5638,23 @@
         },
         {
           "code": "CONRD",
-          "name": "Connaissances relationnelles et déontologiques"
+          "name": "Connaissances relationnelles et déontologiques",
+          "coeff": null
         },
         {
           "code": "COMPR",
-          "name": "Communication professionnelle"
+          "name": "Communication professionnelle",
+          "coeff": null
         },
         {
           "code": "CONPR",
-          "name": "Connaissance du monde professionnel"
+          "name": "Connaissance du monde professionnel",
+          "coeff": null
         },
         {
           "code": "LABPS",
-          "name": "Laboratoire d'enseignement clinique"
+          "name": "Laboratoire d'enseignement clinique",
+          "coeff": null
         },
         {
           "code": "SCHUS",
@@ -5737,10 +5725,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option"
         }
       ]
     },
@@ -5801,10 +5785,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option"
         }
       ]
     },
@@ -5865,10 +5845,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option"
         }
       ]
     },
@@ -5933,11 +5909,6 @@
         {
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
-          "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 1
         }
       ]
@@ -6004,11 +5975,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 1
         }
       ]
     },
@@ -6073,11 +6039,6 @@
         {
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
-          "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 1
         }
       ]
@@ -6147,7 +6108,8 @@
         },
         {
           "code": "SEMIN",
-          "name": "Séminaire d'analyse des pratiques professionnelles"
+          "name": "Séminaire d'analyse des pratiques professionnelles",
+          "coeff": null
         },
         {
           "code": "D2APP",
@@ -6201,11 +6163,13 @@
         },
         {
           "code": "ACTPS",
-          "name": "Activité pédagogique en stage"
+          "name": "Activité pédagogique en stage",
+          "coeff": null
         },
         {
           "code": "MEMST",
-          "name": "Mémoire de stage"
+          "name": "Mémoire de stage",
+          "coeff": null
         }
       ]
     }

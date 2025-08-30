@@ -693,11 +693,6 @@
           "subsubjects": []
         },
         {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
-        },
-        {
           "code": "VIESO",
           "name": "Vie et société",
           "coeff": 2
@@ -759,11 +754,6 @@
           "subsubjects": []
         },
         {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
-        },
-        {
           "code": "VIESO",
           "name": "Vie et société",
           "coeff": 2
@@ -823,11 +813,6 @@
           "name": "Éducation artistique",
           "coeff": 2,
           "subsubjects": []
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         },
         {
           "code": "VIESO",
@@ -896,11 +881,6 @@
           "subsubjects": []
         },
         {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
-        },
-        {
           "code": "VIESO",
           "name": "Vie et société",
           "coeff": 2
@@ -958,25 +938,24 @@
         {
           "code": "EDART",
           "name": "Éducation artistique",
+          "coeff": null,
           "subsubjects": [
             {
               "code": "DESSI",
-              "name": "Dessin"
+              "name": "Dessin",
+              "coeff": null
             },
             {
               "code": "COMVU",
-              "name": "Communication visuelle"
+              "name": "Communication visuelle",
+              "coeff": null
             },
             {
               "code": "HISAR",
-              "name": "Histoire de l'art"
+              "name": "Histoire de l'art",
+              "coeff": null
             }
           ]
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         },
         {
           "code": "VIESO",
@@ -1042,29 +1021,29 @@
         {
           "code": "EDMUS",
           "name": "Éducation musicale",
+          "coeff": null,
           "subsubjects": [
             {
-              "code": "HISMU",
-              "name": "Histoire de la musique"
-            },
-            {
               "code": "PRAIN",
-              "name": "Pratique instrumentale"
-            },
-            {
-              "code": "CHACH",
-              "name": "Chant choral"
+              "name": "Pratique instrumentale",
+              "coeff": null
             },
             {
               "code": "THEFO",
-              "name": "Théorie et formes"
+              "name": "Théorie et formes",
+              "coeff": null
+            },
+            {
+              "code": "HISMU",
+              "name": "Histoire de la musique",
+              "coeff": null
+            },
+            {
+              "code": "CHACH",
+              "name": "Chant choral",
+              "coeff": null
             }
           ]
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         },
         {
           "code": "VIESO",
@@ -1138,11 +1117,6 @@
           "subsubjects": []
         },
         {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
-        },
-        {
           "code": "VIESO",
           "name": "Vie et société",
           "coeff": 2
@@ -1184,15 +1158,18 @@
         },
         {
           "code": "TECAP",
-          "name": "Technologies appliquées et projets"
+          "name": "Technologies appliquées et projets",
+          "coeff": null
         },
         {
           "code": "MAIOU",
-          "name": "Maîtrise d'ouvrage"
+          "name": "Maîtrise d'ouvrage",
+          "coeff": null
         },
         {
           "code": "TEINN",
-          "name": "Technologie et innovations"
+          "name": "Technologie et innovations",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -1571,18 +1548,22 @@
         {
           "code": "EDART",
           "name": "Éducation artistique",
+          "coeff": null,
           "subsubjects": [
             {
               "code": "DESSI",
-              "name": "Dessin"
+              "name": "Dessin",
+              "coeff": null
             },
             {
               "code": "COMVU",
-              "name": "Communication visuelle"
+              "name": "Communication visuelle",
+              "coeff": null
             },
             {
               "code": "HISAR",
-              "name": "Histoire de l'art"
+              "name": "Histoire de l'art",
+              "coeff": null
             }
           ]
         },
@@ -1655,22 +1636,27 @@
         {
           "code": "EDMUS",
           "name": "Éducation musicale",
+          "coeff": null,
           "subsubjects": [
             {
-              "code": "HISMU",
-              "name": "Histoire de la musique"
-            },
-            {
               "code": "PRAIN",
-              "name": "Pratique instrumentale"
-            },
-            {
-              "code": "CHACH",
-              "name": "Chant choral"
+              "name": "Pratique instrumentale",
+              "coeff": null
             },
             {
               "code": "THEFO",
-              "name": "Théorie et formes"
+              "name": "Théorie et formes",
+              "coeff": null
+            },
+            {
+              "code": "HISMU",
+              "name": "Histoire de la musique",
+              "coeff": null
+            },
+            {
+              "code": "CHACH",
+              "name": "Chant choral",
+              "coeff": null
             }
           ]
         },
@@ -1797,15 +1783,18 @@
         },
         {
           "code": "TECAP",
-          "name": "Technologies appliquées et projets"
+          "name": "Technologies appliquées et projets",
+          "coeff": null
         },
         {
           "code": "MAIOU",
-          "name": "Maîtrise d'ouvrage"
+          "name": "Maîtrise d'ouvrage",
+          "coeff": null
         },
         {
           "code": "TEINN",
-          "name": "Technologie et innovations"
+          "name": "Technologie et innovations",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -2179,18 +2168,22 @@
         {
           "code": "EDART",
           "name": "Éducation artistique",
+          "coeff": null,
           "subsubjects": [
             {
               "code": "DESSI",
-              "name": "Dessin"
+              "name": "Dessin",
+              "coeff": null
             },
             {
               "code": "COMVU",
-              "name": "Communication visuelle"
+              "name": "Communication visuelle",
+              "coeff": null
             },
             {
               "code": "HISAR",
-              "name": "Histoire de l'art"
+              "name": "Histoire de l'art",
+              "coeff": null
             }
           ]
         },
@@ -2263,22 +2256,27 @@
         {
           "code": "EDMUS",
           "name": "Éducation musicale",
+          "coeff": null,
           "subsubjects": [
             {
-              "code": "HISMU",
-              "name": "Histoire de la musique"
-            },
-            {
               "code": "PRAIN",
-              "name": "Pratique instrumentale"
-            },
-            {
-              "code": "CHACH",
-              "name": "Chant choral"
+              "name": "Pratique instrumentale",
+              "coeff": null
             },
             {
               "code": "THEFO",
-              "name": "Théorie et formes"
+              "name": "Théorie et formes",
+              "coeff": null
+            },
+            {
+              "code": "HISMU",
+              "name": "Histoire de la musique",
+              "coeff": null
+            },
+            {
+              "code": "CHACH",
+              "name": "Chant choral",
+              "coeff": null
             }
           ]
         },
@@ -2405,15 +2403,18 @@
         },
         {
           "code": "TECAP",
-          "name": "Technologies appliquées et projets"
+          "name": "Technologies appliquées et projets",
+          "coeff": null
         },
         {
           "code": "MAIOU",
-          "name": "Maîtrise d'ouvrage"
+          "name": "Maîtrise d'ouvrage",
+          "coeff": null
         },
         {
           "code": "TEINN",
-          "name": "Technologie et innovations"
+          "name": "Technologie et innovations",
+          "coeff": null
         },
         {
           "code": "CHIMI",
@@ -2482,15 +2483,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -2511,11 +2515,6 @@
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -2545,27 +2544,33 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "MAINF",
-          "name": "Mathématiques et informatique"
+          "name": "Mathématiques et informatique",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "INFOR",
-          "name": "Informatique"
+          "name": "Informatique",
+          "coeff": null
         },
         {
           "code": "PHYSI",
@@ -2581,11 +2586,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2614,15 +2614,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "BIOLO",
@@ -2643,11 +2646,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2676,15 +2674,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -2710,11 +2711,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -2743,15 +2739,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "ECOGN",
@@ -2770,40 +2769,42 @@
         },
         {
           "code": "EDAR1",
-          "name": "Éducation artistique I"
+          "name": "Éducation artistique I",
+          "coeff": null
         },
         {
           "code": "DESSI",
-          "name": "Dessin"
+          "name": "Dessin",
+          "coeff": null
         },
         {
           "code": "COMVU",
-          "name": "Communication visuelle"
+          "name": "Communication visuelle",
+          "coeff": null
         },
         {
           "code": "EDAR2",
-          "name": "Éducation artistique II"
+          "name": "Éducation artistique II",
+          "coeff": null
         },
         {
           "code": "DESGN",
-          "name": "Design"
+          "name": "Design",
+          "coeff": null
         },
         {
           "code": "GEODE",
-          "name": "Géométrie descriptive"
+          "name": "Géométrie descriptive",
+          "coeff": null
         },
         {
           "code": "HISAR",
-          "name": "Histoire de l'art"
+          "name": "Histoire de l'art",
+          "coeff": null
         },
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -2833,15 +2834,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "ECOGN",
@@ -2866,32 +2870,33 @@
         },
         {
           "code": "EDMU1",
-          "name": "Éducation musicale I"
+          "name": "Éducation musicale I",
+          "coeff": null
         },
         {
           "code": "HISMU",
-          "name": "Histoire de la musique"
+          "name": "Histoire de la musique",
+          "coeff": null
         },
         {
           "code": "THGAM",
-          "name": "Théorie générale et analyse musicale"
+          "name": "Théorie générale et analyse musicale",
+          "coeff": null
         },
         {
           "code": "EDMU2",
-          "name": "Éducation musicale II"
+          "name": "Éducation musicale II",
+          "coeff": null
         },
         {
           "code": "CHORA",
-          "name": "Direction chorale et chant"
+          "name": "Direction chorale et chant",
+          "coeff": null
         },
         {
           "code": "PRAIN",
-          "name": "Pratique instrumentale"
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
+          "name": "Pratique instrumentale",
+          "coeff": null
         }
       ]
     },
@@ -2920,15 +2925,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -2964,11 +2972,6 @@
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -3013,15 +3016,18 @@
         },
         {
           "code": "TECAP",
-          "name": "Technologies appliquées et projets"
+          "name": "Technologies appliquées et projets",
+          "coeff": null
         },
         {
           "code": "MAIOU",
-          "name": "Maîtrise d'ouvrage"
+          "name": "Maîtrise d'ouvrage",
+          "coeff": null
         },
         {
           "code": "TEINN",
-          "name": "Technologie et innovations"
+          "name": "Technologie et innovations",
+          "coeff": null
         },
         {
           "code": "PHYSI",
@@ -3085,15 +3091,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -3148,27 +3157,33 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "MAINF",
-          "name": "Mathématiques et informatique"
+          "name": "Mathématiques et informatique",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "INFOR",
-          "name": "Informatique"
+          "name": "Informatique",
+          "coeff": null
         },
         {
           "code": "PHYSI",
@@ -3184,11 +3199,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -3222,15 +3232,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "BIOLO",
@@ -3251,11 +3264,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -3289,15 +3297,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -3323,11 +3334,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -3361,15 +3367,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "ECOGN",
@@ -3388,40 +3397,42 @@
         },
         {
           "code": "EDAR1",
-          "name": "Éducation artistique I"
+          "name": "Éducation artistique I",
+          "coeff": null
         },
         {
           "code": "DESSI",
-          "name": "Dessin"
+          "name": "Dessin",
+          "coeff": null
         },
         {
           "code": "COMVU",
-          "name": "Communication visuelle"
+          "name": "Communication visuelle",
+          "coeff": null
         },
         {
           "code": "EDAR2",
-          "name": "Éducation artistique II"
+          "name": "Éducation artistique II",
+          "coeff": null
         },
         {
           "code": "DESGN",
-          "name": "Design"
+          "name": "Design",
+          "coeff": null
         },
         {
           "code": "GEODE",
-          "name": "Géométrie descriptive"
+          "name": "Géométrie descriptive",
+          "coeff": null
         },
         {
           "code": "HISAR",
-          "name": "Histoire de l'art"
+          "name": "Histoire de l'art",
+          "coeff": null
         },
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -3456,15 +3467,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "ECOGN",
@@ -3489,32 +3503,33 @@
         },
         {
           "code": "EDMU1",
-          "name": "Éducation musicale I"
+          "name": "Éducation musicale I",
+          "coeff": null
         },
         {
           "code": "HISMU",
-          "name": "Histoire de la musique"
+          "name": "Histoire de la musique",
+          "coeff": null
         },
         {
           "code": "THGAM",
-          "name": "Théorie générale et analyse musicale"
+          "name": "Théorie générale et analyse musicale",
+          "coeff": null
         },
         {
           "code": "EDMU2",
-          "name": "Éducation musicale II"
+          "name": "Éducation musicale II",
+          "coeff": null
         },
         {
           "code": "CHORA",
-          "name": "Direction chorale et chant"
+          "name": "Direction chorale et chant",
+          "coeff": null
         },
         {
           "code": "PRAIN",
-          "name": "Pratique instrumentale"
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
+          "name": "Pratique instrumentale",
+          "coeff": null
         }
       ]
     },
@@ -3548,15 +3563,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -3592,11 +3610,6 @@
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -3646,15 +3659,18 @@
         },
         {
           "code": "TECAP",
-          "name": "Technologies appliquées et projets"
+          "name": "Technologies appliquées et projets",
+          "coeff": null
         },
         {
           "code": "MAIOU",
-          "name": "Maîtrise d'ouvrage"
+          "name": "Maîtrise d'ouvrage",
+          "coeff": null
         },
         {
           "code": "TEINN",
-          "name": "Technologie et innovations"
+          "name": "Technologie et innovations",
+          "coeff": null
         },
         {
           "code": "PHYSI",
@@ -3713,15 +3729,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -3776,27 +3795,33 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "MAINF",
-          "name": "Mathématiques et informatique"
+          "name": "Mathématiques et informatique",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "INFOR",
-          "name": "Informatique"
+          "name": "Informatique",
+          "coeff": null
         },
         {
           "code": "PHYSI",
@@ -3812,11 +3837,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -3850,15 +3870,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "BIOLO",
@@ -3879,11 +3902,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -3917,15 +3935,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -3951,11 +3972,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -3989,15 +4005,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "ECOGN",
@@ -4016,40 +4035,42 @@
         },
         {
           "code": "EDAR1",
-          "name": "Éducation artistique I"
+          "name": "Éducation artistique I",
+          "coeff": null
         },
         {
           "code": "DESSI",
-          "name": "Dessin"
+          "name": "Dessin",
+          "coeff": null
         },
         {
           "code": "COMVU",
-          "name": "Communication visuelle"
+          "name": "Communication visuelle",
+          "coeff": null
         },
         {
           "code": "EDAR2",
-          "name": "Éducation artistique II"
+          "name": "Éducation artistique II",
+          "coeff": null
         },
         {
           "code": "DESGN",
-          "name": "Design"
+          "name": "Design",
+          "coeff": null
         },
         {
           "code": "GEODE",
-          "name": "Géométrie descriptive"
+          "name": "Géométrie descriptive",
+          "coeff": null
         },
         {
           "code": "HISAR",
-          "name": "Histoire de l'art"
+          "name": "Histoire de l'art",
+          "coeff": null
         },
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -4084,15 +4105,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "ECOGN",
@@ -4117,32 +4141,33 @@
         },
         {
           "code": "EDMU1",
-          "name": "Éducation musicale I"
+          "name": "Éducation musicale I",
+          "coeff": null
         },
         {
           "code": "HISMU",
-          "name": "Histoire de la musique"
+          "name": "Histoire de la musique",
+          "coeff": null
         },
         {
           "code": "THGAM",
-          "name": "Théorie générale et analyse musicale"
+          "name": "Théorie générale et analyse musicale",
+          "coeff": null
         },
         {
           "code": "EDMU2",
-          "name": "Éducation musicale II"
+          "name": "Éducation musicale II",
+          "coeff": null
         },
         {
           "code": "CHORA",
-          "name": "Direction chorale et chant"
+          "name": "Direction chorale et chant",
+          "coeff": null
         },
         {
           "code": "PRAIN",
-          "name": "Pratique instrumentale"
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
+          "name": "Pratique instrumentale",
+          "coeff": null
         }
       ]
     },
@@ -4176,15 +4201,18 @@
         },
         {
           "code": "HISIC",
-          "name": "Histoire et instruction civique"
+          "name": "Histoire et instruction civique",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "INCIV",
-          "name": "Instruction civique"
+          "name": "Instruction civique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -4220,11 +4248,6 @@
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -4274,15 +4297,18 @@
         },
         {
           "code": "TECAP",
-          "name": "Technologies appliquées et projets"
+          "name": "Technologies appliquées et projets",
+          "coeff": null
         },
         {
           "code": "MAIOU",
-          "name": "Maîtrise d'ouvrage"
+          "name": "Maîtrise d'ouvrage",
+          "coeff": null
         },
         {
           "code": "TEINN",
-          "name": "Technologie et innovations"
+          "name": "Technologie et innovations",
+          "coeff": null
         },
         {
           "code": "PHYSI",
@@ -4353,11 +4379,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -4386,15 +4407,18 @@
         },
         {
           "code": "MAINF",
-          "name": "Mathématiques et informatique"
+          "name": "Mathématiques et informatique",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "INFOR",
-          "name": "Informatique"
+          "name": "Informatique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -4425,11 +4449,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -4490,11 +4509,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -4538,25 +4552,23 @@
         },
         {
           "code": "ECOGE",
-          "name": "Économie de gestion"
+          "name": "Économie de gestion",
+          "coeff": null
         },
         {
           "code": "ECOSO",
-          "name": "Sociétés commerciales"
+          "name": "Sociétés commerciales",
+          "coeff": null
         },
         {
           "code": "STATP",
-          "name": "Statistique et probabilités"
+          "name": "Statistique et probabilités",
+          "coeff": null
         },
         {
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -4595,27 +4607,33 @@
         },
         {
           "code": "EDAR1",
-          "name": "Éducation artistique I"
+          "name": "Éducation artistique I",
+          "coeff": null
         },
         {
           "code": "DESSI",
-          "name": "Dessin"
+          "name": "Dessin",
+          "coeff": null
         },
         {
           "code": "COMVU",
-          "name": "Communication visuelle"
+          "name": "Communication visuelle",
+          "coeff": null
         },
         {
           "code": "EDAR2",
-          "name": "Éducation artistique II"
+          "name": "Éducation artistique II",
+          "coeff": null
         },
         {
           "code": "DESGN",
-          "name": "Design"
+          "name": "Design",
+          "coeff": null
         },
         {
           "code": "GEODE",
-          "name": "Géométrie descriptive"
+          "name": "Géométrie descriptive",
+          "coeff": null
         },
         {
           "code": "HISAR",
@@ -4625,11 +4643,6 @@
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -4674,15 +4687,18 @@
         },
         {
           "code": "EDMU1",
-          "name": "Éducation musicale I"
+          "name": "Éducation musicale I",
+          "coeff": null
         },
         {
           "code": "THEGE",
-          "name": "Théorie générale"
+          "name": "Théorie générale",
+          "coeff": null
         },
         {
           "code": "ANAMU",
-          "name": "Analyse musicale"
+          "name": "Analyse musicale",
+          "coeff": null
         },
         {
           "code": "HISMU",
@@ -4691,20 +4707,18 @@
         },
         {
           "code": "EDMU2",
-          "name": "Éducation musicale II"
+          "name": "Éducation musicale II",
+          "coeff": null
         },
         {
           "code": "DIRCO",
-          "name": "Direction chorale"
+          "name": "Direction chorale",
+          "coeff": null
         },
         {
           "code": "PRVOI",
-          "name": "Pratique vocale et instrumentale"
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
+          "name": "Pratique vocale et instrumentale",
+          "coeff": null
         }
       ]
     },
@@ -4738,15 +4752,18 @@
         },
         {
           "code": "HIGEO",
-          "name": "Histoire / Géographie"
+          "name": "Histoire / Géographie",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "GEOGR",
-          "name": "Géographie"
+          "name": "Géographie",
+          "coeff": null
         },
         {
           "code": "ECOPO",
@@ -4766,11 +4783,6 @@
         {
           "code": "HISAA",
           "name": "Histoire de l'art et de l'architecture",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -4795,15 +4807,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "COMME",
@@ -4822,15 +4837,18 @@
         },
         {
           "code": "TECAP",
-          "name": "Technologies appliquées et projets"
+          "name": "Technologies appliquées et projets",
+          "coeff": null
         },
         {
           "code": "MAIOU",
-          "name": "Maîtrise d'ouvrage"
+          "name": "Maîtrise d'ouvrage",
+          "coeff": null
         },
         {
           "code": "TEINN",
-          "name": "Technologie et innovations"
+          "name": "Technologie et innovations",
+          "coeff": null
         },
         {
           "code": "PHYSI",
@@ -4944,15 +4962,18 @@
         },
         {
           "code": "MAINF",
-          "name": "Mathématiques et informatique"
+          "name": "Mathématiques et informatique",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "INFOR",
-          "name": "Informatique"
+          "name": "Informatique",
+          "coeff": null
         },
         {
           "code": "PHILO",
@@ -4983,11 +5004,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -5053,11 +5069,6 @@
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -5106,25 +5117,23 @@
         },
         {
           "code": "ECOGE",
-          "name": "Économie de gestion"
+          "name": "Économie de gestion",
+          "coeff": null
         },
         {
           "code": "ECOSO",
-          "name": "Sociétés commerciales"
+          "name": "Sociétés commerciales",
+          "coeff": null
         },
         {
           "code": "STATP",
-          "name": "Statistique et probabilités"
+          "name": "Statistique et probabilités",
+          "coeff": null
         },
         {
           "code": "EDUPH",
           "name": "Éducation physique et sportive",
           "coeff": 1
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
         }
       ]
     },
@@ -5168,27 +5177,33 @@
         },
         {
           "code": "EDAR1",
-          "name": "Éducation artistique I"
+          "name": "Éducation artistique I",
+          "coeff": null
         },
         {
           "code": "DESSI",
-          "name": "Dessin"
+          "name": "Dessin",
+          "coeff": null
         },
         {
           "code": "COMVU",
-          "name": "Communication visuelle"
+          "name": "Communication visuelle",
+          "coeff": null
         },
         {
           "code": "EDAR2",
-          "name": "Éducation artistique II"
+          "name": "Éducation artistique II",
+          "coeff": null
         },
         {
           "code": "DESGN",
-          "name": "Design"
+          "name": "Design",
+          "coeff": null
         },
         {
           "code": "GEODE",
-          "name": "Géométrie descriptive"
+          "name": "Géométrie descriptive",
+          "coeff": null
         },
         {
           "code": "HISAR",
@@ -5198,11 +5213,6 @@
         {
           "code": "HISMU",
           "name": "Histoire de la musique",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -5252,15 +5262,18 @@
         },
         {
           "code": "EDMU1",
-          "name": "Éducation musicale I"
+          "name": "Éducation musicale I",
+          "coeff": null
         },
         {
           "code": "THEGE",
-          "name": "Théorie générale"
+          "name": "Théorie générale",
+          "coeff": null
         },
         {
           "code": "ANAMU",
-          "name": "Analyse musicale"
+          "name": "Analyse musicale",
+          "coeff": null
         },
         {
           "code": "HISMU",
@@ -5269,20 +5282,18 @@
         },
         {
           "code": "EDMU2",
-          "name": "Éducation musicale II"
+          "name": "Éducation musicale II",
+          "coeff": null
         },
         {
           "code": "DIRCO",
-          "name": "Direction chorale"
+          "name": "Direction chorale",
+          "coeff": null
         },
         {
           "code": "PRVOI",
-          "name": "Pratique vocale et instrumentale"
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
-          "coeff": 2
+          "name": "Pratique vocale et instrumentale",
+          "coeff": null
         }
       ]
     },
@@ -5321,15 +5332,18 @@
         },
         {
           "code": "HIGEO",
-          "name": "Histoire / Géographie"
+          "name": "Histoire / Géographie",
+          "coeff": null
         },
         {
           "code": "HISTO",
-          "name": "Histoire"
+          "name": "Histoire",
+          "coeff": null
         },
         {
           "code": "GEOGR",
-          "name": "Géographie"
+          "name": "Géographie",
+          "coeff": null
         },
         {
           "code": "ECOPO",
@@ -5349,11 +5363,6 @@
         {
           "code": "HISAA",
           "name": "Histoire de l'art et de l'architecture",
-          "coeff": 2
-        },
-        {
-          "code": "COUAO",
-          "name": "Cours à option",
           "coeff": 2
         }
       ]
@@ -5383,15 +5392,18 @@
         },
         {
           "code": "MATHE",
-          "name": "Mathématiques"
+          "name": "Mathématiques",
+          "coeff": null
         },
         {
           "code": "MATH1",
-          "name": "Mathématiques I"
+          "name": "Mathématiques I",
+          "coeff": null
         },
         {
           "code": "MATH2",
-          "name": "Mathématiques II"
+          "name": "Mathématiques II",
+          "coeff": null
         },
         {
           "code": "COMME",
@@ -5410,15 +5422,18 @@
         },
         {
           "code": "TECAP",
-          "name": "Technologies appliquées et projets"
+          "name": "Technologies appliquées et projets",
+          "coeff": null
         },
         {
           "code": "MAIOU",
-          "name": "Maîtrise d'ouvrage"
+          "name": "Maîtrise d'ouvrage",
+          "coeff": null
         },
         {
           "code": "TEINN",
-          "name": "Technologie et innovations"
+          "name": "Technologie et innovations",
+          "coeff": null
         },
         {
           "code": "PHYSI",
